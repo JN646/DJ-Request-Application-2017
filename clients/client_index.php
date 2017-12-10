@@ -29,14 +29,16 @@
 						if(mysqli_num_rows($result) > 0){
 							echo "<table class='table table-bordered'>";
 								echo "<tr>";
-									echo "<th>client Name</th>";
-									echo "<th>client Description</th>";
+									echo "<th>Client Name</th>";
+									echo "<th>Client MAC Address</th>";
+									echo "<th>Client Description</th>";
 									echo "<th>View</th>";
 									echo "<th>Delete</th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
 									echo "<td>" . $row['client_name'] . "</td>";
+									echo "<td>" . $row['Client_Mac'] . "</td>";
 									echo "<td>" . $row['client_description'] . "</td>";
 									echo "<td><a href=functions/update_count.php?song_id=".$row['client_id'].">View</a></td>";
 									echo "<td><a href=functions/update_count.php?song_id=".$row['client_id'].">Delete</a></td>";
