@@ -26,6 +26,7 @@
 							<div class="col-md-12 border">
 								<h3>Sessions</h3>
 								<ul>
+									<li><a href="<?php echo $environment; ?>sessions/sessions_index.php">Session Home</a></li>
 									<li><a href="#">Session Name</a></li>
 									<li><a href="#">Session Create</a></li>
 									<li><a href="#">Session End</a></li>
@@ -58,6 +59,18 @@
 								<ul>
 									<li><a href="#">Account Users</a></li>
 									<li><a href="#">Account Profile</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="col-md-12 border">
+								<h3>Zones</h3>
+								<ul>
+									<li><a href="<?php echo $environment; ?>zones/zones_index.php">Zones Home</a></li>
+									<li><a href="<?php echo $environment; ?>zones/add_zone.php">Zones Add</a></li>
 								</ul>
 							</div>
 						</div>
