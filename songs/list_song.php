@@ -9,7 +9,7 @@
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
-	<title>DJ App</title>
+	<title>Song List</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -18,19 +18,10 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<div class="jumbotron">
-						<h1 class="display-3">DJ App</h1>
-						<h1 class="lead">DJ Request System</h1>
-					</div>
-					<form action="" method="post">
-						<div class="form-group">
-							<input name="search" type="text" placeholder="Search"></input>
-							<button name="SearchButton" value="search" type="submit">Search</button>
-						</div>
-					</form>
+					<h1 class="display-4">Song List</h1>
 					<?php
 					// Attempt select query execution
-					$sql = "SELECT * FROM songs LIMIT 10";
+					$sql = "SELECT * FROM songs";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
 							echo "<table class='table table-bordered'>";
@@ -39,7 +30,7 @@
 									echo "<th>Artist</th>";
 									echo "<th>Genre</th>";
 									echo "<th>Year</th>";
-									echo "<th>Request</th>";
+									echo "<th>Delete</th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
@@ -47,17 +38,17 @@
 									echo "<td>" . $row['song_artist'] . "</td>";
 									echo "<td align='center'>" . $row['song_genre'] . "</td>";
 									echo "<td align='center'>" . $row['song_year'] . "</td>";
-									echo "<td><a href=functions/update_count.php?song_id=".$row['song_id'].">Request</a></td>";
+									echo "<td><a href=functions/update_count.php?song_id=".$row['song_id'].">Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
 							// Free result set
 							mysqli_free_result($result);
 						} else{
-							echo "<p class='text-center'>No songs were found.</p>";
+							echo "No requests were found.";
 						}
 					} else{
-						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
+						echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 					}
 					?>
 				</div> <!-- Close col-md-11 -->

@@ -20,6 +20,7 @@
 					<br>
 					<h1 class="display-4">Song Management</h1>
 					<ul>
+						<li><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></li>
 						<li><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></li>
 					</ul>
 				</div> <!-- Close col-md-11 -->

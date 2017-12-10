@@ -9,7 +9,7 @@
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
-	<title>Song Management</title>
+	<title>Add Song</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -30,7 +30,12 @@
 						</div>
 						<div class="form-group">
 							<label>Song Genre</label>
-							<input name="song_genre" class="form-control" placeholder="Song Genre" type="text"></input>
+							<select name="song_genre" class="form-control">
+								<option value="Pop">Pop</option>
+								<option value="Rock">Rock</option>
+								<option value="RnB">RnB</option>
+								<option value="EDM">EDM</option>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Song Year</label>
