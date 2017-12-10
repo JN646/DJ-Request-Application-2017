@@ -1,4 +1,9 @@
 <?php
+ /**
+  * Project:		DJ Request Application
+  * Copyright:		(C) JGinn 2017
+  * FileCreated:	171210
+  */
 //Global Variables.
 define("LOCAL", "http://localhost/djx/djx/"); //local URL
 define("WEB", "http://foo.bar"); //website URL

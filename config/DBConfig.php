@@ -1,4 +1,9 @@
  <?php
+  /**
+  * Project:		DJ Request Application
+  * Copyright:		(C) JGinn 2017
+  * FileCreated:	171210
+  */
 //Customise this file to match your server configutation. If you are unsure what settings these need to be, then contact you system administrator.
 
 //MySQL connection
