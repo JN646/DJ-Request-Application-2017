@@ -8,6 +8,10 @@
 <div class="col-md-1">
 	<br>
 	<h3>ADMIN</h3>
+	<h5>Songs</h5>
+	<ul class="nav flex-column">
+		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/index.php">Song Home</a></li>
+	</ul>
 	<h5>Account</h5>
 	<ul class="nav flex-column">
 		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php">Dashboard</a></li>
