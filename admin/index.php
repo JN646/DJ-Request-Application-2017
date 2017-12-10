@@ -37,8 +37,8 @@
 							<div class="col-md-12 border">
 								<h3>Songs</h3>
 								<ul>
-									<li><a href="#">Song Home</a></li>
-									<li><a href="#">Song Add</a></li>
+									<li><a href="<?php echo $environment; ?>songs/index.php">Song Home</a></li>
+									<li><a href="<?php echo $environment; ?>songs/add_song.php">Song Add</a></li>
 									<li><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></li>
 								</ul>
 							</div>
@@ -48,8 +48,7 @@
 								<h3>Clients</h3>
 								<ul>
 									<li><a href="<?php echo $environment; ?>clients/client_index.php">Client Home</a></li>
-									<li><a href="#">Client Add</a></li>
-									<li><a href="#">Client List</a></li>
+									<li><a href="<?php echo $environment; ?>clients/add_client.php">Client Add</a></li>
 								</ul>
 							</div>
 						</div>
