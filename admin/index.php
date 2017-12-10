@@ -22,9 +22,9 @@
 					<p>DJ control panel.</p>
 					<!-- Tools -->
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="col-md-12 border">
-								<h3>Session Details</h3>
+								<h3>Sessions</h3>
 								<ul>
 									<li><a href="#">Session Name</a></li>
 									<li><a href="#">Session Create</a></li>
@@ -32,7 +32,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="col-md-12 border">
 								<h3>Songs</h3>
 								<ul>
@@ -42,13 +42,22 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="col-md-12 border">
 								<h3>Clients</h3>
 								<ul>
 									<li><a href="#">Client Home</a></li>
 									<li><a href="#">Client Add</a></li>
 									<li><a href="#">Client List</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="col-md-12 border">
+								<h3>Account</h3>
+								<ul>
+									<li><a href="#">Account Users</a></li>
+									<li><a href="#">Account Profile</a></li>
 								</ul>
 							</div>
 						</div>
