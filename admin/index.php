@@ -39,7 +39,7 @@
 								<ul>
 									<li><a href="#">Song Home</a></li>
 									<li><a href="#">Song Add</a></li>
-									<li><a href="#">Song List</a></li>
+									<li><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></li>
 								</ul>
 							</div>
 						</div>
@@ -47,7 +47,7 @@
 							<div class="col-md-12 border">
 								<h3>Clients</h3>
 								<ul>
-									<li><a href="#">Client Home</a></li>
+									<li><a href="<?php echo $environment; ?>clients/client_index.php">Client Home</a></li>
 									<li><a href="#">Client Add</a></li>
 									<li><a href="#">Client List</a></li>
 								</ul>
