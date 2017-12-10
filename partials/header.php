@@ -25,10 +25,10 @@
         <a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="<?php echo $environment; ?>static/features.php">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="<?php echo $environment; ?>static/about.php">About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
