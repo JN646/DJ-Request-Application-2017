@@ -40,7 +40,7 @@
 									echo "<td>" . $row['zone_name'] . "</td>";
 									echo "<td>" . $row['zone_description'] . "</td>";
 									echo "<td><a href=functions/update_count.php?song_id=".$row['zone_id'].">View</a></td>";
-									echo "<td><a href=functions/update_count.php?song_id=".$row['zone_id'].">Delete</a></td>";
+									echo "<td><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";

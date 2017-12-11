@@ -41,7 +41,7 @@
 									echo "<td>" . $row['Client_Mac'] . "</td>";
 									echo "<td>" . $row['client_description'] . "</td>";
 									echo "<td><a href=functions/update_count.php?song_id=".$row['client_id'].">View</a></td>";
-									echo "<td><a href=functions/update_count.php?song_id=".$row['client_id'].">Delete</a></td>";
+									echo "<td><a href=functions/func_delete_client.php?client_id=".$row['client_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
