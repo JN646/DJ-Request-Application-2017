@@ -19,10 +19,18 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Management</h1>
-					<ul>
-						<li><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></li>
-						<li><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></li>
-					</ul>
+					<div class="row">
+						<div class="col-md-2">
+							<div class="col-md-12 border" style="height: 150px">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></h3>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="col-md-12 border" style="height: 150px">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></h3>
+							</div>
+						</div>
+					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->

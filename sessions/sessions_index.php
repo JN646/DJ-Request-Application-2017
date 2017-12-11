@@ -28,16 +28,18 @@
 					<hr>
 					<h2>Session Create</h2>
 					<form action="#" method="post">
-						<div class="form-group">
+						<div class="form-inline">
 							<label>Session Name</label>
 							<input type="text" name="Session_Name" placeholder="Session Name"></input>
-							<button type="button" name="session_start" value="session_start">Start</button>
-							<button type="button" name="session_end" value="session_end">Start</button>
+							<button class="btn-success" type="button" name="session_start" value="session_start">Start</button>
+							<button class="btn-danger" type="button" name="session_end" value="session_end">End</button>
 						</div>
 					</form>
 					<hr>
 					<h2>Running Sessions</h2>
-					<p>[Session Name] - [Session Start Time] - <button>End</button></p>
+					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
+					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
+					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
