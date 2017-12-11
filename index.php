@@ -31,9 +31,9 @@
 							</div>
 						</div>
 					</div>
-					<form action="" method="post">
+					<form action="songs/search_song.php" method="get">
 						<div class="form-inline">
-							<input name="search" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
+							<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
 							<button class="form-control btn btn-primary" name="SearchButton" value="search" type="submit">Search</button>
 						</div>
 					</form>
