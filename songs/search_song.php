@@ -21,7 +21,11 @@
 					<h1 class="display-4">Song Search</h1>
 						<?php
 						// Attempt select query execution
-						$sql = "SELECT * FROM songs WHERE song_name='$_GET[search_val]'";
+						$sql = "SELECT * FROM songs
+								WHERE song_name LIKE '%$_GET[search_val]%'
+								OR WHERE song_artist LIKE '%$_GET[search_val]%'
+								OR WHERE song_year LIKE '%$_GET[search_val]%'
+								OR WHERE song_genre LIKE '%$_GET[search_val]%' ";
 						if($result = mysqli_query($mysqli, $sql)){
 							if(mysqli_num_rows($result) > 0){
 								echo "<table class='table table-bordered'>";
