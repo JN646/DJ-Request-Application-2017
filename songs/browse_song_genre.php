@@ -2,14 +2,14 @@
  /**
   * Project:		DJ Request Application
   * Copyright:		(C) JGinn 2017
-  * FileCreated:	171211
+  * FileCreated:	171210
   */
 	// Include config file
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
-	<title>Song Search</title>
+	<title>Song Genres</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -18,32 +18,15 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
+					<h1 class="display-4">Song Genres</h1>
 						<?php
-						echo "<h1 class='display-4'>Results for $_GET[search_val]</h1>";
 						// Attempt select query execution
-						$sql = "SELECT * FROM songs
-								WHERE song_name LIKE '%$_GET[search_val]%'
-								OR song_artist LIKE '%$_GET[search_val]%'
-								OR song_year LIKE '%$_GET[search_val]%'
-								OR song_genre LIKE '%$_GET[search_val]%' ";
+						$sql = "SELECT DISTINCT song_genre FROM songs";
 						if($result = mysqli_query($mysqli, $sql)){
 							if(mysqli_num_rows($result) > 0){
-								echo "<table class='table table-bordered'>";
-									echo "<tr>";
-										echo "<th>Song</th>";
-										echo "<th>Artist</th>";
-										echo "<th>Year</th>";
-										echo "<th>Genre</th>";
-									echo "</tr>";
 								while($row = mysqli_fetch_array($result)){
-									echo "<tr>";
-										echo "<td>" . $row['song_name'] . "</td>";
-										echo "<td>" . $row['song_artist'] . "</td>";
-										echo "<td>" . $row['song_year'] . "</td>";
-										echo "<td>" . $row['song_genre'] . "</td>";
-									echo "</tr>";
+									echo "<p>" . $row['song_genre'] . "</p>";
 								}
-								echo "</table>";
 								// Free result set
 								mysqli_free_result($result);
 							} else{
