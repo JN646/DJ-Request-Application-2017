@@ -28,8 +28,34 @@
 							<button name="SearchButton" value="search" type="submit">Search</button>
 						</div>
 					</form>
+					<div class="row">
 					<?php
 					// Attempt select query execution
+					$sql = "SELECT * FROM songs LIMIT 12";
+					if($result = mysqli_query($mysqli, $sql)){
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_array($result)){
+								echo "<div class='col-md-2' style='height: 250px'>";
+									echo "<div class='col-md-12 border' style='height: 200px'>";
+										echo "<br><h3 class='text-center'>" . $row['song_name'] . "</h3>";
+										echo "<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+										echo "<p class='text-center'>" . $row['song_year'] . "</p>";
+										echo "<p class='text-center'><a href=functions/update_count.php?song_id=".$row['song_id'].">Request</a></p>";
+									echo "</div>";
+								echo "</div>";
+							}
+							// Free result set
+							mysqli_free_result($result);
+						} else{
+							echo "<p class='text-center'>No songs were found.</p>";
+						}
+					} else{
+						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
+					}
+					?>
+					</div>
+ 					<?php
+/* 					// Attempt select query execution
 					$sql = "SELECT * FROM songs LIMIT 10";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
@@ -58,7 +84,7 @@
 						}
 					} else{
 						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
-					}
+					} */
 					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
