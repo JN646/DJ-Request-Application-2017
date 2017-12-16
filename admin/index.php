@@ -57,7 +57,7 @@
 							<div class="col-md-12 border">
 								<h3>Account</h3>
 								<ul>
-									<li><a href="#">Account Users</a></li>
+									<li><a href="<?php echo $environment; ?>accounts/accounts_index.php">Client Home</a></li>
 									<li><a href="#">Account Profile</a></li>
 								</ul>
 							</div>
