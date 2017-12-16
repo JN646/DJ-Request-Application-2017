@@ -38,7 +38,7 @@
 									echo "<td>" . $row['request_time'] . "</td>";
 									echo "<td>" . $row['request_song_id'] . "</td>";
 									echo "<td>" . $row['request_session_id'] . "</td>";
-									echo "<td><a href=/functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
+									echo "<td><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
