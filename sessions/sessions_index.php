@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Session Home</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>A session is a clearly defined music event. Once a session has been created the VIP guests will be able to send requests to it. Once the session has finished it needs to be destroyed.</p>
 					<ul>
 						<li><a href="#">Session Name</a></li>
@@ -27,22 +28,47 @@
 					</ul>
 					<hr>
 					<h2>Session Create</h2>
-					<form action="#" method="post">
+					<p>Choose a name for the session and choose the DJ to assign this session to.</p>
+					<form action="<?php echo $environment; ?>sessions/functions/func_add_session.php" method="post">
 						<div class="form-inline">
-							<label>Session Name</label>
-							<input type="text" name="Session_Name" placeholder="Session Name"></input>
-							<button class="btn-success" type="button" name="session_start" value="session_start">Start</button>
-							<button class="btn-danger" type="button" name="session_end" value="session_end">End</button>
+							<input name="session_name" class="form-control" placeholder="Session Name" type="text"></input>
+							<select class="form-control">
+								<option>DJ 1</option>
+								<option>DJ 2</option>
+								<option>DJ 3</option>
+								<option>DJ 4</option>
+								<option>DJ 5</option>
+							</select>
+							<button class="btn btn-success" name="add_session" type="submit" value="Submit">Submit</button>
 						</div>
 					</form>
 					<hr>
 					<h2>Running Sessions</h2>
-					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
-					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
-					<p>[Session Name] - [Session Start Time] - <button class="btn-danger">End</button></p>
+					<?php
+					// Attempt select query execution
+					$sql = "SELECT * FROM sessions";
+					if($result = mysqli_query($mysqli, $sql)){
+						if(mysqli_num_rows($result) > 0){
+							while($row = mysqli_fetch_array($result)){
+								echo "<p>" . $row['session_name'] . " - " . $row['session_start'] . " - <button class='btn-danger'>End</button></p>";
+							}
+							// Free result set
+							mysqli_free_result($result);
+						} else{
+							echo "<p>No sessions were found.</p>";
+						}
+					} else{
+						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
+					}
+					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>

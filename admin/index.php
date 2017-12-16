@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Dashboard</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>DJ control panel.</p>
 					<!-- Tools -->
 					<div class="row">
@@ -79,4 +80,9 @@
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
