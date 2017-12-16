@@ -19,28 +19,25 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Artists</h1>
-						<div class="row">
-							<?php
-							// Attempt select query execution
-							$sql = "SELECT DISTINCT song_artist FROM songs";
-							if($result = mysqli_query($mysqli, $sql)){
-								if(mysqli_num_rows($result) > 0){
-									while($row = mysqli_fetch_array($result)){
-										echo "<div class='col-md-3'>";
-											echo "<p>" . $row['song_artist'] . " - <a href=browse_song_artistl.php?song_artist=".urlencode($row['song_artist'])." >View</a></p>";
-										echo "</div>";
-									}
-									// Free result set
-									mysqli_free_result($result);
-								} else{
-									echo "No requests were found.";
+						<?php
+						$artist = urldecode($_GET['song_artist']);
+						// Attempt select query execution
+						$sql = "SELECT * FROM songs WHERE song_artist='$artist'";
+						if($result = mysqli_query($mysqli, $sql)){
+							if(mysqli_num_rows($result) > 0){
+								while($row = mysqli_fetch_array($result)){
+									echo "<p>" . $row['song_name'] . "</p>";
 								}
+								// Free result set
+								mysqli_free_result($result);
 							} else{
-								echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+								echo "No requests were found.";
 							}
-							?>
-						</div>
-						<p><a href="browse_song.php">Back</a></p>
+						} else{
+							echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+						}
+						?>
+						<p><a href="browse_song_artist.php">Back</a></p>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
