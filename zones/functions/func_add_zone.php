@@ -16,16 +16,11 @@ if ($_POST['add_zone'] == 'Submit') {
 	$sql = "INSERT INTO zones (zone_name, zone_description) VALUES ('$zone_name', '$zone_description')";
 }
 
-if(mysqli_query($mysqli, $sql)){
-	echo "<br>";
-	echo "<div class='container'>";
-	echo "<h1>Thank you!</h1>";
-    echo "<p>Records added successfully.</p>";
-	echo "<p><a href='../zones_index.php'>Back</a></p>";
-	echo "</div>";
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-}
+//Execute the sql
+if(mysqli_query($mysqli,$sql))
+		header("refresh:0; url=../zones_index.php");
+	else
+		echo "Not Deleted";
  
 // close connection
 mysqli_close($mysqli);
