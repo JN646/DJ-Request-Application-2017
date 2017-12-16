@@ -7,14 +7,13 @@
 	// Include config file
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
-
-	// Initialize the session
-session_start();
-// If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: login.php");
-  exit;
-}
+// // Initialize the session
+// session_start();
+// // If session variable is not set it will redirect to login page
+// if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  // header("location: login.php");
+  // exit;
+// }
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -77,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if($stmt->execute()){
                 // Redirect to login page
-                header("location: ../dashboard/dashboard.php");
+                header("location: ../index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
@@ -89,6 +88,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $mysqli->close();
 }
 ?>
+<head>
+	<title>Register</title>
+</head>
 <body>
     <div class="container">
         <h2>Sign Up</h2>
@@ -116,6 +118,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
     </div>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/reten/partials/footer.php"); ?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
 </body>
 </html>
