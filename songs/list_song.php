@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song List</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Complete song list.</p>
 					<?php
 					// Attempt select query execution

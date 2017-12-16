@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Genres</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 						<?php
 						// Attempt select query execution
 						$sql = "SELECT DISTINCT song_genre FROM songs";

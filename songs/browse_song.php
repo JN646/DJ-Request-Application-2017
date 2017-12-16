@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Browse Songs</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<ul>
 						<li><a href="browse_song_artist.php">Browse by Artist</a></li>
 						<li><a href="browse_song_genre.php">Browse by Genre</a></li>

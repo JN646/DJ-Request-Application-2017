@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Add Song</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<form action="<?php echo $environment; ?>songs/functions/func_add_song.php" method="post">
 						<div class="form-group">
 							<label>Song Name</label>

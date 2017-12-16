@@ -19,6 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Management</h1>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12 border" style="height: 150px">
