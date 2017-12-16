@@ -22,12 +22,16 @@
 						<div class="row">
 							<?php
 							// Attempt select query execution
-							$sql = "SELECT DISTINCT song_artist FROM songs";
+							$sql = "SELECT DISTINCT song_artist FROM songs ORDER BY song_artist ASC";
 							if($result = mysqli_query($mysqli, $sql)){
 								if(mysqli_num_rows($result) > 0){
 									while($row = mysqli_fetch_array($result)){
-										echo "<div class='col-md-3'>";
-											echo "<p>" . $row['song_artist'] . " - <a href=browse_song_artistl.php?song_artist=".urlencode($row['song_artist'])." >View</a></p>";
+										echo "<div class='col-md-2' style='height: 250px; min-width: 250px'>";
+											echo "<div class='col-md-12 border border-dark' style='height: 200px; border-radius: 5px'>";
+												echo "<br>";
+												echo "<h3 class='text-center'>" . $row['song_artist'] . "</h3>";
+												echo "<p class='text-center'><a href=browse_song_artistl.php?song_artist=".urlencode($row['song_artist'])." >View</a></p>";
+											echo "</div>";
 										echo "</div>";
 									}
 									// Free result set
