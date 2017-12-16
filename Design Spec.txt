@@ -1,0 +1,14 @@
+Software Design Specification.
+******************************
+
+This document has been created to document the design specification of the DJ Request system.
+
+CONCEPT
+The concept of the application is to provide a means for clients (primarily in private booths) to send requests straight to the DJ.
+
+THE CLIENT
+The role of the client is to send requests to the DJ by choosing songs from a song list.
+
+THE DJ
+The DJ willl receive songs sent by clients and then approve or reject them.
+
