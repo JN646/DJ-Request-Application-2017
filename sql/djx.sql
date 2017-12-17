@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 16, 2017 at 07:13 PM
+-- Generation Time: Dec 17, 2017 at 11:28 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -61,8 +61,10 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `request_song_id` int(11) NOT NULL COMMENT 'ID number of the song.',
   `request_session_id` int(11) NOT NULL COMMENT 'ID number of the session.',
   `request_active` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Is the song active?',
-  PRIMARY KEY (`request_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`request_id`),
+  KEY `request_song_id` (`request_song_id`),
+  KEY `request_session_id` (`request_session_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `requests`
@@ -70,18 +72,18 @@ CREATE TABLE IF NOT EXISTS `requests` (
 
 INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `request_session_id`, `request_active`) VALUES
 (1, '2017-12-16 15:21:14', 1, 1, 0),
-(3, '2017-12-16 15:24:29', 5, 1, 0),
-(4, '2017-12-16 15:24:32', 5, 1, 1),
-(5, '2017-12-16 17:18:46', 6, 1, 1),
-(6, '2017-12-16 17:18:46', 7, 1, 1),
-(7, '2017-12-16 17:18:46', 4, 1, 1),
-(8, '2017-12-16 17:18:46', 9, 1, 1),
-(9, '2017-12-16 17:18:46', 11, 2, 1),
-(10, '2017-12-16 17:18:48', 6, 1, 1),
-(11, '2017-12-16 17:18:48', 7, 1, 1),
-(12, '2017-12-16 17:18:48', 4, 1, 1),
-(13, '2017-12-16 17:18:48', 9, 1, 1),
-(14, '2017-12-16 17:18:48', 11, 2, 1);
+(3, '2017-12-16 15:24:29', 1, 1, 0),
+(4, '2017-12-16 15:24:32', 1, 1, 1),
+(5, '2017-12-16 17:18:46', 1, 1, 1),
+(6, '2017-12-16 17:18:46', 1, 1, 1),
+(7, '2017-12-16 17:18:46', 1, 1, 1),
+(8, '2017-12-16 17:18:46', 1, 1, 1),
+(9, '2017-12-16 17:18:46', 1, 2, 1),
+(10, '2017-12-16 17:18:48', 1, 1, 1),
+(11, '2017-12-16 17:18:48', 1, 1, 1),
+(12, '2017-12-16 17:18:48', 1, 1, 1),
+(13, '2017-12-16 17:18:48', 1, 1, 1),
+(14, '2017-12-16 17:18:48', 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   `session_end` timestamp NULL DEFAULT NULL COMMENT 'Session End Time',
   `session_active` int(1) NOT NULL DEFAULT '1' COMMENT 'Session Active?',
   PRIMARY KEY (`session_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sessions`
@@ -122,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `songs` (
   `song_genre` text NOT NULL,
   `song_year` int(4) NOT NULL,
   PRIMARY KEY (`song_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `songs`
@@ -132,9 +134,9 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_genre`, `song_
 (1, '22', 'Taylor Swift', 'Pop', 2015),
 (3, 'Test Song 1', 'Test Artist', 'Pop', 2000),
 (4, 'We Are The Champions', 'Queen', 'Rock', 1970),
-(10, 'Another One Bites The Dust', 'Queen', 'Rock', 1970),
-(9, 'Reach', 'S Club 7', 'Pop', 1999),
 (8, 'Fifteen', 'Hardwell', 'EDM', 2011),
+(9, 'Reach', 'S Club 7', 'Pop', 1999),
+(10, 'Another One Bites The Dust', 'Queen', 'Rock', 1970),
 (11, 'Rockstar', 'Post Malone Featuring 21 Savage', 'Pop', 2017),
 (12, 'Havana', 'Camila Cabello Featuring Young Thug', 'Pop', 2017),
 (13, 'Gucci Gang', 'Lil Pump', 'Pop', 2017),
@@ -159,11 +161,11 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_genre`, `song_
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_username` text NOT NULL,
-  `user_password` int(50) NOT NULL,
-  `user_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`user_id`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` text NOT NULL,
+  `password` int(50) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -178,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `zones` (
   `zone_name` text NOT NULL COMMENT 'Zone Name',
   `zone_description` text NOT NULL COMMENT 'Zone Description',
   PRIMARY KEY (`zone_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `zones`
@@ -187,7 +189,20 @@ CREATE TABLE IF NOT EXISTS `zones` (
 INSERT INTO `zones` (`zone_id`, `zone_name`, `zone_description`) VALUES
 (1, 'Room 1', 'Downstairs, Room 1'),
 (3, 'Room 2', 'Downstairs, Room 2'),
-(5, 'Private Room', 'Private Room Downstairs');
+(5, 'Private Room', 'Private Room Downstairs'),
+(6, 'Smoking Area', 'Outside (House)'),
+(7, 'Terrace', 'RnB Terrace');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `requests`
+--
+ALTER TABLE `requests`
+  ADD CONSTRAINT `SessionsIDFK` FOREIGN KEY (`request_session_id`) REFERENCES `sessions` (`session_id`),
+  ADD CONSTRAINT `SongIDFK` FOREIGN KEY (`request_song_id`) REFERENCES `songs` (`song_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
