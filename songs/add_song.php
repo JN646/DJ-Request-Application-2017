@@ -30,6 +30,10 @@
 							<input name="song_artist" class="form-control" placeholder="Song Artist" type="text"></input>
 						</div>
 						<div class="form-group">
+							<label>Song Album</label>
+							<input name="song_album" class="form-control" placeholder="Song Album" type="text"></input>
+						</div>
+						<div class="form-group">
 							<label>Song Genre</label>
 							<select name="song_genre" class="form-control">
 								<option value="Pop">Pop</option>
