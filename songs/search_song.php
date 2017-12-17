@@ -34,6 +34,7 @@
 										echo "<th>Artist</th>";
 										echo "<th>Year</th>";
 										echo "<th>Genre</th>";
+										echo "<th>Request</th>";
 									echo "</tr>";
 								while($row = mysqli_fetch_array($result)){
 									echo "<tr>";
@@ -41,6 +42,7 @@
 										echo "<td>" . $row['song_artist'] . "</td>";
 										echo "<td>" . $row['song_year'] . "</td>";
 										echo "<td>" . $row['song_genre'] . "</td>";
+										echo "<td><a href=functions/update_count.php?song_id=".$row['song_id'].">Request</a></td>";
 									echo "</tr>";
 								}
 								echo "</table>";
