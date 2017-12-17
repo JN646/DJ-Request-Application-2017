@@ -42,7 +42,7 @@
 					<div class="row">
 					<?php
 					// Attempt select query execution
-					$sql = "SELECT * FROM songs LIMIT 12";
+					$sql = "SELECT * FROM songs ORDER BY RAND () ASC LIMIT 12";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_array($result)){
