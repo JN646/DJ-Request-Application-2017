@@ -23,7 +23,7 @@
 					<p>Complete song list.</p>
 					<?php
 					// Attempt select query execution
-					$sql = "SELECT * FROM songs";
+					$sql = "SELECT * FROM songs ORDER BY song_name ASC";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_array($result)){
@@ -43,4 +43,9 @@
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
