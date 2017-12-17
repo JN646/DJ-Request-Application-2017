@@ -7,6 +7,7 @@
 	// Include config file
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+	require_once "lastfm.php";
 ?>
 <head>
 	<title>DJ App</title>
@@ -45,14 +46,16 @@
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_array($result)){
-								echo "<div class='col-md-2' style='height: 250px'>";
-									echo "<div class='col-md-12 border border-primary' style='height: 200px; border-radius: 5px'>";
-										echo "<br><h3 class='text-center'>" . $row['song_name'] . "</h3>";
-										echo "<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
-										echo "<p class='text-center'>" . $row['song_year'] . "</p>";
-										echo "<p class='text-center'><a href=functions/update_count.php?song_id=".$row['song_id'].">Request</a></p>";
+								echo"<div class='col-md-2'>";
+									echo "<div class-'col-md-12 border' border-primary>";
+									echo "<img class='card-img-top' src=\"";
+									echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+									echo "\">";
+									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+									echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+									echo"<p class='text-center'><a href=functions/update_count.php?song_id=" .$row['song_id']. ">Request</a></p>";
 									echo "</div>";
-								echo "</div>";
+								echo"</div>";
 							}
 							// Free result set
 							mysqli_free_result($result);

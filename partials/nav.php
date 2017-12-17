@@ -5,7 +5,7 @@
   * FileCreated:	171210
   */
 ?>
-<div class="col-md-1">
+<div class="col-md-1" style="min-width: 100px">
 	<br>
 	<h3>ADMIN</h3>
 	<h5>Songs</h5>
