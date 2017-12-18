@@ -19,9 +19,10 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Client Management</h1>
-					<ul>
-						<li><a href="add_client.php">Add Client</a></li>
+					<ul class="nav">
+						<li class="nav-item"><a href="add_client.php"><img src="<?php echo $environment; ?>images/add.png" style="width: 32px"></a></li>
 					</ul>
+					<p>Use the client manager to manage your physical devices.</p>
 					<?php
 					// Attempt select query execution
 					$sql = "SELECT * FROM clients";

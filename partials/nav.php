@@ -10,7 +10,7 @@
 	<h3>ADMIN</h3>
 	<h5>Songs</h5>
 	<ul class="nav flex-column">
-		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse Songs</a></li>
+		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse</a></li>
 		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>requests/request_index.php">Requests</a></li>
 	</ul>
 	<h5>Config</h5>
@@ -20,8 +20,8 @@
 		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>sessions/sessions_index.php">Sessions</a></li>
 		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>clients/client_index.php">Clients</a></li>
 	</ul>
-	<h5>Account</h5>
+	<h5>Admin</h5>
 	<ul class="nav flex-column">
-		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php">Profile</a></li>
+		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php">Dashboard</a></li>
 	</ul>
 </div>

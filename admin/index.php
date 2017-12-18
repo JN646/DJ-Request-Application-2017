@@ -20,21 +20,18 @@
 					<br>
 					<h1 class="display-4">Dashboard</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
-					<p>DJ control panel.</p>
+					<p>Site control panel. Use this dashboard to control and manage your instance.</p>
 					<!-- Tools -->
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="col-md-12 border">
 								<h3>Sessions</h3>
 								<ul>
 									<li><a href="<?php echo $environment; ?>sessions/sessions_index.php">Session Home</a></li>
-									<li><a href="#">Session Name</a></li>
-									<li><a href="#">Session Create</a></li>
-									<li><a href="#">Session End</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="col-md-12 border">
 								<h3>Songs</h3>
 								<ul>
@@ -44,7 +41,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="col-md-12 border">
 								<h3>Clients</h3>
 								<ul>
@@ -53,7 +50,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="col-md-12 border">
 								<h3>Account</h3>
 								<ul>
@@ -62,10 +59,7 @@
 								</ul>
 							</div>
 						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="col-md-12 border">
 								<h3>Zones</h3>
 								<ul>

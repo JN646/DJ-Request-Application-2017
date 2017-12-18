@@ -31,6 +31,15 @@
 								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></h3>
 							</div>
 						</div>
+						<div class="col-md-2">
+							<div class="col-md-12 border" style="height: 150px">
+								<h3 class="text-center"><a href="#">Browse Songs</a></h3>
+								<ul>
+									<li><a href="browse_song_artist.php">Browse by Artist</a></li>
+									<li><a href="browse_song_genre.php">Browse by Genre</a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->

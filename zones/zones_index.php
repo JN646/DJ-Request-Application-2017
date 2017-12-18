@@ -19,8 +19,8 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Zone Management</h1>
-					<ul>
-						<li><a href="add_zone.php">Add Zones</a></li>
+					<ul class="nav">
+						<li class="nav-item"><a href="add_zone.php"><img src="<?php echo $environment; ?>images/add.png" style="width: 32px"></a></li>
 					</ul>
 					<p>Zones are physical spaces that DJs and Devices can be assigned to. These can be rooms, floors or areas of your venue. When a device moves, or a DJ changes room, it is important to adjust the zone that they are working in. This will ensure that all requests go to the correct place.</p>
 					<?php

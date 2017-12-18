@@ -9,7 +9,7 @@
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
-	<title>Session Home</title>
+	<title>Sessions</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -18,16 +18,11 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Session Home</h1>
+					<h1 class="display-4">Sessions</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>A session is a clearly defined music event. Once a session has been created the VIP guests will be able to send requests to it. Once the session has finished it needs to be destroyed.</p>
-					<ul>
-						<li><a href="#">Session Name</a></li>
-						<li><a href="#">Session Start</a></li>
-						<li><a href="#">Session End</a></li>
-					</ul>
 					<hr>
-					<h2>Session Create</h2>
+					<h2>Start a Session</h2>
 					<p>Choose a name for the session and choose the DJ to assign this session to.</p>
 					<form action="<?php echo $environment; ?>sessions/functions/func_add_session.php" method="post">
 						<div class="form-inline">
