@@ -40,6 +40,9 @@
 								<option value="Rock">Rock</option>
 								<option value="RnB">RnB</option>
 								<option value="EDM">EDM</option>
+								<option value="Hip-Hop">Hip-Hop</option>
+								<option value="Rap">Rap</option>
+								<option value="Grime">Grime</option>
 							</select>
 						</div>
 						<div class="form-group">
