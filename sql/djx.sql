@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 17, 2017 at 11:28 AM
+-- Generation Time: Dec 18, 2017 at 09:29 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -121,37 +121,92 @@ CREATE TABLE IF NOT EXISTS `songs` (
   `song_id` int(11) NOT NULL AUTO_INCREMENT,
   `song_name` text NOT NULL,
   `song_artist` text NOT NULL,
+  `song_album` varchar(50) NOT NULL COMMENT 'Song Album',
   `song_genre` text NOT NULL,
   `song_year` int(4) NOT NULL,
   PRIMARY KEY (`song_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `songs`
 --
 
-INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_genre`, `song_year`) VALUES
-(1, '22', 'Taylor Swift', 'Pop', 2015),
-(3, 'Test Song 1', 'Test Artist', 'Pop', 2000),
-(4, 'We Are The Champions', 'Queen', 'Rock', 1970),
-(8, 'Fifteen', 'Hardwell', 'EDM', 2011),
-(9, 'Reach', 'S Club 7', 'Pop', 1999),
-(10, 'Another One Bites The Dust', 'Queen', 'Rock', 1970),
-(11, 'Rockstar', 'Post Malone Featuring 21 Savage', 'Pop', 2017),
-(12, 'Havana', 'Camila Cabello Featuring Young Thug', 'Pop', 2017),
-(13, 'Gucci Gang', 'Lil Pump', 'Pop', 2017),
-(14, 'Thunder', 'Imagine Dragons', 'Pop', 2017),
-(15, 'Too Good At Goodbyes', 'Sam Smith', 'Pop', 2017),
-(16, 'Bodak Yellow (Money Moves)', 'Cardi B', 'Pop', 2017),
-(17, 'No Limit', 'G-Eazy Featuring A$AP Rocky & Cardi B', 'Pop', 2017),
-(18, 'What Lovers Do', 'Maroon 5 Featuring SZA', 'Pop', 2017),
-(19, 'Feel It Still', 'Portugal. The Man', 'Pop', 2017),
-(20, 'Bad At Love', 'Halsey', 'Pop', 2017),
-(21, 'Sorry Not Sorry', 'Demi Lovato', 'Pop', 2017),
-(22, 'Mi Gente', 'J Balvin & Willy William Featuring Beyonce', 'Pop', 2017),
-(23, '1-800-273-8255', 'Logic Featuring Alessia Cara & Khalid', 'Pop', 2017),
-(24, 'New Rules', 'Dua Lipa', 'Pop', 2017),
-(25, 'I Get The Bag', 'Gucci Mane Featuring Migos', 'Pop', 2017);
+INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_genre`, `song_year`) VALUES
+(1, '22', 'Taylor Swift', 'RED', 'Pop', 2015),
+(4, 'We Are The Champions', 'Queen', 'News of the World', 'Rock', 1970),
+(9, 'Reach', 'S Club 7', '7', 'Pop', 1999),
+(10, 'Another One Bites The Dust', 'Queen', 'The Game', 'Rock', 1970),
+(11, 'Rockstar', 'Post Malone Featuring 21 Savage', 'Rockstar', 'Pop', 2017),
+(12, 'Havana', 'Camila Cabello Featuring Young Thug', 'Camila', 'Pop', 2017),
+(13, 'Gucci Gang', 'Lil Pump', 'Lil Pump', 'Pop', 2017),
+(14, 'Thunder', 'Imagine Dragons', 'Evolve', 'Pop', 2017),
+(15, 'Too Good At Goodbyes', 'Sam Smith', 'The Thrill of It All', 'Pop', 2017),
+(16, 'Bodak Yellow (Money Moves)', 'Cardi B', '', 'Pop', 2017),
+(17, 'No Limit', 'G-Eazy Featuring A$AP Rocky & Cardi B', '', 'Pop', 2017),
+(18, 'What Lovers Do', 'Maroon 5 Featuring SZA', 'Red Pill Blues', 'Pop', 2017),
+(19, 'Feel It Still', 'Portugal. The Man', 'Woodstock', 'Pop', 2017),
+(20, 'Bad At Love', 'Halsey', '', 'Pop', 2017),
+(21, 'Sorry Not Sorry', 'Demi Lovato', 'Tell Me You Love Me', 'Pop', 2017),
+(22, 'Mi Gente', 'J Balvin & Willy William Featuring Beyonce', '', 'Pop', 2017),
+(23, '1-800-273-8255', 'Logic Featuring Alessia Cara & Khalid', '', 'Pop', 2017),
+(24, 'New Rules', 'Dua Lipa', '', 'Pop', 2017),
+(25, 'I Get The Bag', 'Gucci Mane Featuring Migos', '', 'Pop', 2017),
+(26, 'Shake It Off', 'Taylor Swift', '1989', 'Pop', 2014),
+(27, 'Blank Space', 'Taylor Swift', '1989', 'Pop', 2014),
+(28, 'Love Story', 'Taylor Swift', 'Fearless', 'Pop', 2008),
+(29, 'I Knew You Were Trouble', 'Taylor Swift', 'RED', 'Pop', 2012),
+(30, 'White Horse', 'Taylor Swift', 'Fearless', 'Pop', 2008),
+(31, 'Fifteen', 'Taylor Swift', 'Fearless', 'Pop', 2008),
+(32, 'Creatures Of The Night', 'Hardwell', 'Dirty Work', 'EDM', 2017),
+(33, 'Spaceman', 'Hardwell', 'I Am Hardwell (Original Soundtrack)', 'EDM', 2012),
+(34, 'Power', 'Hardwell', 'Dirty Work', 'EDM', 2017),
+(35, 'Follow Me', 'Hardwell', 'United We Are', 'EDM', 2015),
+(36, 'Billie Jean', 'Michael Jackson', 'Thriller', 'Pop', 1982),
+(37, 'Smooth Criminal', 'Michael Jackson', 'Bad', 'Pop', 1987),
+(38, 'Beat It', 'Michael Jackson', 'Thriller', 'Pop', 1982),
+(39, 'Thriller', 'Michael Jackson', 'Thriller', 'Pop', 1982),
+(40, 'Man in the Mirror', 'Michael Jackson', 'Thriller', 'Pop', 1982),
+(41, 'Black or White', 'Michael Jackson', 'Dangerous', 'Pop', 1991),
+(42, 'Bad', 'Michael Jackson', 'Bad', 'Pop', 1987),
+(43, 'Stay With Me', 'Sam Smith', 'In the Lonely Hour', 'Pop', 2014),
+(44, 'Lay Me Down', 'Sam Smith', 'In the Lonely Hour', 'Pop', 2014),
+(45, 'I\'m Not the Only One', 'Sam Smith', 'In the Lonely Hour', 'Pop', 2014),
+(46, 'Pray', 'Sam Smith', 'The Thrill of It All', 'Pop', 2017),
+(47, 'Burning', 'Sam Smith', 'The Thrill of It All', 'Pop', 2017),
+(48, 'One Last Song', 'Sam Smith', 'The Thrill of It All', 'Pop', 2017),
+(49, 'Bad Romance', 'Lady Gaga', 'The Fame Monster', 'Pop', 2009),
+(50, 'Million Reasons', 'Lady Gaga', 'Joanne', 'Pop', 2016),
+(51, 'Poker Face', 'Lady Gaga', 'The Fame', 'Pop', 2008),
+(52, 'Born This Way', 'Lady Gaga', 'Born This Way', 'Pop', 2011),
+(53, 'Applause', 'Lady Gaga', 'Artpop', 'Pop', 2013),
+(54, 'Mans Not Hot', 'Big Shaq', 'Daddy K - The Mix 11', 'Grime', 2017),
+(55, 'Shape of You', 'Ed Sheeran', 'Ã·', 'Pop', 2017),
+(56, 'Perfect', 'Ed Sheeran', 'Ã·', 'Pop', 2017),
+(57, 'Thinking Out Loud', 'Ed Sheeran', 'X', 'Pop', 2017),
+(58, 'Photograph', 'Ed Sheeran', 'X', 'Pop', 2014),
+(59, 'Galway Girl', 'Ed Sheeran', 'Ã·', 'Pop', 2017),
+(60, 'Castle on the Hill', 'Ed Sheeran', 'Ã·', 'Pop', 2017),
+(61, 'Dive', 'Ed Sheeran', '+', 'Pop', 2017),
+(62, 'Give Me Love', 'Ed Sheeran', '+', 'Pop', 2011),
+(63, 'The A Team', 'Ed Sheeran', '+', 'Pop', 2011),
+(64, 'Happier', 'Ed Sheeran', 'Ã·', 'Pop', 2017),
+(65, 'Bohemian Rhapsody', 'Queen', 'A Night at the Opera', 'Rock', 1975),
+(66, 'We Will Rock You', 'Queen', 'News of the World', 'Rock', 1977),
+(67, 'I Want to Break Free', 'Queen', 'The Works', 'Rock', 1984),
+(68, 'Don\'t Stop Me Now', 'Queen', 'Jazz', 'Rock', 1978),
+(69, 'Under Pressure', 'Queen', 'Hot Space', 'Rock', 1982),
+(70, 'Killer Queen', 'Queen', 'Sheer Heart Attack', 'Rock', 1974),
+(71, 'Last Christmas', 'Wham!', 'Music from the Edge of Heaven', 'Pop', 1986),
+(72, 'Despacito', 'Luis Fonsi', 'Daddy K - The Mix 11', 'Pop', 2017),
+(73, 'Natural', 'S Club 7', '7', 'Pop', 2000),
+(74, 'I\'ll Keep Waiting', 'S Club 7', '7', 'Pop', 2000),
+(75, 'Bring the House Down', 'S Club 7', '7', 'Pop', 2000),
+(76, 'Best Friend', 'S Club 7', '7', 'Pop', 2000),
+(77, 'All in Love Is Fair', 'S Club 7', '7', 'Pop', 2000),
+(78, 'Love Train', 'S Club 7', '7', 'Pop', 2000),
+(79, 'Cross My Heart', 'S Club 7', '7', 'Pop', 2000),
+(80, 'The Colour of Blue', 'S Club 7', '7', 'Pop', 2000),
+(81, 'I\'ll Be There', 'S Club 7', '7', 'Pop', 2000);
 
 -- --------------------------------------------------------
 
