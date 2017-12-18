@@ -28,7 +28,7 @@
 					<div class="row">
 						<?php
 						// Attempt select query execution
-						$sql = "SELECT * FROM songs WHERE song_artist='$artist'";
+						$sql = "SELECT * FROM songs WHERE song_artist='$artist' ORDER BY song_name ASC";
 						if($result = mysqli_query($mysqli, $sql)){
 							if(mysqli_num_rows($result) > 0){
 								while($row = mysqli_fetch_array($result)){
