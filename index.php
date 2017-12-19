@@ -11,7 +11,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
 ?>
 <head>
-	<title>DJ App</title>
+	<title>Song Request</title>
 </head>
 <body>
 	<div class="fluid-container">
