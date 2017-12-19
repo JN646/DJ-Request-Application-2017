@@ -6,6 +6,7 @@
   */
 	// Include config file
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
 ?>
@@ -22,8 +23,10 @@
 					<div class="jumbotron">
 						<div class="row">
 							<div class="col-md-8">
-								<h1 class="display-2 text-center">Venue Name</h1>
-								<h1 class="lead text-center">DJ Request System</h1>
+								<?php
+								echo"<h1 class='display-2 text-center'>$VenueName</h1>";
+								echo"<h1 class='lead text-center'>$VenueSlogan</h1>";
+								?>
 							</div>
 							<div class="col-md-4">
 								<div class="col-md-12 border border-primary" style="height: 150px">

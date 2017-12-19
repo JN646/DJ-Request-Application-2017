@@ -49,7 +49,7 @@
 								// Free result set
 								mysqli_free_result($result);
 							} else{
-								echo "No requests were found.";
+								echo "No songs were found.";
 							}
 						} else{
 							echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
