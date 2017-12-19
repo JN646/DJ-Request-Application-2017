@@ -21,23 +21,27 @@
 					<h1 class="display-4">Song List</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Complete song list.</p>
-					<?php
-					// Attempt select query execution
-					$sql = "SELECT * FROM songs ORDER BY song_name ASC";
-					if($result = mysqli_query($mysqli, $sql)){
-						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_array($result)){
-									echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
+					<div class="row">
+						<?php
+						// Attempt select query execution
+						$sql = "SELECT * FROM songs ORDER BY song_name ASC";
+						if($result = mysqli_query($mysqli, $sql)){
+							if(mysqli_num_rows($result) > 0){
+								while($row = mysqli_fetch_array($result)){
+									echo"<div class='col-md-2'>";
+										echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
+									echo"</div>";
+								}
+								// Free result set
+								mysqli_free_result($result);
+							} else{
+								echo "No requests were found.";
 							}
-							// Free result set
-							mysqli_free_result($result);
 						} else{
-							echo "No requests were found.";
+							echo "ERROR: Could not execute $sql. " . mysqli_error($mysqli);
 						}
-					} else{
-						echo "ERROR: Could not execute $sql. " . mysqli_error($mysqli);
-					}
-					?>
+						?>
+					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
