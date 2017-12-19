@@ -19,11 +19,22 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Browse Songs</h1>
+					<br>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
-					<ul>
-						<li><a href="browse_song_artist.php">Browse by Artist</a></li>
-						<li><a href="browse_song_genre.php">Browse by Genre</a></li>
-					</ul>
+					<div class="row">
+						<div class="col-md-2">
+							<div class="col-md-12 border">
+								<h2 class="text-center">Browse by Artist</h2>
+								<p class="text-center"><a href="browse_song_artist.php">Here</a></p>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="col-md-12 border">
+								<h2 class="text-center">Browse by Genre</h2>
+								<p class="text-center"><a href="browse_song_genre.php">Here</a></p>
+							</div>
+						</div>
+					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
