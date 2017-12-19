@@ -20,6 +20,7 @@
 				<div class="col-md-11">
 					<br>
 					<?php echo "<h1 class='display-4'>Results for $_GET[search_val]</h1>"; ?>
+					<br>
 					<form action="songs/search_song.php" method="get">
 						<div class="form-inline">
 							<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
