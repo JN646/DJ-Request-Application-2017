@@ -48,7 +48,7 @@
 							while($row = mysqli_fetch_array($result)){
 								echo"<div class='col-md-2'>";
 									echo "<div class-'col-md-12 border' border-primary>";
-									echo "<img class='card-img-top' src=\"";
+									echo "<img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
 									echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
 									echo "\">";
 									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
