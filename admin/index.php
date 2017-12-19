@@ -38,6 +38,7 @@
 									<li><a href="<?php echo $environment; ?>songs/index.php">Song Home</a></li>
 									<li><a href="<?php echo $environment; ?>songs/add_song.php">Song Add</a></li>
 									<li><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></li>
+									<li><a href="<?php echo $environment; ?>songs/browse_song.php">Browse Songs</a></li>
 								</ul>
 							</div>
 						</div>
