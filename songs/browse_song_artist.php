@@ -20,6 +20,13 @@
 					<br>
 					<h1 class="display-4">Song Artists</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
+						<form action="search_song.php" method="get">
+							<div class="form-inline">
+								<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
+								<button class="form-control btn btn-primary" name="SearchButton" value="search" type="submit">Search</button>
+							</div>
+						</form>
+						<br>
 						<div class="row">
 							<?php
 							// Attempt select query execution
@@ -38,7 +45,7 @@
 									// Free result set
 									mysqli_free_result($result);
 								} else{
-									echo "No requests were found.";
+									echo "No artists were found.";
 								}
 							} else{
 								echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
