@@ -11,5 +11,5 @@ $environment = LOCAL; //change to WEB if you're live
 
 // Venue Details
 $VenueName = "My Venue";
-$VenueSlogan = "The best venue.";
+$VenueSlogan = "The best venue. This text is loaded from a config file.";
 ?>
