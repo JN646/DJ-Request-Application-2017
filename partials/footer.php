@@ -18,7 +18,7 @@
 			<small><p style="text-align: center">DJ Request System &copy; 2017, build: 171220 for Life by J Ginn.</p></small>
 		</div>
 		<div class="col-md-2">
-			<img src="<?php echo $environment; ?>images/250x250.png" height="100px" width="250px">
+			<img src="<?php echo $environment; ?>images/bottom_logo.png" height="45%">
 		</div>
 	</div>
 	<br>
