@@ -4,12 +4,13 @@
   * Copyright:		(C) JGinn 2017
   * FileCreated:	171210
   */
-	// Include config file
+	// Include config files
+	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
-	<title>Song Management</title>
+	<title>Template</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -18,10 +19,8 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Song Management</h1>
-					<ul>
-						<li><a href="#">Add Song</a></li>
-					</ul>
+					<h1 class="display-4">Template</h1>
+					<p>Default text goes here.</p>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
