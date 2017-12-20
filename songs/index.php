@@ -22,22 +22,24 @@
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<div class="row">
 						<div class="col-md-2">
-							<div class="col-md-12 border" style="height: 150px">
+							<div class="col-md-12 border">
 								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></h3>
+								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="col-md-12 border" style="height: 150px">
+							<div class="col-md-12 border">
 								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></h3>
+								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="col-md-12 border" style="height: 150px">
-								<h3 class="text-center"><a href="#">Browse Songs</a></h3>
-								<ul>
-									<li><a href="browse_song_artist.php">Browse by Artist</a></li>
-									<li><a href="browse_song_genre.php">Browse by Genre</a></li>
-								</ul>
+							<div class="col-md-12 border">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/browse_song.php">Browse Songs</a></h3>
+								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<br>
 							</div>
 						</div>
 					</div>
