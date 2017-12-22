@@ -20,7 +20,7 @@
 				<div class="col-md-11">
 					<br>
 					<?php
-					$artist = "Edit " . urldecode($_GET['song_id']);
+					$artist = "Edit Song UID: " . urldecode($_GET['song_id']);
 					echo "<h1 class='display-4'>$artist</h1>";
 					?>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert.</div>
@@ -32,36 +32,50 @@
 					$query = mysqli_query($mysqli, $terms);
 					echo "there are ->" . mysqli_num_rows($query) . "<- rows in this query. ";
 					
-					if($query = mysqli_query($mysqli, $query)){
-						if(mysqli_num_rows($query) > 0){
-							while($row = mysqli_fetch_array($query)){
-								$song_name = $row['song_name'];
-								$artist = $row['song_artist'];
-								$album = $row['song_album'];
-								echo "Test";
-							echo "<h1 class='text-center'>" . $row['song_name'] . "%</h1>";
-							}
-							
-							?>
-							
-							<h2>Darius's Form:</h2>
-							<form action="update.php" method="post">
-							<input type="hidden" name="ID" value="<?=$UID;?>">
-							Song Name: <input type="text" name="songname" value="<?=$song_name?>"><br>
-							Artist: <input type="text" name="artist" value="<?=$song_artist?>"><br>
-							<input type="Submit">
-							</form>
-							
-							
-							<?php
-							
-							mysqli_free_result($query);
-						} else{
-							echo "<p>No songs were found.</p>";
-							echo '<a href="javascript:history.back()">Go back</a>';
+					
+					if(mysqli_num_rows($query) > 0){
+						while($row = mysqli_fetch_array($query)){
+							$song_name = $row['song_name'];
+							$artist = $row['song_artist'];
+							$album = $row['song_album'];
+							$genre = $row['song_genre'];
+							$year = $row['song_year'];
+						echo "<h1 class='text-left'>" . $row['song_name'] . "</h1>";
 						}
+						
+						?>
+						
+						<form action="update.php" method="post">
+							<input type="hidden" name="ID" value="<?=$UID;?>">
+							<div class="form-group">
+								<label>Song</label>
+								<input class="form-control" type="text" name="song_name" value="<?=$song_name?>"></input>
+							</div>
+														<div class="form-group">
+								<label>Artist</label>
+								<input class="form-control" type="text" name="artist" value="<?=$artist?>"></input>
+							</div>
+														<div class="form-group">
+								<label>Album</label>
+								<input class="form-control" type="text" name="album" value="<?=$album?>"></input>
+							</div>
+														<div class="form-group">
+								<label>Genre</label>
+								<input class="form-control" type="text" name="genre" value="<?=$genre?>"></input>
+							</div>
+														<div class="form-group">
+								<label>Year</label>
+								<input class="form-control" type="text" name="year" value="<?=$year?>"></input>
+							</div>
+							<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
+						</form>
+						
+						
+						<?php
+						
+						mysqli_free_result($query);
 					} else{
-						echo "ERROR: Not able to execute $terms. " . mysqli_error($mysqli);
+						echo "<p>No songs were found.</p>";
 						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
