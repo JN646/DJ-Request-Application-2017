@@ -15,16 +15,12 @@ if ($_POST['add_session'] == 'Submit') {
 	$sql = "INSERT INTO sessions (session_name) VALUES ('$session_name')";
 }
 
-if(mysqli_query($mysqli, $sql)){
-	echo "<br>";
-	echo "<div class='container'>";
-	echo "<h1>Thank you!</h1>";
-    echo "<p>Session added successfully.</p>";
-	echo "<p><a href='../sessions_index.php'>Back</a></p>";
-	echo "</div>";
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
-}
+//Execute the Query
+if(mysqli_query($mysqli,$sql))
+		header("refresh:0; url=../session_index.php");
+	else
+		echo "Not added. Something went wrong.";
+		echo '<a href="javascript:history.back()">Go back</a>';
  
 // close connection
 mysqli_close($mysqli);

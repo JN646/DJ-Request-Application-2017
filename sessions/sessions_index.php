@@ -55,6 +55,7 @@
 						}
 					} else{
 						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
+						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
 				</div> <!-- Close col-md-11 -->
