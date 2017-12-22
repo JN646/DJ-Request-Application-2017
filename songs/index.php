@@ -42,6 +42,13 @@
 								<br>
 							</div>
 						</div>
+						<div class="col-md-2">
+							<div class="col-md-12 border">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/import_songs.php">Import Songs</a></h3>
+								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<br>
+							</div>
+						</div>
 					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
