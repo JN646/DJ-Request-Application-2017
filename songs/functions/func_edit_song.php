@@ -78,12 +78,6 @@
 						</div>
 						<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
 					</form>
-					<?php
-					// } else {
-						// echo 'No entry found. <a href="javascript:history.back()">Go back</a>';
-					// }
-					?>
-					
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
