@@ -51,6 +51,7 @@
 							mysqli_free_result($result);
 						} else{
 							echo "<p>No sessions were found.</p>";
+							echo '<a href="javascript:history.back()">Go back</a>';
 						}
 					} else{
 						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);

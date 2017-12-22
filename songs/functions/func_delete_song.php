@@ -15,6 +15,7 @@ if(mysqli_query($mysqli,$delete))
 		header("refresh:0; url=../browse_song_artist.php");
 	else
 		echo "Not deleted. Something went wrong.";
+		echo '<a href="javascript:history.back()">Go back</a>';
  
 // close connection
 mysqli_close($mysqli);
