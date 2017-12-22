@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+
+body {
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.jumbo-header {
+	background-color: #cce6ff;
+}

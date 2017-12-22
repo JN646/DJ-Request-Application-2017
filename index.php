@@ -20,7 +20,7 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<div class="jumbotron">
+					<div class="jumbotron jumbo-header">
 						<div class="row">
 							<div class="col-md-8">
 								<?php

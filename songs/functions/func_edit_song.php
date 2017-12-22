@@ -28,15 +28,15 @@
 					<?php
 					$UID = (int)$_GET["song_id"];
 					$query = mysqli_query("SELECT * FROM songs WHERE song_id = '$UID'");
-					
 					if($query = mysqli_query($mysqli, $query)){
 						if(mysqli_num_rows($query) > 0){
 							while($row = mysqli_fetch_array($query)){
 								$song_name = $row['song_name'];
 								$artist = $row['song_artist'];
 								$album = $row['song_album'];
+								echo "Test";
+							echo "<h1 class='text-center'>" . $row['song_name'] . "%</h1>";
 							}
-							// Free query set
 							mysqli_free_result($query);
 						} else{
 							echo "<p>No songs were found.</p>";
