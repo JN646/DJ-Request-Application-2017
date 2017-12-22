@@ -23,6 +23,7 @@
 					$artist = "Edit " . urldecode($_GET['song_id']);
 					echo "<h1 class='display-4'>$artist</h1>";
 					?>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Default edit text goes here.</p>
 					<?php
 					$UID = (int)$_GET["song_id"];
@@ -46,13 +47,36 @@
 						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
-					<h2>Form:</h2>
-					<form action="update.php" method="post">
-						<input type="hidden" name="ID" value="<?=$UID;?>">
-						Song Name: <input type="text" name="song_name" value="<?=$song_name?>"><br>
-						Artist: <input type="text" name="artist" value="<?=$artist?>"><br>
-						Album: <input type="text" name="album" value="<?=$album?>"><br>
-						<input type="Submit">
+					<form action="<?php echo $environment; ?>songs/functions/func_add_song.php" method="post">
+						<div class="form-group">
+							<label>Song Name</label>
+							<input name="song_name" class="form-control" placeholder="Song Name" type="text"></input>
+						</div>
+						<div class="form-group">
+							<label>Song Artist</label>
+							<input name="song_artist" class="form-control" placeholder="Song Artist" type="text"></input>
+						</div>
+						<div class="form-group">
+							<label>Song Album</label>
+							<input name="song_album" class="form-control" placeholder="Song Album" type="text"></input>
+						</div>
+						<div class="form-group">
+							<label>Song Genre</label>
+							<select name="song_genre" class="form-control">
+								<option value="Pop">Pop</option>
+								<option value="Rock">Rock</option>
+								<option value="RnB">RnB</option>
+								<option value="EDM">EDM</option>
+								<option value="Hip-Hop">Hip-Hop</option>
+								<option value="Rap">Rap</option>
+								<option value="Grime">Grime</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Song Year</label>
+							<input name="song_year" class="form-control" placeholder="Song Year" type="text"></input>
+						</div>
+						<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
 					</form>
 					<?php
 					// } else {
@@ -65,4 +89,9 @@
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
