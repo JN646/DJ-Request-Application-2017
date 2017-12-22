@@ -15,7 +15,7 @@
 				<li><a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a></li>
 			</ul>
 			</small>
-			<small><p style="text-align: center">DJ Request System &copy; 2017, build: 171221 for Life by J Ginn.</p></small>
+			<small><p style="text-align: center">DJ Request System &copy; 2017, build: 171222 for Life by J Ginn.</p></small>
 		</div>
 		<div class="col-md-2">
 			<img src="<?php echo $environment; ?>images/bottom_logo.png" alt="Logo" align="middle" height="30%">
