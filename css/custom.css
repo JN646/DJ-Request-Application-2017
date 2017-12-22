@@ -5,5 +5,8 @@ body {
 }
 
 .jumbo-header {
-	background-color: #cce6ff;
+	color: white;
+	background-image: url("../images/jumbo.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
