@@ -23,11 +23,15 @@
 					$artist = "Edit " . urldecode($_GET['song_id']);
 					echo "<h1 class='display-4'>$artist</h1>";
 					?>
-					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
-					<p>Default edit text goes here.</p>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert.</div>
 					<?php
+					//mysql_select_db("songs");
+					
 					$UID = (int)$_GET["song_id"];
-					$query = mysqli_query("SELECT * FROM songs WHERE song_id = '$UID'");
+					$terms = "SELECT * FROM songs WHERE song_id = '$UID'";
+					$query = mysqli_query($mysqli, $terms);
+					echo "there are ->" . mysqli_num_rows($query) . "<- rows in this query. ";
+					
 					if($query = mysqli_query($mysqli, $query)){
 						if(mysqli_num_rows($query) > 0){
 							while($row = mysqli_fetch_array($query)){
@@ -37,16 +41,32 @@
 								echo "Test";
 							echo "<h1 class='text-center'>" . $row['song_name'] . "%</h1>";
 							}
+							
+							?>
+							
+							<h2>Darius's Form:</h2>
+							<form action="update.php" method="post">
+							<input type="hidden" name="ID" value="<?=$UID;?>">
+							Song Name: <input type="text" name="songname" value="<?=$song_name?>"><br>
+							Artist: <input type="text" name="artist" value="<?=$song_artist?>"><br>
+							<input type="Submit">
+							</form>
+							
+							
+							<?php
+							
 							mysqli_free_result($query);
 						} else{
 							echo "<p>No songs were found.</p>";
 							echo '<a href="javascript:history.back()">Go back</a>';
 						}
 					} else{
-						echo "ERROR: Not able to execute $query. " . mysqli_error($mysqli);
+						echo "ERROR: Not able to execute $terms. " . mysqli_error($mysqli);
 						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
+					
+					<h2>Josh's Form:</h2>
 					<form action="<?php echo $environment; ?>songs/functions/func_add_song.php" method="post">
 						<div class="form-group">
 							<label>Song Name</label>
