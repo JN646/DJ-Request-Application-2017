@@ -28,9 +28,9 @@
 								echo"<h1 class='lead text-center'>$VenueSlogan</h1>";
 								?>
 							</div>
-							<div class="col-md-4">
-								<div class="col-md-12 border border-primary" style="height: 150px">
-								<p>Some sort of side content is displayed here.</p>
+							<div class="col-md-4 jumbo-aside">
+								<div class="col-md-12" style="height: 150px">
+								<p>Some sort of side content is displayed here. This can be some information about the club, adverts or something else.</p>
 								</div>
 							</div>
 						</div>
