@@ -10,3 +10,10 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+
+.jumbo-aside {
+	color: white;
+	padding: 10px;
+	background: rgba(50, 50, 50, 0.7);
+	border-radius: 5px;
+}

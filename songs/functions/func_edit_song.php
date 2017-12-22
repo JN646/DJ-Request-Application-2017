@@ -20,19 +20,14 @@
 				<div class="col-md-11">
 					<br>
 					<?php
-					$artist = "Edit Song UID: " . urldecode($_GET['song_id']);
+					$artist = "Edit Song: " . urldecode($_GET['song_id']);
 					echo "<h1 class='display-4'>$artist</h1>";
 					?>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert.</div>
 					<?php
-					//mysql_select_db("songs");
-					
 					$UID = (int)$_GET["song_id"];
 					$terms = "SELECT * FROM songs WHERE song_id = '$UID'";
 					$query = mysqli_query($mysqli, $terms);
-					echo "there are ->" . mysqli_num_rows($query) . "<- rows in this query. ";
-					
-					
 					if(mysqli_num_rows($query) > 0){
 						while($row = mysqli_fetch_array($query)){
 							$song_name = $row['song_name'];
@@ -42,76 +37,38 @@
 							$year = $row['song_year'];
 						echo "<h1 class='text-left'>" . $row['song_name'] . "</h1>";
 						}
-						
-						?>
-						
-						<form action="update.php" method="post">
-							<input type="hidden" name="ID" value="<?=$UID;?>">
-							<div class="form-group">
-								<label>Song</label>
-								<input class="form-control" type="text" name="song_name" value="<?=$song_name?>"></input>
-							</div>
-														<div class="form-group">
-								<label>Artist</label>
-								<input class="form-control" type="text" name="artist" value="<?=$artist?>"></input>
-							</div>
-														<div class="form-group">
-								<label>Album</label>
-								<input class="form-control" type="text" name="album" value="<?=$album?>"></input>
-							</div>
-														<div class="form-group">
-								<label>Genre</label>
-								<input class="form-control" type="text" name="genre" value="<?=$genre?>"></input>
-							</div>
-														<div class="form-group">
-								<label>Year</label>
-								<input class="form-control" type="text" name="year" value="<?=$year?>"></input>
-							</div>
-							<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
-						</form>
-						
-						
-						<?php
-						
-						mysqli_free_result($query);
+					?>	
+					<form action="func_update_song.php" method="post">
+						<input type="hidden" name="ID" value="<?=$UID;?>">
+						<div class="form-group">
+							<label>Song</label>
+							<input class="form-control" type="text" name="song_name" value="<?=$song_name?>"></input>
+						</div>
+						<div class="form-group">
+							<label>Artist</label>
+							<input class="form-control" type="text" name="artist" value="<?=$artist?>"></input>
+						</div>
+						<div class="form-group">
+							<label>Album</label>
+							<input class="form-control" type="text" name="album" value="<?=$album?>"></input>
+						</div>
+						<div class="form-group">
+							<label>Genre</label>
+							<input class="form-control" type="text" name="genre" value="<?=$genre?>"></input>
+						</div>
+						<div class="form-group">
+							<label>Year</label>
+							<input class="form-control" type="text" name="year" value="<?=$year?>"></input>
+						</div>
+						<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
+					</form>
+					<?php						
+					mysqli_free_result($query);
 					} else{
 						echo "<p>No songs were found.</p>";
 						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
-					
-					<h2>Josh's Form:</h2>
-					<form action="<?php echo $environment; ?>songs/functions/func_add_song.php" method="post">
-						<div class="form-group">
-							<label>Song Name</label>
-							<input name="song_name" class="form-control" placeholder="Song Name" type="text"></input>
-						</div>
-						<div class="form-group">
-							<label>Song Artist</label>
-							<input name="song_artist" class="form-control" placeholder="Song Artist" type="text"></input>
-						</div>
-						<div class="form-group">
-							<label>Song Album</label>
-							<input name="song_album" class="form-control" placeholder="Song Album" type="text"></input>
-						</div>
-						<div class="form-group">
-							<label>Song Genre</label>
-							<select name="song_genre" class="form-control">
-								<option value="Pop">Pop</option>
-								<option value="Rock">Rock</option>
-								<option value="RnB">RnB</option>
-								<option value="EDM">EDM</option>
-								<option value="Hip-Hop">Hip-Hop</option>
-								<option value="Rap">Rap</option>
-								<option value="Grime">Grime</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Song Year</label>
-							<input name="song_year" class="form-control" placeholder="Song Year" type="text"></input>
-						</div>
-						<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
-					</form>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
