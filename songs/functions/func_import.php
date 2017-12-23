@@ -1,13 +1,15 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017
 * FileCreated:	171223
 */
+
 // Include config files
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+
 ?>
 <head>
 	<title>Song Import</title>
@@ -20,39 +22,20 @@ include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Import</h1>
-					<p class="alert alert-warning">Please ensure that the data appears in the correct columns prior to import</p>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<div class="row">
 					<?php
-					//Open the file.
-					$fileHandle = fopen("http://localhost/djx/djx/data/data.csv", "r");
-					 
-					//Loop through the CSV rows.
-					echo "<table class='table'>";
-						echo "<tr>";
-							echo "<th>Song Name</th>";
-							echo "<th>Song Artist</th>";
-							echo "<th>Song Album</th>";
-							echo "<th>Song Genre</th>";
-							echo "<th>Song Year</th>";
-						echo "</tr>";
-					while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
-						echo "<tr>";
-							echo "<td>" . $row[0] . "</td>";
-							echo "<td>" . $row[1] . "</td>";
-							echo "<td>" . $row[2] . "</td>";
-							echo "<td>" . $row[3] . "</td>";
-							echo "<td>" . $row[4] . "</td>";
-						echo "</tr>";
+					//get the csv file
+					$f_pointer=fopen("http://localhost/djx/djx/data/data.csv","r"); // file pointer
+
+					while(! feof($f_pointer)){
+					$ar=fgetcsv($f_pointer);
+					$sql="INSERT INTO songs(song_name,song_artist,song_album,song_genre,song_year)values('$ar[0]','$ar[1]','$ar[2]','$ar[3]','$ar[4]')";
+					echo $sql;
+					echo "<br>";
 					}
-					echo "</table>";
-					fclose($fileHandle); //Close the file.
 					?>
 					</div>
-					<hr>
-					<form action="func_import.php" class="form-group">
-						<button class="btn btn-success">Import</button>
-					</form>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
