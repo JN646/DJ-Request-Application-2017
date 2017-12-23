@@ -24,12 +24,6 @@
 				    <?php
 					$ud_ID = (int)$_POST["song_ID"];
 					
-					//$ud_song_name = mysql_real_escape_string($_POST["ud_song_name"]);
-					//$ud_artist = mysql_real_escape_string($_POST["ud_artist"]);
-					//$ud_album = mysql_real_escape_string($_POST["ud_album"]);
-					//$ud_genre = mysql_real_escape_string($_POST["ud_genre"]);
-					//$ud_year = mysql_real_escape_string($_POST["ud_year"]);
-					
 					$ud_song_name = $_POST["ud_song_name"];
 					$ud_artist = $_POST["ud_artist"];
 					$ud_album = $_POST["ud_album"];
@@ -48,14 +42,10 @@
 					$query = mysqli_query($mysqli, $terms);
 					mysqli_query($query);
 					
-					//for bug fixing
-					$ar = (int)mysqli_affected_rows();
-					echo "<p>Affected rows: $ar</p>";
-					
-					if((int)mysqli_affected_rows()>1){
-						echo "<p>($ud_ID) Record Updated<p>";
+					if(mysqli_affected_rows($mysqli)>0){
+						echo "<p>$ud_ID Record Updated! ToDo: Auto forward page.<p>";
 					}else{
-						echo "<p>Error. Song $ud_ID Not Updated. FIX: The song may well be updated - Possible incorrect error message<p>";
+						echo "<p>Error. Song $ud_ID Not Updated.<p>";
 					}
 					?>
 				</div> <!-- Close col-md-11 -->
