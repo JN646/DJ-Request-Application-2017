@@ -22,22 +22,25 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo $environment; ?>static/features.php">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo $environment; ?>static/about.php">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+		<li class="nav-item active">
+			<a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<?php echo $environment; ?>static/features.php">Features</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="<?php echo $environment; ?>static/about.php">About</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link disabled" href="#">Disabled</a>
+		</li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="<?php echo $environment; ?>songs/search_song.php" method="get">
-      <input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+		<input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
     </form>
   </div>
 </nav>
