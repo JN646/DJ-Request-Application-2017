@@ -92,32 +92,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<title>Register</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username:<sup>*</sup></label>
-                <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password:<sup>*</sup></label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password:<sup>*</sup></label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+	<div class="fluid-container">
+		<div class="col-md-12">
+			<div class="row">
+				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
+				<div class="col-md-11">
+					<br>
+					<h1 class="display-4">Sign Up</h2>
+					<p>Please fill this form to create a DJ account.</p>
+					<div class="col-md-6">
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+							<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+								<label>Username:<sup>*</sup></label>
+								<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+								<span class="help-block"><?php echo $username_err; ?></span>
+							</div>    
+							<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+								<label>Password:<sup>*</sup></label>
+								<input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+								<span class="help-block"><?php echo $password_err; ?></span>
+							</div>
+							<div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+								<label>Confirm Password:<sup>*</sup></label>
+								<input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+								<span class="help-block"><?php echo $confirm_password_err; ?></span>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary" value="Submit">
+								<input type="reset" class="btn btn-default" value="Reset">
+							</div>
+							<p>Already have an account? <a href="login.php">Login here</a>.</p>
+						</form>
+					</div>
+				</div> <!-- Close col-md-11 -->
+			</div> <!-- Close row -->
+		</div> <!-- Close col-md-12 -->
+	</div> <!-- Close Container -->
 </body>
-</html>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
