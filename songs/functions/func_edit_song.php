@@ -39,26 +39,26 @@
 						}
 					?>	
 					<form action="func_update_song.php" method="post">
-						<input type="hidden" name="ID" value="<?=$UID;?>">
+						<input type="hidden" name="song_ID" value="<?=$UID;?>">
 						<div class="form-group">
 							<label>Song</label>
-							<input class="form-control" type="text" name="song_name" value="<?=$song_name?>"></input>
+							<input class="form-control" type="text" name="ud_song_name" value="<?=$song_name?>"></input>
 						</div>
 						<div class="form-group">
 							<label>Artist</label>
-							<input class="form-control" type="text" name="artist" value="<?=$artist?>"></input>
+							<input class="form-control" type="text" name="ud_artist" value="<?=$artist?>"></input>
 						</div>
 						<div class="form-group">
 							<label>Album</label>
-							<input class="form-control" type="text" name="album" value="<?=$album?>"></input>
+							<input class="form-control" type="text" name="ud_album" value="<?=$album?>"></input>
 						</div>
 						<div class="form-group">
 							<label>Genre</label>
-							<input class="form-control" type="text" name="genre" value="<?=$genre?>"></input>
+							<input class="form-control" type="text" name="ud_genre" value="<?=$genre?>"></input>
 						</div>
 						<div class="form-group">
 							<label>Year</label>
-							<input class="form-control" type="text" name="year" value="<?=$year?>"></input>
+							<input class="form-control" type="text" name="ud_year" value="<?=$year?>"></input>
 						</div>
 						<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
 					</form>
