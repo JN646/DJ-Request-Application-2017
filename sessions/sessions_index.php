@@ -44,10 +44,21 @@
 					$sql = "SELECT * FROM sessions";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
+							echo "<table class='table'>";
+								echo "<tr>";
+									echo "<th>Session Name</th>";
+									echo "<th>Session Start</th>";
+									echo "<th>Song End</th>";
+								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
-								echo "<p>" . $row['session_name'] . " - " . $row['session_start'] . " - <button class='btn-danger'>End</button></p>";
+								echo "<tr>";
+									echo "<td>" . $row['session_name'] . "</td>";
+									echo "<td>" . $row['session_start'] . "</td>";
+									echo "<td><button class='form-control btn btn-danger'>End</button></td>";
+								echo "</tr>";
 							}
 							// Free result set
+							echo "</table>";
 							mysqli_free_result($result);
 						} else{
 							echo "<p>No sessions were found.</p>";
