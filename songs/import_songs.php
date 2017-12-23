@@ -25,7 +25,13 @@
 						<li>CSV</li>
 						<li>XML</li>
 					</ul>
-					<button class="form-control btn btn-primary">Import</button>
+					<form action="functions/func_import_songs.php" class="form-inline">
+						<button class="form-control btn btn-primary">Import</button>
+					</form>
+					<hr>
+					<?php
+					
+					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
