@@ -19,11 +19,16 @@ body {
 }
 
 /* footer */
-footer {
-	margin-top: 45px;
-	padding-top: 5px;
-	border-top: 1px solid #eaeaea;
-	color: #777;
+/* footer { */
+	/* margin-top: 45px; */
+	/* padding-top: 5px; */
+	/* border-top: 1px solid #eaeaea; */
+	/* color: #777; */
+/* } */
+
+.table-footer {
+	float: none;
+	margin: 0;
 }
 
 footer a {
@@ -46,11 +51,6 @@ footer ul {
 footer ul li {
 	float: left;
 	margin-left: 15px;
-}
-
-.table-footer {
-	float: none;
-	margin: 0;
 }
 
 .debug_dump {

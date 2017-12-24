@@ -29,13 +29,7 @@
 			<a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="<?php echo $environment; ?>static/features.php">Features</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="<?php echo $environment; ?>static/about.php">About</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link disabled" href="#">Disabled</a>
+			<a class="nav-link disabled" href="#">DEBUG</a>
 		</li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="<?php echo $environment; ?>songs/search_song.php" method="get">
