@@ -7,21 +7,8 @@
 	// Include config files
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
-	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
-?>
-<head>
-	<title>Edit Song</title>
-</head>
-<body>
-	<div class="fluid-container">
-		<div class="col-md-12">
-			<div class="row">
-				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
-				<div class="col-md-11">
-					<br>
-					<h1 class="display-4">Update Song</h1>
-					<p>A song should be updated here.</p>
-				    <?php
+	//include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+
 					$ud_ID = (int)$_POST["song_ID"];
 					
 					$ud_song_name = $_POST["ud_song_name"];
@@ -42,20 +29,19 @@
 					$query = mysqli_query($mysqli, $terms);
 					mysqli_query($query);
 					
-					if(mysqli_affected_rows($mysqli)>0){
-						echo "<p>$ud_ID Record Updated! ToDo: Auto forward page.<p>";
-					}else{
-						echo "<p>Error. Song $ud_ID Not Updated.<p>";
-					}
+					//if(mysqli_affected_rows($mysqli)>0){
+					//	header("refresh:0; url=../browse_song.php");
+						//echo "<p>$ud_ID Record Updated! ToDo: Auto forward page.<p>";
+					//}else{
+					//	echo "<p>Error. Song $ud_ID Not Updated.<p>";
+					//}
+					
+					if($query) {
+						echo "<h1>Song Updated</h1>";
+						echo '<a href="javascript:history.back()">Go back</a>';
+						}
+					else {
+						echo "Not Updated";
+						echo '<a href="javascript:history.back()">Go back</a>';
+						}
 					?>
-				</div> <!-- Close col-md-11 -->
-			</div> <!-- Close row -->
-		</div> <!-- Close col-md-12 -->
-	</div> <!-- Close Container -->
-</body>
-<script>
-// hide status bar
-var status_bar = document.getElementById("status_bar");
-status_bar.style.display="none";
-</script>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
