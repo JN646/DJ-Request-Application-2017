@@ -30,16 +30,16 @@
 						if(mysqli_num_rows($result) > 0){
 							echo "<table class='table table-bordered'>";
 								echo "<tr>";
-									echo "<th>Zone Name</th>";
-									echo "<th>Zone Description</th>";
-									echo "<th>View</th>";
-									echo "<th>Delete</th>";
+									echo "<th class='text-center'>Zone Name</th>";
+									echo "<th class='text-center'>Zone Description</th>";
+									echo "<th class='text-center'>View</th>";
+									echo "<th class='text-center'>Delete</th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
 									echo "<td>" . $row['zone_name'] . "</td>";
 									echo "<td>" . $row['zone_description'] . "</td>";
-									echo "<td><a href=view_zone.php?zone_id=".$row['zone_id'].">View</a></td>";
+									echo "<td class='text-center'><a href=view_zone.php?zone_id=".$row['zone_id'].">View</a></td>";
 									echo "<td><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
