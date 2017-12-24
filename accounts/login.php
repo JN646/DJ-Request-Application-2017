@@ -71,8 +71,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head><title>Login</title></head>
 <body>
     <div class="fluid-container">
+		<br>
 		<div class="col-md-4 offset-4">
-			<h2>Login</h2>
+			<h1 class="display-4">Login</h1>
 			<p>Please fill in your credentials to login.</p>
 			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 				<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
