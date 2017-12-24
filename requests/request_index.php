@@ -26,19 +26,19 @@
 						if(mysqli_num_rows($result) > 0){
 							echo "<table class='table table-bordered'>";
 								echo "<tr>";
-									echo "<th>Request ID</th>";
-									echo "<th>Request Time</th>";
-									echo "<th>Request Song ID</th>";
-									echo "<th>Request Session ID</th>";
-									echo "<th>Delete</th>";
+									echo "<th class='text-center'>Request ID</th>";
+									echo "<th class='text-center'>Request Time</th>";
+									echo "<th class='text-center'>Request Song ID</th>";
+									echo "<th class='text-center'>Request Session ID</th>";
+									echo "<th class='text-center'>Delete</th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
-									echo "<td>" . $row['request_id'] . "</td>";
+									echo "<td class='text-center'>" . $row['request_id'] . "</td>";
 									echo "<td>" . $row['request_time'] . "</td>";
 									echo "<td>" . $row['request_song_id'] . "</td>";
 									echo "<td>" . $row['request_session_id'] . "</td>";
-									echo "<td><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
+									echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";

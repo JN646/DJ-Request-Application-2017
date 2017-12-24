@@ -40,7 +40,7 @@
 									echo "<td>" . $row['zone_name'] . "</td>";
 									echo "<td>" . $row['zone_description'] . "</td>";
 									echo "<td class='text-center'><a href=view_zone.php?zone_id=".$row['zone_id'].">View</a></td>";
-									echo "<td><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'>Delete</a></td>";
+									echo "<td class='text-center'><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'>Delete</a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
