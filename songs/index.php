@@ -23,29 +23,25 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php">Song List</a></h3>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_list.png">Song List</a></h3>						
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php">Add Song</a></h3>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_add.png">Add Song</a></h3>	
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/browse_song.php">Browse Songs</a></h3>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/browse_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_browse.png">Browse Songs</a></h3>							
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/import_songs.php">Import Songs</a></h3>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/import_songs.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_import.png">Import Songs</a></h3>						
 								<br>
 							</div>
 						</div>

@@ -24,14 +24,12 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h2 class="text-center"><a href="browse_song_artist.php">Browse by Artist</a></h2>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h2 class="text-center"><a href="browse_song_artist.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_artist.png">Browse by Artist</a></h2>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h2 class="text-center"><a href="browse_song_genre.php">Browse by Genre</a></h2>
-								<img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/250x250.png">
+								<h2 class="text-center"><a href="browse_song_genre.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_genre.png">Browse by Genre</a></h2>
 							</div>
 						</div>
 					</div>
