@@ -56,7 +56,7 @@
 									echo "\"></a>";
 									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 									echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
-									echo"<p class='text-center'><a href=functions/update_count.php?song_id=" .$row['song_id']. ">Request</a></p>";
+									echo"<p class='text-center'><a href=requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></p>";
 									echo "</div>";
 								echo"</div>";
 							}
