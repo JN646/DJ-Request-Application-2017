@@ -48,6 +48,11 @@ footer ul li {
 	margin-left: 15px;
 }
 
+.table-footer {
+	float: none;
+	margin: 0;
+}
+
 .debug_dump {
 	background-color: #eee;
 	border: 1px solid;
