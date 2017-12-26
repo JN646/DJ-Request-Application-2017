@@ -43,7 +43,7 @@
 							<input type="hidden" name="song_ID" value="<?=$UID;?>">
 							<div class="form-group">
 								<label>Song</label>
-								<input class="form-control" type="text" name="ud_song_name" value="<?=$song_name?>"></input>
+								<input class="form-control" onchange="valid()" type="text" id="ud_song_name" name="ud_song_name" value="<?=$song_name?>"></input>
 							</div>
 							<div class="form-group">
 								<label>Artist</label>
@@ -82,5 +82,21 @@
 // hide status bar
 var status_bar = document.getElementById("status_bar");
 status_bar.style.display="none";
+
+function valid()
+{
+    var textVal=document.getElementById("ud_song_name").value;
+    if (!textVal.match(/\S/)) 
+    {
+        status_bar.style.display="";
+		document.getElementById("status_bar").innerHTML = "Song name can not be blank.";
+        return false;
+    } 
+    else 
+    {
+        status_bar.style.display="none";
+        return true;
+    }
+ }
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
