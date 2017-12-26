@@ -42,7 +42,7 @@
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
-							echo "<td>".$row['request_time']."</td>";
+							echo "<td>Date now:".date("Y-m-d H:i:s").". Date of request:".date("Y-m-d H:i:s", strtotime($row['request_time']))."</td>";
 							echo "<td>".$row['song_name']."</td>";
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";
