@@ -25,7 +25,10 @@
 					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned
 					FROM songs
 					INNER JOIN requests
-					ON songs.song_id = requests.request_song_id";
+					ON songs.song_id = requests.request_song_id
+					
+					ORDER BY request_pinned DESC, request_time DESC
+					";
 					$result = mysqli_query($mysqli, $songterms);
 					
 					echo "<table class='table table-bordered'>";
