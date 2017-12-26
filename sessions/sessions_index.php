@@ -25,8 +25,11 @@
 					<h2>Start a Session</h2>
 					<p>Choose a name for the session and choose the DJ to assign this session to.</p>
 					<form action="<?php echo $environment; ?>sessions/functions/func_add_session.php" method="post">
-						<div class="form-inline">
+						<div class="form-group col-md-6">
+							<label>Choose a name for this session.</label>
 							<input name="session_name" class="form-control" placeholder="Session Name" type="text"></input>
+							<br>
+							<label>Choose a DJ.</label>
 							<select class="form-control">
 								<option>DJ 1</option>
 								<option>DJ 2</option>
@@ -34,11 +37,22 @@
 								<option>DJ 4</option>
 								<option>DJ 5</option>
 							</select>
+							<br>
+							<label>Hold Ctrl while selecting to choose multiple zones.</label>
+							<select multiple class="form-control">
+								<option>Zone 1</option>
+								<option>Zone 2</option>
+								<option>Zone 3</option>
+								<option>Zone 4</option>
+								<option>Zone 5</option>
+							</select>
+							<br>
 							<button class="btn btn-success" name="add_session" type="submit" value="Submit">Submit</button>
 						</div>
 					</form>
 					<hr>
 					<h2>Running Sessions</h2>
+					<div class="col-md-12">
 					<?php
 					// Attempt select query execution
 					$sql = "SELECT * FROM sessions";
@@ -48,13 +62,19 @@
 								echo "<tr>";
 									echo "<th>Session Name</th>";
 									echo "<th>Session Start</th>";
-									echo "<th>Song End</th>";
+									echo "<th>Session DJ</th>";
+									echo "<th>Session Zones</th>";
+									echo "<th>Session Edit</th>";
+									echo "<th>Session End</th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
 									echo "<td>" . $row['session_name'] . "</td>";
 									echo "<td>" . $row['session_start'] . "</td>";
-									echo "<td><button class='form-control btn btn-danger'>End</button></td>";
+									echo "<td>" . $row['session_start'] . "</td>";
+									echo "<td>" . $row['session_start'] . "</td>";
+									echo "<td><button class='btn btn-primary'>Edit</button></td>";
+									echo "<td><button class='btn btn-danger'>End</button></td>";
 								echo "</tr>";
 							}
 							// Free result set
@@ -69,6 +89,7 @@
 						echo '<a href="javascript:history.back()">Go back</a>';
 					}
 					?>
+					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
