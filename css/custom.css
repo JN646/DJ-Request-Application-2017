@@ -27,8 +27,8 @@ body {
 /* } */
 
 .table-footer {
-	float: none;
-	margin: 0;
+	margin: auto 0;
+	padding: 10px;
 }
 
 footer a {

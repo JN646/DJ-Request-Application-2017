@@ -6,10 +6,10 @@
   */
 ?>
 <footer>
-<hr>
-	<div class="container">
+	<hr>
+	<div class="fluid-container">
 		<div class="row">
-			<table class="table-footer">
+			<table class="table table-bordered text-center" style="width: 33%; margin: 0 auto;">
 				<tr>
 					<td>
 						<small>
@@ -23,7 +23,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171224 for Life by J Ginn.</p></small></td>
+					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171226 for Life by J Ginn.</p></small></td>
 				</tr>
 				<tr>
 					<td><img src="<?php echo $environment; ?>images/bottom_logo.png" alt="Logo" height="30%"></td>
