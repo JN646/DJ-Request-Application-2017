@@ -47,7 +47,7 @@
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";
 							if($row['request_pinned'] == 0) {
-								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-success'>Pin</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-primary'>Pin</a></td>";
 							}
 							if($row['request_pinned'] == 1) {
 								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-success'>Unpin</a></td>";
