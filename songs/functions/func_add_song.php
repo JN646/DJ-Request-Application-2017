@@ -22,7 +22,7 @@ if ($_POST['add_song'] == 'Submit') {
 if(mysqli_query($mysqli,$sql))
 		header("refresh:0; url=../add_song.php");
 	else
-		echo "Not Deleted";
+		echo "Not added. Something went wrong.";
  
 // close connection
 mysqli_close($mysqli);
