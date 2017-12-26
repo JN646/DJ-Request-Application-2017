@@ -28,25 +28,26 @@
 					ON songs.song_id = requests.request_song_id";
 					$result = mysqli_query($mysqli, $songterms);
 					
-					echo "<table>";
+					echo "<table class='table table-bordered'>";
 					echo "<tr>";
+						echo "<th>Requested at</th>";
 						echo "<th>Song</th>";
 						echo "<th>Artist</th>";
 						echo "<th>Year</th>";
-						echo "<th>Requested at</th>";
 						echo "<th>Active</th>";
+						echo "<th>Delete</th>";
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
+							echo "<td>".$row['request_time']."</td>";
 							echo "<td>".$row['song_name']."</td>";
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td>".$row['song_year']."</td>";
-							echo "<td>".$row['request_time']."</td>";
 							echo "<td>".$row['request_active']."</td>";
+							//echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
-					
 					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
