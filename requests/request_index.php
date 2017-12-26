@@ -21,35 +21,32 @@
 					<h1 class="display-4">Song Requests</h1>
 					<p>All your active requests this session.</p>
 					<?php
-					$sql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time DESC";
-					if($result = mysqli_query($mysqli, $sql)){
-						if(mysqli_num_rows($result) > 0){
-							echo "<table class='table table-bordered'>";
-								echo "<tr>";
-									echo "<th class='text-center'>Request ID</th>";
-									echo "<th class='text-center'>Request Time</th>";
-									echo "<th class='text-center'>Request Song ID</th>";
-									echo "<th class='text-center'>Request Session ID</th>";
-									echo "<th class='text-center'>Delete</th>";
-								echo "</tr>";
-							while($row = mysqli_fetch_array($result)){
-								echo "<tr>";
-									echo "<td class='text-center'>" . $row['request_id'] . "</td>";
-									echo "<td>" . $row['request_time'] . "</td>";
-									echo "<td>" . $row['request_song_id'] . "</td>";
-									echo "<td>" . $row['request_session_id'] . "</td>";
-									echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
-								echo "</tr>";
-							}
-							echo "</table>";
-							// Free result set
-							mysqli_free_result($result);
-						} else{
-							echo "No requests were found.";
-						}
-					} else{
-						echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+					
+					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active
+					FROM songs
+					INNER JOIN requests
+					ON songs.song_id = requests.request_song_id";
+					$result = mysqli_query($mysqli, $songterms);
+					
+					echo "<table>";
+					echo "<tr>";
+						echo "<th>Song</th>";
+						echo "<th>Artist</th>";
+						echo "<th>Year</th>";
+						echo "<th>Requested at</th>";
+						echo "<th>Active</th>";
+					echo "</tr>";
+					while($row = mysqli_fetch_array($result)) {
+						echo "<tr>";
+							echo "<td>".$row['song_name']."</td>";
+							echo "<td>".$row['song_artist']."</td>";
+							echo "<td>".$row['song_year']."</td>";
+							echo "<td>".$row['request_time']."</td>";
+							echo "<td>".$row['request_active']."</td>";
+						echo "</tr>";
 					}
+					echo "</table>";
+					
 					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
