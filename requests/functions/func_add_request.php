@@ -2,28 +2,41 @@
  /**
   * Project:		DJ Request Application
   * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
+  * FileCreated:	171226
   */
 	// Include config files
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+
+	$UID = (int)$_GET["song_id"];
+	$sql = "INSERT INTO requests (request_song_id) VALUES ('$UID')";	
+	$terms = "SELECT * FROM songs WHERE song_id = '$UID'";
+	$query = mysqli_query($mysqli, $terms);
+
+	// if(mysqli_num_rows($query) > 0){
+		// while($row = mysqli_fetch_array($query)){
+			// $song_name = $row['song_name'];
+			// $artist = $row['song_artist'];
+			// $album = $row['song_album'];
+			// $genre = $row['song_genre'];
+			// $year = $row['song_year'];
+		// }
+	//Attempt insert query execution
+	$sql = "INSERT INTO requests (request_song_id) VALUES ('$UID')";
+
+if(mysqli_query($mysqli,$sql))
+		header("refresh:0; url=../request_index.php");
+	else
+		echo "<br>";
+		echo "<div class='fluid-container'>";
+			echo "<h1>Song Requests</h1>";
+			echo "<p>Not Requested</p>";
+		echo "</div>";
+		
+// close connection
+mysqli_close($mysqli);
 ?>
 <head>
-	<title>Requesting...</title>
+	<title>Song Request</title>
 </head>
-<body>
-	<div class="fluid-container">
-		<div class="col-md-12">
-			<div class="row">
-				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
-				<div class="col-md-11">
-					<br>
-					<h1 class="display-4">Template</h1>
-					<p>Default text goes here.</p>
-				</div> <!-- Close col-md-11 -->
-			</div> <!-- Close row -->
-		</div> <!-- Close col-md-12 -->
-	</div> <!-- Close Container -->
-</body>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
