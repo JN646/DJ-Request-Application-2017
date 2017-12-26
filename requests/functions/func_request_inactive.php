@@ -8,7 +8,7 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	
 	//Attempt insert query execution
-	$update = "UPDATE requests SET request_active = 0 WHERE request_id='$_GET[request_id]'";
+	$update = "DELETE FROM requests WHERE request_id='$_GET[request_id]'";
 
 	//Execute the Query
 	if(mysqli_query($mysqli,$update))
