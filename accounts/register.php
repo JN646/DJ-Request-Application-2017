@@ -75,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Sign Up</h2>
+					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert.</div>
 					<p>Please fill this form to create a DJ account.</p>
 					<div class="col-md-6">
 						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
