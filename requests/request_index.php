@@ -47,12 +47,12 @@
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";
 							if($row['request_pinned'] == 0) {
-								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-sucess'>Pin</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-success'>Pin</a></td>";
 							}
 							if($row['request_pinned'] == 1) {
-								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-sucess'>Unpin</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-success'>Unpin</a></td>";
 							}
-							echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-sucess'>Delete</a></td>";
+							echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
