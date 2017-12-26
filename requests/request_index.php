@@ -22,7 +22,7 @@
 					<p>All your active requests this session.</p>
 					<?php
 					
-					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active
+					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned
 					FROM songs
 					INNER JOIN requests
 					ON songs.song_id = requests.request_song_id";
@@ -35,7 +35,8 @@
 						echo "<th>Artist</th>";
 						echo "<th>Year</th>";
 						echo "<th>Active</th>";
-						echo "<th>Delete</th>";
+						echo "<th>Pinned</th>";
+						echo "<th>Pin</th>";
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
@@ -44,7 +45,8 @@
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td>".$row['song_year']."</td>";
 							echo "<td>".$row['request_active']."</td>";
-							//echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
+							echo "<td>".$row['request_pinned']."</td>";
+							echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-sucess'>Pin</a></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
