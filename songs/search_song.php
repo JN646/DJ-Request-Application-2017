@@ -19,7 +19,7 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<?php echo "<h1 class='display-4'>Results for $_GET[search_val]</h1>"; ?>
+					<?php echo "<h1 class='display-4'>Results for '$_GET[search_val]'</h1>"; ?>
 					<br>
 					<form action="search_song.php" method="get">
 						<div class="form-inline">
@@ -47,7 +47,7 @@
 									echo "</tr>";
 								while($row = mysqli_fetch_array($result)){
 									echo "<tr>";
-										echo "<td><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
+										echo "<td><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
 										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "small");
 										echo "\"></td>";
 										echo "<td>" . $row['song_name'] . "</td>";
