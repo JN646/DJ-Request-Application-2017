@@ -10,11 +10,10 @@
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 
 	$UID = (int)$_GET["song_id"];
-	$sql = "INSERT INTO requests (request_song_id) VALUES ('$UID')";
-	mysqli_query($mysqli, $sql);
-	echo "Affected rows: ".mysqli_affected_rows($mysqli);
+	$sql = "INSERT INTO requests (request_song_id, request_session_id) VALUES ('$UID', '1')";
 	
-	if(mysqli_query($mysqli, $sql)) { //don't know what this does -doesn't seem to be testing for successful insert
+	// Run the query.
+	if(mysqli_query($mysqli, $sql)) {
 		header("refresh:0; url=../request_index.php");
 	} else {
 		echo "<br>";
