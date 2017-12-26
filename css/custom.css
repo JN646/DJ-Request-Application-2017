@@ -40,16 +40,16 @@ footer a:hover {
 }
 
 footer small {
-	float: left;
+	/* float: left; */
 }
 
 footer ul {
-	float: right;
+	/* float: right; */
 	list-style: none;
 }
 
 footer ul li {
-	float: left;
+	/* float: left; */
 	margin-left: 15px;
 }
 
@@ -58,7 +58,7 @@ footer ul li {
 	border: 1px solid;
 	border-radius: 5px; 
 	clear: both;
-	float: left;
+	/* float: left; */
 	width: 100%;
 	margin-top: 45px;
 }
