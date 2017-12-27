@@ -45,7 +45,7 @@
 							<br>
 							<label>Zones</label>
 							<p>This doesn't do anything yet.</p>
-							<?
+							<?php
 							//get the list of zones
 							$terms = "SELECT * FROM zones";
 							$result = mysqli_query($mysqli,$terms);
