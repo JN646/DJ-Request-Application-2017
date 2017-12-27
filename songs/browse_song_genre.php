@@ -28,8 +28,7 @@
 							if(mysqli_num_rows($result) > 0){
 								while($row = mysqli_fetch_array($result)){
 									echo "<div class='col-md-2'>";
-										echo "<h3>" . $row['song_genre'] . "</h3>";
-										echo "<p class='text-center'><a href=browse_song_genrel.php?song_genre=".urlencode($row['song_genre'])." >View</a></p>";
+										echo "<h3><a href=browse_song_genrel.php?song_genre=".urlencode($row['song_genre']).">" . $row['song_genre'] . "</a></h3>";
 									echo "</div>";
 								}
 								// Free result set
