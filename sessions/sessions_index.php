@@ -93,8 +93,17 @@
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
 									echo "<td>" . $row['session_name'] . "</td>";
-									echo "<td>" . $row['user_ID'] . "</td>";
-									echo "<td>" . $row['zone_info'] . "</td>";
+									echo "<td>";
+										$dj = mysqli_query($mysqli, "SELECT username FROM users WHERE id=".$row['user_ID']);
+										echo mysqli_fetch_array($dj)['username'];
+										echo "</td>";
+									echo "<td>";
+										$termzone = "SELECT zone_name FROM zones WHERE zone_id IN (SELECT zone_id FROM sessionzone WHERE session_id=".$row['session_id'].")";
+										$thiszones = mysqli_query($mysqli, $termzone);
+										while($i = mysqli_fetch_array($thiszones)) {
+											echo "<p>".$i['zone_name']."</p>";
+										}
+										echo "</td>";
 									echo "<td>" . $row['playlist'] . "</td>"; //get the name from the playlist table
 									echo "<td><button class='btn btn-primary'>Edit</button></td>";
 									echo "<td><button class='btn btn-danger'>Delete</button></td>";
