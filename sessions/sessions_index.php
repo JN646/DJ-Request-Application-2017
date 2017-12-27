@@ -1,17 +1,17 @@
 <?php
- /**
-  * Project:		DJ Request Application
-  * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
-  */
-	// Include config file
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
-	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
-	session_start();															// Initialise the session
-	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If session variable is not set it will redirect to login page
-		header("location: http://localhost/djx/djx/accounts/login.php");
-		exit;
-	}
+/**
+* Project:		DJ Request Application
+* Copyright:		(C) JGinn 2017
+* FileCreated:	171210
+*/
+// Include config file
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+session_start();															// Initialise the session
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If session variable is not set it will redirect to login page
+	header("location: http://localhost/djx/djx/accounts/login.php");
+	exit;
+}
 ?>
 <head>
 	<title>Sessions</title>
@@ -22,7 +22,7 @@
 			<div class="row">
 				<?php
 				include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php");
-				
+
 				//get the active user ID
 				$uname = $_SESSION['username'];
 				$terms = "SELECT id FROM users WHERE username = '$uname'";
@@ -49,7 +49,7 @@
 							//get the list of zones
 							$terms = "SELECT * FROM zones";
 							$result = mysqli_query($mysqli,$terms);
-							
+
 							echo "<table class='table'>";
 							echo "<tr>";
 								echo "<th>Name</th>";

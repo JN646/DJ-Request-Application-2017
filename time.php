@@ -1,5 +1,5 @@
-<?php  
-  print date("m/d/y G.i:s<br>", time()); 
+<?php
+  print date("m/d/y G.i:s<br>", time());
   //Outputs i.e. 12/26/13 18.36:50
 
   print "Today is ";

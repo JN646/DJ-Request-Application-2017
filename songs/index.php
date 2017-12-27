@@ -1,12 +1,12 @@
 <?php
- /**
-  * Project:		DJ Request Application
-  * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
-  */
-	// Include config file
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
-	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+/**
+* Project:		DJ Request Application
+* Copyright:		(C) JGinn 2017
+* FileCreated:	171210
+*/
+// Include config file
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 ?>
 <head>
 	<title>Song Management</title>
@@ -23,25 +23,25 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_list.png">Song List</a></h3>						
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/list_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_list.png">Song List</a></h3>
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_add.png">Add Song</a></h3>	
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/add_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_add.png">Add Song</a></h3>
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/browse_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_browse.png">Browse Songs</a></h3>							
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/browse_song.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_browse.png">Browse Songs</a></h3>
 								<br>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/import_songs.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_import.png">Import Songs</a></h3>						
+								<h3 class="text-center"><a href="<?php echo $environment; ?>songs/import_songs.php"><img class="img-responsive img-rounded" width="100%" src="<?php echo $environment; ?>images/music_import.png">Import Songs</a></h3>
 								<br>
 							</div>
 						</div>
