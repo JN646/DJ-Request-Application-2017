@@ -33,8 +33,11 @@ if($timeType == "h") {
 	$timeVal = round($timeCalc/3600);
 }
 
+
 if($timeVal!=1)
 	$plural = "s";
+else
+	$plural = "";
 
 return $timeVal.$timeUnit.$plural." ago";
 }
