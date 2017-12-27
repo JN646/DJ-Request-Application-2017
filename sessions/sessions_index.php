@@ -20,43 +20,61 @@
 	<div class="fluid-container">
 		<div class="col-md-12">
 			<div class="row">
-				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
+				<?php
+				include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php");
+				
+				//get the active user ID
+				$uname = $_SESSION['username'];
+				$terms = "SELECT id FROM users WHERE username = '$uname'";
+				$result = mysqli_query($mysqli,$terms);
+				$rs = mysqli_fetch_array($result);
+				$userid = (int)$rs['id'];
+				?>
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Sessions</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
-					<p>A session is a clearly defined music event. Once a session has been created the VIP guests will be able to send requests to it. Once the session has finished it needs to be destroyed.</p>
+					<p>A session is a clearly defined music event that has a playlist and can serve multiple zones. Once a session has been created, the VIP guests will be able to send requests via its active zones.</p>
 					<hr>
-					<h2>Start a Session</h2>
-					<p>Choose a name for the session and choose the DJ to assign this session to.</p>
+					<h2>Create a New Session</h2>
 					<form action="<?php echo $environment; ?>sessions/functions/func_add_session.php" method="post">
+						<input type="hidden" name="user_id" value="<?=$userid;?>">
 						<div class="form-group col-md-6">
-							<label>Choose a name for this session.</label>
+							<label>Session Name</label>
 							<input name="session_name" class="form-control" placeholder="Session Name" type="text"></input>
 							<br>
-							<label>Choose a DJ.</label>
-							<select class="form-control">
-								<option>DJ 1</option>
-								<option>DJ 2</option>
-								<option>DJ 3</option>
-								<option>DJ 4</option>
-								<option>DJ 5</option>
-							</select>
+							<label>Zones</label>
+							<p>This doesn't do anything yet.</p>
+							<?
+							//get the list of zones
+							$terms = "SELECT * FROM zones";
+							$result = mysqli_query($mysqli,$terms);
+							
+							echo "<table class='table'>";
+							echo "<tr>";
+								echo "<th>Name</th>";
+								echo "<th>Description</th>";
+								echo "<th>Session Service</th>";
+							echo "</tr>";
+							while($row = mysqli_fetch_array($result)){
+								echo "<tr>";
+								echo "<td>".$row['zone_name']."</td>";
+								echo "<td>".$row['zone_description']."</td>";
+								echo "<td><input id='checkBox' type='checkbox' value='zone_id'></td>"; //THIS NEEDS A CORERECT VALUE - bit shift zone id by row number, then accumulate (+) the result to zone_info
+								echo "</tr>";
+							}
+							echo "</table>";
+							?>
+							<input type="hidden" name="zone_info"></input>
 							<br>
-							<label>Hold Ctrl while selecting to choose multiple zones.</label>
-							<select multiple class="form-control">
-								<option>Zone 1</option>
-								<option>Zone 2</option>
-								<option>Zone 3</option>
-								<option>Zone 4</option>
-								<option>Zone 5</option>
-							</select>
+							<label>playlist id</label>
+							<input name="playlist_id" class="form-control" placeholder="placeholder until playlists implemented"></input>
 							<br>
 							<button class="btn btn-success" name="add_session" type="submit" value="Submit">Submit</button>
 						</div>
 					</form>
 					<hr>
-					<h2>Running Sessions</h2>
+					<h2>Existing Sessions</h2>
 					<div class="col-md-12">
 					<?php
 					// Attempt select query execution
@@ -65,21 +83,21 @@
 						if(mysqli_num_rows($result) > 0){
 							echo "<table class='table'>";
 								echo "<tr>";
-									echo "<th>Session Name</th>";
-									echo "<th>Session Start</th>";
-									echo "<th>Session DJ</th>";
-									echo "<th>Session Zones</th>";
-									echo "<th>Session Edit</th>";
-									echo "<th>Session End</th>";
+									echo "<th>Name</th>";
+									echo "<th>DJ</th>";
+									echo "<th>Zones</th>";
+									echo "<th>Playlist</th>";
+									echo "<th width='10%'></th>";
+									echo "<th width='10%'></th>";
 								echo "</tr>";
 							while($row = mysqli_fetch_array($result)){
 								echo "<tr>";
 									echo "<td>" . $row['session_name'] . "</td>";
-									echo "<td>" . $row['session_start'] . "</td>";
-									echo "<td>" . $row['session_start'] . "</td>";
-									echo "<td>" . $row['session_start'] . "</td>";
+									echo "<td>" . $row['user_ID'] . "</td>";
+									echo "<td>" . $row['zone_info'] . "</td>";
+									echo "<td>" . $row['playlist'] . "</td>"; //get the name from the playlist table
 									echo "<td><button class='btn btn-primary'>Edit</button></td>";
-									echo "<td><button class='btn btn-danger'>End</button></td>";
+									echo "<td><button class='btn btn-danger'>Delete</button></td>";
 								echo "</tr>";
 							}
 							// Free result set
