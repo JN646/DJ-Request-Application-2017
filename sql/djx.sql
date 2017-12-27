@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.6
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Dec 26, 2017 at 09:15 PM
--- Server version: 5.7.19
--- PHP Version: 7.1.9
+-- Host: localhost
+-- Generation Time: Dec 27, 2017 at 04:40 PM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,14 +28,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `clients`
 --
 
-DROP TABLE IF EXISTS `clients`;
-CREATE TABLE IF NOT EXISTS `clients` (
-  `client_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `clients` (
+  `client_id` int(11) NOT NULL,
   `Client_Mac` varchar(20) NOT NULL COMMENT 'Client Mac Address',
   `client_name` text NOT NULL,
-  `client_description` text NOT NULL,
-  PRIMARY KEY (`client_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `client_description` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `clients`
@@ -54,44 +52,59 @@ INSERT INTO `clients` (`client_id`, `Client_Mac`, `client_name`, `client_descrip
 -- Table structure for table `requests`
 --
 
-DROP TABLE IF EXISTS `requests`;
-CREATE TABLE IF NOT EXISTS `requests` (
-  `request_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Request ID.',
-  `request_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time the song was requested.',
+CREATE TABLE `requests` (
+  `request_id` int(11) NOT NULL COMMENT 'Request ID.',
+  `request_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Time the song was requested.',
   `request_song_id` int(11) DEFAULT NULL COMMENT 'ID number of the song.',
   `request_session_id` int(11) DEFAULT NULL COMMENT 'ID number of the session.',
   `request_active` tinyint(1) DEFAULT '1' COMMENT 'Is the song active?',
-  `request_pinned` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'has the request been pinned.',
-  PRIMARY KEY (`request_id`),
-  KEY `request_song_id` (`request_song_id`),
-  KEY `request_session_id` (`request_session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+  `request_pinned` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'has the request been pinned.'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `requests`
 --
 
 INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `request_session_id`, `request_active`, `request_pinned`) VALUES
-(1, '2017-12-26 21:05:19', 1, 1, 0, 1),
-(3, '2017-12-16 15:24:29', 1, 1, 0, 0),
-(4, '2017-12-16 15:24:32', 1, 1, 0, 0),
-(5, '2017-12-26 18:52:56', 1, 1, 0, 0),
-(6, '2017-12-26 18:52:56', 1, 1, 0, 0),
-(7, '2017-12-26 18:52:57', 1, 1, 0, 0),
-(8, '2017-12-26 18:52:58', 1, 1, 0, 0),
-(9, '2017-12-26 18:52:47', 1, 2, 0, 0),
-(10, '2017-12-26 18:52:50', 1, 1, 0, 0),
-(11, '2017-12-26 18:52:51', 1, 1, 0, 0),
-(12, '2017-12-26 18:52:53', 1, 1, 0, 0),
-(13, '2017-12-26 18:52:54', 1, 1, 0, 0),
+(1, '2017-12-26 22:35:47', 1, 1, 0, 0),
 (14, '2017-12-26 18:52:55', 1, 2, 0, 0),
-(15, '2017-12-26 18:51:06', 93, NULL, 1, 0),
 (16, '2017-12-26 18:52:44', 93, NULL, 0, 0),
 (17, '2017-12-26 18:52:37', 82, NULL, 1, 0),
 (18, '2017-12-26 18:54:39', 735, 1, 1, 0),
-(19, '2017-12-26 18:57:43', 207, 1, 1, 0),
-(20, '2017-12-26 18:57:53', 210, 1, 1, 0),
-(21, '2017-12-26 19:07:39', 62, 1, 1, 0);
+(19, '2017-12-26 22:40:12', 207, 1, 1, 1),
+(20, '2017-12-26 22:40:13', 210, 1, 1, 0),
+(21, '2017-12-26 19:07:39', 62, 1, 1, 0),
+(22, '2017-12-26 22:48:19', 209, 1, 1, 0),
+(23, '2017-12-26 23:22:31', 220, 1, 1, 0),
+(24, '2017-12-26 23:24:01', 213, 1, 1, 0),
+(25, '2017-12-26 23:56:32', 255, 1, 1, 0),
+(26, '2017-12-27 00:00:02', 255, 1, 1, 0),
+(27, '2017-12-27 00:00:03', 255, 1, 1, 0),
+(28, '2017-12-27 00:05:40', 271, 1, 1, 0),
+(29, '2017-12-27 00:24:55', 205, 1, 1, 0),
+(30, '2017-12-27 00:39:37', 232, 1, 1, 0),
+(31, '2017-12-27 00:55:44', 207, 1, 1, 0),
+(32, '2017-12-27 00:58:43', 210, 1, 1, 0),
+(33, '2017-12-27 01:10:23', 210, 1, 1, 0),
+(34, '2017-12-27 01:11:04', 210, 1, 1, 0),
+(35, '2017-12-27 01:11:06', 210, 1, 1, 0),
+(36, '2017-12-27 01:12:27', 210, 1, 1, 0),
+(37, '2017-12-27 01:12:28', 210, 1, 1, 0),
+(38, '2017-12-27 01:12:28', 210, 1, 1, 0),
+(39, '2017-12-27 01:12:29', 210, 1, 1, 0),
+(40, '2017-12-27 01:12:30', 210, 1, 1, 0),
+(41, '2017-12-27 01:12:32', 210, 1, 1, 0),
+(42, '2017-12-27 01:12:33', 210, 1, 1, 0),
+(43, '2017-12-27 01:12:34', 210, 1, 1, 0),
+(44, '2017-12-27 01:12:35', 210, 1, 1, 0),
+(45, '2017-12-27 01:12:36', 210, 1, 1, 0),
+(46, '2017-12-27 01:27:00', 206, 1, 1, 0),
+(47, '2017-12-27 01:30:37', 206, 1, 1, 0),
+(48, '2017-12-27 13:46:44', 470, 1, 1, 0),
+(49, '2017-12-27 14:19:12', 343, 1, 1, 1),
+(50, '2017-12-27 14:00:48', 65, 1, 1, 1),
+(51, '2017-12-27 14:17:21', 202, 1, 1, 0),
+(52, '2017-12-27 14:23:00', 206, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -99,25 +112,23 @@ INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `reques
 -- Table structure for table `sessions`
 --
 
-DROP TABLE IF EXISTS `sessions`;
-CREATE TABLE IF NOT EXISTS `sessions` (
-  `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session ID',
+CREATE TABLE `sessions` (
+  `session_id` int(11) NOT NULL COMMENT 'Session ID',
+  `user_ID` int(11) NOT NULL COMMENT 'the user/DJ who owns the session',
   `session_name` text COMMENT 'Session Name',
-  `session_start` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Session Start Time',
-  `session_end` timestamp NULL DEFAULT NULL COMMENT 'Session End Time',
-  `session_active` int(1) NOT NULL DEFAULT '1' COMMENT 'Session Active?',
-  PRIMARY KEY (`session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `zone_info` smallint(6) NOT NULL DEFAULT '0' COMMENT 'bit-shifted bool on active zones',
+  `playlist` int(10) UNSIGNED DEFAULT NULL COMMENT 'music playlist linked to session',
+  `session_active` int(1) NOT NULL DEFAULT '1' COMMENT 'Session Active?'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sessions`
 --
 
-INSERT INTO `sessions` (`session_id`, `session_name`, `session_start`, `session_end`, `session_active`) VALUES
-(1, 'Test Session', '2017-12-16 12:53:55', NULL, 1),
-(2, 'Test Session', '2017-12-16 12:53:58', NULL, 1),
-(3, 'Test', '2017-12-16 13:30:35', NULL, 1),
-(4, 'My First Session', '2017-12-19 21:57:17', NULL, 1);
+INSERT INTO `sessions` (`session_id`, `user_ID`, `session_name`, `zone_info`, `playlist`, `session_active`) VALUES
+(5, 9, 'Friday Night', 3, 1, 1),
+(6, 9, 'Friday Night', 3, 1, 1),
+(7, 9, 'Foo', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -125,16 +136,14 @@ INSERT INTO `sessions` (`session_id`, `session_name`, `session_start`, `session_
 -- Table structure for table `songs`
 --
 
-DROP TABLE IF EXISTS `songs`;
-CREATE TABLE IF NOT EXISTS `songs` (
-  `song_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `songs` (
+  `song_id` int(11) NOT NULL,
   `song_name` text NOT NULL,
   `song_artist` text NOT NULL,
   `song_album` varchar(50) NOT NULL COMMENT 'Song Album',
   `song_genre` text NOT NULL,
-  `song_year` int(4) NOT NULL,
-  PRIMARY KEY (`song_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=975 DEFAULT CHARSET=latin1;
+  `song_year` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `songs`
@@ -257,12 +266,12 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 (213, 'Until The End Of Time', '2Pac', 'Until the End of Time', 'Rap', 2001),
 (214, 'Runnin\' (Dying To Live)', '2Pac', 'Until the End of Time', 'Rap', 2003),
 (215, 'Thugz Mansion', '2Pac', 'Until the End of Time', 'Rap', 2002),
-(217, 'Don\'t Trust Me', '3OH!3', '', '', 2009),
-(218, 'Starstrukk', '3OH!3 & Katy Perry', '', '', 2010),
-(219, 'My First Kiss', '3OH!3 & Ke$ha', 'Streets of Gold', '', 2010),
-(220, 'She Looks So Perfect', '5 Seconds of Summer', '', '', 2014),
-(221, 'Amnesia', '5 Seconds of Summer', '', '', 2014),
-(222, 'She\'s Kinda Hot', '5 Seconds of Summer', '', '', 2015),
+(217, 'Don\'t Trust Me', '3OH!3', '3OH!3', 'EDM', 2009),
+(218, 'Starstrukk', '3OH!3', '3OH!3', 'EDM', 2010),
+(219, 'My First Kiss', '3OH!3', 'Streets of Gold', 'EDM', 2010),
+(220, 'She Looks So Perfect', '5 Seconds of Summer', '5 Seconds of Summer', 'Pop', 2014),
+(221, 'Amnesia', '5 Seconds of Summer', '5 Seconds of Summer', 'Pop', 2014),
+(222, 'She\'s Kinda Hot', '5 Seconds of Summer', '5 Seconds of Summer', 'Pop', 2015),
 (223, 'Wanksta', '50 Cent', 'Get Rich or Die Tryin\'', 'Hip-Hop', 2003),
 (224, 'In Da Club', '50 Cent', 'Get Rich or Die Tryin\'', 'Hip-Hop', 2003),
 (225, 'PIMP', '50 Cent', 'Get Rich or Die Tryin\'', 'Hip-Hop', 2003),
@@ -282,51 +291,51 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 (239, 'Drowning', 'A Boogie Wit da Hoodie & Kodak Black', '', '', 2017),
 (240, 'Say Something', 'A Great Big World & Christina Aguilera', '', '', 2013),
 (241, 'Jay Ho (you Are My Destiny)', 'A R Rahman & The Pussycat Dolls', '', '', 2009),
-(242, 'I Don\'t Wanna', 'Aaliyah', '', '', 2000),
-(243, 'Try Again', 'Aaliyah', '', '', 2000),
-(244, 'Rock The Boat', 'Aaliyah', '', '', 2001),
-(245, 'More Than A Woman', 'Aaliyah', '', '', 2002),
-(246, 'I Care 4 U', 'Aaliyah', '', '', 2002),
-(247, 'Miss You', 'Aaliyah', '', '', 2002),
-(248, 'Come Over', 'Aaliyah', '', '', 2003),
-(249, 'We Need A Resolution', 'Aaliyah & Timbaland', '', '', 2001),
+(242, 'I Don\'t Wanna', 'Aaliyah', 'Next Friday', '', 2000),
+(243, 'Try Again', 'Aaliyah', 'Next Friday', '', 2000),
+(244, 'Rock The Boat', 'Aaliyah', 'Next Friday', '', 2001),
+(245, 'More Than A Woman', 'Aaliyah', 'Next Friday', '', 2002),
+(246, 'I Care 4 U', 'Aaliyah', 'Next Friday', '', 2002),
+(247, 'Miss You', 'Aaliyah', 'Next Friday', '', 2002),
+(248, 'Come Over', 'Aaliyah', 'Next Friday', '', 2003),
+(249, 'We Need A Resolution', 'Aaliyah', 'Next Friday', '', 2001),
 (250, 'You Can\'t Hide Beautiful', 'Aaron Lines', '', '', 2003),
 (251, 'Where The Stars And Stripes And The Eagle Fly', 'Aaron Tippin', '', '', 2001),
 (252, 'Bugatti', 'Ace Hood, Future & Rick Ross', '', '', 2013),
 (253, 'What Do You Want From Me?', 'Adam Lambert', '', '', 2010),
 (254, 'If I Had You', 'Adam Lambert', '', '', 2010),
-(255, 'Rolling In The Deep', 'Adele', '', '', 2011),
-(256, 'Someone Like You', 'Adele', '', '', 2011),
-(257, 'Set Fire To The Rain', 'Adele', '', '', 2011),
-(258, 'Rumour Has It', 'Adele', '', '', 2012),
-(259, 'Skyfall', 'Adele', '', '', 2012),
-(260, 'Hello', 'Adele', '', '', 2015),
-(261, 'When We Were Young', 'Adele', '', '', 2016),
-(262, 'Send My Love (To Your New Lover)', 'Adele', '', '', 2016),
-(263, 'Water Under The Bridge', 'Adele', '', '', 2017),
+(255, 'Rolling In The Deep', 'Adele', '21', '', 2011),
+(256, 'Someone Like You', 'Adele', '21', '', 2011),
+(257, 'Set Fire To The Rain', 'Adele', '21', '', 2011),
+(258, 'Rumour Has It', 'Adele', '21', '', 2012),
+(259, 'Skyfall', 'Adele', '21', '', 2012),
+(260, 'Hello', 'Adele', '25', '', 2015),
+(261, 'When We Were Young', 'Adele', '25', '', 2016),
+(262, 'Send My Love (To Your New Lover)', 'Adele', '25', '', 2016),
+(263, 'Water Under The Bridge', 'Adele', '25', '', 2017),
 (264, 'Jaded', 'Aerosmith', '', '', 2001),
 (265, 'Miss Murder', 'AFI', '', '', 2006),
 (266, 'Take Over Control', 'Afrojack & Eva Simons', '', '', 2011),
 (267, 'Because I Got High', 'Afroman', '', '', 2001),
-(268, 'Lonely', 'Akon', '', '', 2005),
-(269, 'Belly Dancer (Bananza)', 'Akon', '', '', 2005),
-(270, 'Smack That', 'Akon', '', '', 2006),
-(271, 'Don\'t Matter', 'Akon', '', '', 2007),
-(272, 'Sorry Blame It On Me', 'Akon', '', '', 2007),
-(273, 'Right Now (Na, Na, Na)', 'Akon', '', '', 2008),
-(274, 'Beautiful', 'Akon', '', '', 2009),
-(275, 'I Wanna Love You', 'Akon & Snoop Dogg', '', '', 2006),
-(276, 'Locked Up', 'Akon & Styles P', '', '', 2004),
-(277, 'I\'m So Paid', 'Akon, Lil\' Wayne & Young Jeezy', '', '', 2009),
-(278, 'It Must Be Love', 'Alan Jackson', '', '', 2000),
-(279, 'Where I Come From', 'Alan Jackson', '', '', 2001),
-(280, 'Where Were You (When The World Stopped Turning)', 'Alan Jackson', '', '', 2001),
-(281, 'Drive (For Daddy Gene)', 'Alan Jackson', '', '', 2002),
-(282, 'Work In Progress', 'Alan Jackson', '', '', 2002),
-(283, 'That\'d Be Alright', 'Alan Jackson', '', '', 2003),
-(284, 'Remember When', 'Alan Jackson', '', '', 2004),
-(285, 'Good Time', 'Alan Jackson', '', '', 2008),
-(286, 'It\'s Five O\'Clock Somewhere', 'Alan Jackson & Jimmy Buffett', '', '', 2003),
+(268, 'Lonely', 'Akon', 'Trouble', '', 2005),
+(269, 'Belly Dancer (Bananza)', 'Akon', 'Trouble', '', 2005),
+(270, 'Smack That', 'Akon', 'Trouble', '', 2006),
+(271, 'Don\'t Matter', 'Akon', 'Trouble', '', 2007),
+(272, 'Sorry Blame It On Me', 'Akon', 'Trouble', '', 2007),
+(273, 'Right Now (Na, Na, Na)', 'Akon', 'Trouble', '', 2008),
+(274, 'Beautiful', 'Akon', 'Trouble', '', 2009),
+(275, 'I Wanna Love You', 'Akon', 'Trouble', '', 2006),
+(276, 'Locked Up', 'Akon', 'Trouble', '', 2004),
+(277, 'I\'m So Paid', 'Akon', 'Trouble', '', 2009),
+(278, 'It Must Be Love', 'Alan Jackson', 'Under the Influence', '', 2000),
+(279, 'Where I Come From', 'Alan Jackson', 'Under the Influence', '', 2001),
+(280, 'Where Were You (When The World Stopped Turning)', 'Alan Jackson', 'Under the Influence', '', 2001),
+(281, 'Drive (For Daddy Gene)', 'Alan Jackson', 'Under the Influence', '', 2002),
+(282, 'Work In Progress', 'Alan Jackson', 'Under the Influence', '', 2002),
+(283, 'That\'d Be Alright', 'Alan Jackson', 'Under the Influence', '', 2003),
+(284, 'Remember When', 'Alan Jackson', 'Under the Influence', '', 2004),
+(285, 'Good Time', 'Alan Jackson', 'Under the Influence', '', 2008),
+(286, 'It\'s Five O\'Clock Somewhere', 'Alan Jackson', 'Under the Influence', '', 2003),
 (287, 'Faded', 'Alan Walker', '', '', 2016),
 (288, 'Hands Clean', 'Alanis Morissette', '', '', 2002),
 (289, 'Here', 'Alessia Cara', '', '', 2015),
@@ -377,15 +386,15 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 (335, 'If I Could Go!', 'Angie Martinez, Lil\' Mo & Sacario', '', '', 2002),
 (336, 'Cups (Pitch Perfect\'s \'When I\'m Gone\')', 'Anna Kendrick', '', '', 2013),
 (337, 'Charlene', 'Anthony Hamilton', '', '', 2004),
-(338, 'The Way', 'Ariana Grande', '', '', 2013),
-(339, 'Love Me Harder', 'Ariana Grande', '', '', 2014),
-(340, 'One Last Time (Attends-moi)', 'Ariana Grande', '', '', 2015),
-(341, 'Focus', 'Ariana Grande', '', '', 2015),
-(342, 'Dangerous Woman', 'Ariana Grande', '', '', 2016),
-(343, 'Into You', 'Ariana Grande', '', '', 2016),
-(344, 'Problem', 'Ariana Grande & Iggy Azalea', '', '', 2014),
-(345, 'Side To Side', 'Ariana Grande & Nicki Minaj', '', '', 2016),
-(346, 'Break Free', 'Ariana Grande & Zedd', '', '', 2014),
+(338, 'The Way', 'Ariana Grande', 'Yours Truly', '', 2013),
+(339, 'Love Me Harder', 'Ariana Grande', 'Yours Truly', '', 2014),
+(340, 'One Last Time (Attends-moi)', 'Ariana Grande', 'Yours Truly', '', 2015),
+(341, 'Focus', 'Ariana Grande', 'Yours Truly', '', 2015),
+(342, 'Dangerous Woman', 'Ariana Grande', 'Yours Truly', '', 2016),
+(343, 'Into You', 'Ariana Grande', 'Yours Truly', '', 2016),
+(344, 'Problem', 'Ariana Grande', 'Yours Truly', '', 2014),
+(345, 'Side To Side', 'Ariana Grande', 'Yours Truly', '', 2016),
+(346, 'Break Free', 'Ariana Grande', 'Yours Truly', '', 2014),
 (347, 'I\'m An Albatraoz', 'AronChupa', '', '', 2015),
 (348, 'We Are The World 25 For Haiti', 'Artists For Haiti', '', '', 2010),
 (349, 'One Day/Reckoning Song', 'Asaf Avidan', '', '', 2012),
@@ -573,29 +582,29 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 (531, 'Drunk On Your Love', 'Brett Eldredge', '', '', 2016),
 (532, 'In Case You Didn\'t Know', 'Brett Young', '', '', 2017),
 (533, 'Back At One', 'Brian McKnight', '', '', 2000),
-(534, '(You Drive Me) Crazy', 'Britney Spears', '', '', 2000),
-(535, 'From The Bottom Of My Broken Heart', 'Britney Spears', '', '', 2000),
-(536, 'Oops!... I Did It Again', 'Britney Spears', '', '', 2000),
-(537, 'Lucky', 'Britney Spears', '', '', 2000),
-(538, 'Stronger', 'Britney Spears', '', '', 2000),
-(539, 'I\'m A Slave 4 U', 'Britney Spears', '', '', 2001),
-(540, 'Toxic', 'Britney Spears', '', '', 2004),
-(541, 'Everytime', 'Britney Spears', '', '', 2004),
-(542, 'Gimme More', 'Britney Spears', '', '', 2007),
-(543, 'Piece Of Me', 'Britney Spears', 'Blackout', '', 2007),
-(544, 'Break The Ice', 'Britney Spears', '', '', 2008),
-(545, 'Womanizer', 'Britney Spears', '', '', 2008),
-(546, 'Circus', 'Britney Spears', '', '', 2008),
-(547, 'If U Seek Amy', 'Britney Spears', '', '', 2009),
-(548, '3', 'Britney Spears', '', '', 2009),
-(549, 'Hold It Against Me', 'Britney Spears', '', '', 2011),
-(550, 'Till The World Ends', 'Britney Spears', '', '', 2011),
-(551, 'I Wanna Go', 'Britney Spears', '', '', 2011),
-(552, 'Criminal', 'Britney Spears', '', '', 2011),
-(553, 'Work Bitch!', 'Britney Spears', '', '', 2013),
-(554, 'Make Me...', 'Britney Spears & G-Eazy', '', '', 2016),
-(555, 'Pretty Girls', 'Britney Spears & Iggy Azalea', '', '', 2015),
-(556, 'Me Against The Music', 'Britney Spears & Madonna', '', '', 2003),
+(534, '(You Drive Me) Crazy', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2000),
+(535, 'From The Bottom Of My Broken Heart', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2000),
+(536, 'Oops!... I Did It Again', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2000),
+(537, 'Lucky', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2000),
+(538, 'Stronger', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2000),
+(539, 'I\'m A Slave 4 U', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2001),
+(540, 'Toxic', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2004),
+(541, 'Everytime', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2004),
+(542, 'Gimme More', 'Britney Spears', 'Blackout', 'Pop', 2007),
+(543, 'Piece Of Me', 'Britney Spears', 'Blackout', 'Pop', 2007),
+(544, 'Break The Ice', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2008),
+(545, 'Womanizer', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2008),
+(546, 'Circus', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2008),
+(547, 'If U Seek Amy', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2009),
+(548, '3', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2009),
+(549, 'Hold It Against Me', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2011),
+(550, 'Till The World Ends', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2011),
+(551, 'I Wanna Go', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2011),
+(552, 'Criminal', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2011),
+(553, 'Work Bitch!', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2013),
+(554, 'Make Me...', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2016),
+(555, 'Pretty Girls', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2015),
+(556, 'Me Against The Music', 'Britney Spears', 'Oops!... I Did It Again', 'Pop', 2003),
 (557, 'Girlfight', 'Brooke Valentine, Lil\' Jon & Big Boi', '', '', 2005),
 (558, 'Ain\'t Nothing \'Bout You', 'Brooks & Dunn', '', '', 2001),
 (559, 'Only In America', 'Brooks & Dunn', '', '', 2001),
@@ -1005,7 +1014,8 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 (963, 'A Little Less Conversation', 'Elvis Presley', '', 'Pop', 2002),
 (964, 'Read All About It (Pt. III)', 'Emeli Sande', '', '', 2012),
 (965, 'Next To Me', 'Emeli Sande', '', '', 2013),
-(966, 'I Should Be Sleeping', 'Emerson Drive', '', '', 2002),
+(966, 'I Should Be Sleeping', 'Emerson Drive', '', '', 2002);
+INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_genre`, `song_year`) VALUES
 (967, 'Fall Into Me', 'Emerson Drive', '', '', 2003),
 (968, 'Jungle Drum', 'Emiliana Torrini', '', '', 2009),
 (969, 'The Real Slim Shady', 'Eminem', 'The Marshall Mathers LP', 'Rap', 2000),
@@ -1021,14 +1031,24 @@ INSERT INTO `songs` (`song_id`, `song_name`, `song_artist`, `song_album`, `song_
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` text NOT NULL,
-  `password` int(50) NOT NULL,
-  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `djname` varchar(100) DEFAULT NULL COMMENT 'Store the users DJ Name',
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `current_session_id` int(11) DEFAULT NULL COMMENT 'Currently running session attached to this user. ',
+  `is_admin` tinyint(1) DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `djname`, `created_at`, `current_session_id`, `is_admin`) VALUES
+(7, 'Josh', '$2y$10$Ry2zVNurJh/cPzg8uTsbYeirkwrcFgtq6ncGmIK5E/YqjN0wHKunS', 'The Badger', '2017-12-27 11:44:55', 1, 1),
+(8, 'Test Account', '$2y$10$vLeO06vkijOP30uG1NyL0OQSCbwVqvhivzmZmaRRhyKmj37.JgSzq', 'The Woman', '2017-12-27 12:57:55', 1, 0),
+(9, 'Darius', '$2y$10$2nFTEr5uivUp8gAi6/FcrekOuRp.IOf/9eV8glr4/s7C6pKvpy19u', 'Big D', '2017-12-27 14:11:25', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1036,13 +1056,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Table structure for table `zones`
 --
 
-DROP TABLE IF EXISTS `zones`;
-CREATE TABLE IF NOT EXISTS `zones` (
-  `zone_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Zone ID',
+CREATE TABLE `zones` (
+  `zone_id` int(11) NOT NULL COMMENT 'Zone ID',
   `zone_name` text NOT NULL COMMENT 'Zone Name',
-  `zone_description` text NOT NULL COMMENT 'Zone Description',
-  PRIMARY KEY (`zone_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `zone_description` text NOT NULL COMMENT 'Zone Description'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `zones`
@@ -1054,6 +1072,89 @@ INSERT INTO `zones` (`zone_id`, `zone_name`, `zone_description`) VALUES
 (5, 'Private Room', 'Private Room Downstairs'),
 (6, 'Smoking Area', 'Outside (House)'),
 (7, 'Terrace', 'RnB Terrace');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`client_id`);
+
+--
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`request_id`),
+  ADD KEY `request_song_id` (`request_song_id`),
+  ADD KEY `request_session_id` (`request_session_id`);
+
+--
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`session_id`);
+
+--
+-- Indexes for table `songs`
+--
+ALTER TABLE `songs`
+  ADD PRIMARY KEY (`song_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `zones`
+--
+ALTER TABLE `zones`
+  ADD PRIMARY KEY (`zone_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `client_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Request ID.', AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `sessions`
+--
+ALTER TABLE `sessions`
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session ID', AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `songs`
+--
+ALTER TABLE `songs`
+  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=975;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `zones`
+--
+ALTER TABLE `zones`
+  MODIFY `zone_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Zone ID', AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
