@@ -9,7 +9,7 @@
 	<hr>
 	<div class="fluid-container">
 		<div class="row">
-			<table class="table table-bordered text-center" style="width: 33%; margin: 0 auto;">
+			<table class="ext-center" style="width: 33%; margin: 0 auto;">
 				<tr>
 					<td>
 						<small>
@@ -23,7 +23,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171226 for Life by J Ginn.</p></small></td>
+					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171227 for Life by J Ginn, D Chatfield.</p></small></td>
 				</tr>
 				<tr>
 					<td><img src="<?php echo $environment; ?>images/bottom_logo.png" alt="Logo" height="30%"></td>
