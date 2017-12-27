@@ -14,7 +14,7 @@
 	
 	// Run the query.
 	if(mysqli_query($mysqli, $sql)) {
-		header("refresh:0; url=../request_index.php");
+		header("refresh:0; url=../../index.php");
 	} else {
 		echo "<br>";
 		echo "<div class='fluid-container'>";
