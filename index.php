@@ -51,7 +51,7 @@
 							while($row = mysqli_fetch_array($result)){
 								echo"<div class='col-md-2'>";
 									echo "<div class-'col-md-12 border' border-primary>";
-									echo "<a href='functions/update_count.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
+									echo "<a href='requests/functions/func_add_request.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
 									echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
 									echo "\"></a>";
 									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
