@@ -7,6 +7,7 @@
 	// Include config file
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/requests/functions/func_time_ago.php");
 ?>
 <head>
 	<title>Song Management</title>
@@ -42,7 +43,7 @@
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
-							echo "<td>Date now:".date("Y-m-d H:i:s").". Date of request:".date("Y-m-d H:i:s", strtotime($row['request_time']))."</td>";
+							echo "<td>".(time()-strtotime($row['request_time']))." seconds ago</td>";
 							echo "<td>".$row['song_name']."</td>";
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";
