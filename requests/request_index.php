@@ -43,7 +43,7 @@
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
-							echo "<td>".(time()-strtotime($row['request_time']))." seconds ago</td>";
+							echo "<td>".xTimeAgo(time(), strtotime($row['request_time']), "x")."</td>";
 							echo "<td>".$row['song_name']."</td>";
 							echo "<td>".$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";

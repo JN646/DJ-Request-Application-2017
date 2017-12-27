@@ -3,29 +3,39 @@
 Function taken from
 https://webdevdoor.com/php/php-seconds-minutes-hours-ago
 */
-echo "this is a function";
+
 function xTimeAgo ($varTime, $nowTime, $timeType) {
-$timeCalc = strtotime($newTime) – strtotime($oldTime);
+$timeCalc = $varTime - $nowTime;
+
+//Auto Select units
 if ($timeType == "x") {
-	if ($timeCalc > 0) {
+	if ($timeCalc >= 0) {
 		$timeType = "s";
 	}
-	if ($timeCalc > 60) {
+	if ($timeCalc >= 60) {
 		$timeType = "m";
 	}
-	if ($timeCalc > (3600)) {
+	if ($timeCalc >= (3600)) {
 		$timeType = "h";
 	}
 }
-if ($timeType == "s") {
-	$timeCalc = " seconds ago";
+
+if($timeType == "s") {
+	$timeUnit = " second";
+	$timeVal = $timeCalc;
 }
-if ($timeType == "m") {
-	$timeCalc = round($timeCalc/60) . " minutes ago";
+if($timeType == "m") {
+	$timeUnit = " minute";
+	$timeVal = round($timeCalc/60);
 }
-if ($timeType == "h") {
-	$timeCalc = round($timeCalc/60/60) . " hours ago";
+if($timeType == "h") {
+	$timeUnit = " hour";
+	$timeVal = round($timeCalc/3600);
 }
-return $timeCalc;
+
+if($timeVal!=1)
+	$plural = "s";
+
+return $timeVal.$timeUnit.$plural." ago";
 }
 ?>
