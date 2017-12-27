@@ -8,6 +8,11 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/requests/functions/func_time_ago.php");
+	session_start();															// Initialise the session
+	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If session variable is not set it will redirect to login page
+		header("location: http://localhost/djx/djx/accounts/login.php");
+		exit;
+	}
 ?>
 <head>
 	<title>My Requests</title>

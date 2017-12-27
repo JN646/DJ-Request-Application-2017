@@ -14,6 +14,7 @@
 					<td>
 						<small>
 						<ul class="text-center" style="list-style: none;">
+							<li><a href="<?php echo $environment; ?>accounts/login.php">Admin</a></li>
 							<li><a href="<?php echo $environment; ?>static/about.php">About</a></li>
 							<li><a href="<?php echo $environment; ?>static/features.php">Features</a></li>
 							<li><a href="<?php echo $environment; ?>static/help.php">Help</a></li>

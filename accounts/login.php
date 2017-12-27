@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Password is correct, so start a new session and save the username to the session */
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: http://localhost/djx/djz/index.php");
+                            header("location: http://localhost/djx/djx/admin/index.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = 'The password you entered was not valid.';

@@ -54,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             if($stmt->execute()){
-                header("location: ../index.php");
+                header("location: http://localhost/djx/djx/admin/index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }

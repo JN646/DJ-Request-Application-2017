@@ -22,5 +22,6 @@
 	<h5>Admin</h5>
 	<ul class="nav flex-column">
 		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php">Dashboard</a></li>
+		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>accounts/logout.php">Logout</a></li>
 	</ul>
 </div>

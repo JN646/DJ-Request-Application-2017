@@ -2,8 +2,18 @@
  /**
   * Project:		DJ Request Application
   * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
+  * FileCreated:	171227
   */
-	// Include config file
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+// Initialize the session
+session_start();
+ 
+// Unset all of the session variables
+$_SESSION = array();
+ 
+// Destroy the session.
+session_destroy();
+ 
+// Redirect to login page
+header("location: login.php");
+exit;
 ?>
