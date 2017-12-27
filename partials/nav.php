@@ -10,7 +10,7 @@
 	<h3>ADMIN</h3>
 	<h5>Songs</h5>
 	<ul class="nav flex-column">
-		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>requests/request_index.php">Requests</a></li>
+		<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>requests/request_index.php">My Requests</a></li>
 	</ul>
 	<h5>Config</h5>
 	<ul class="nav flex-column">

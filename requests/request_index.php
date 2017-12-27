@@ -10,7 +10,7 @@
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/requests/functions/func_time_ago.php");
 ?>
 <head>
-	<title>Song Management</title>
+	<title>My Requests</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -19,7 +19,7 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Song Requests</h1>
+					<h1 class="display-4">My Requests</h1>
 					<p>All your active requests this session.</p>
 					<?php
 
