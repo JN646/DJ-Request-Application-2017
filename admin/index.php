@@ -15,6 +15,7 @@
 ?>
 <head>
 	<title>Dashboard</title>
+	<meta http-equiv="Refresh" content="5">
 </head>
 <body>
 	<div class="fluid-container">
