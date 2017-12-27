@@ -30,17 +30,29 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">View Zone</h1>
+					<?php
+					$UID = (int)$_GET["zone_id"];
+					$terms = "SELECT * FROM zones WHERE zone_id = '$UID'";
+					$query = mysqli_query($mysqli, $terms);
+					if(mysqli_num_rows($query) > 0){
+						while($row = mysqli_fetch_array($query)){
+							$zone_name = $row['zone_name'];
+							$zone_description = $row['zone_description'];
+						echo "<h1 class='text-left'>" . $row['zone_name'] . "</h1>";
+						}
+					}
+					?>
 					<p>Zones are physical spaces that DJs and Devices can be assigned to. These can be rooms, floors or areas of your venue. Use this screen to create a new zone.</p>
-					<form action="<?php echo $environment; ?>zones/functions/func_add_zone.php" method="post" class="col-md-4">
+					<form action="<?php echo $environment; ?>zones/functions/func_update_zone.php" method="post" class="col-md-4">
 						<div class="form-group">
 							<label>Zone Name</label>
 							<?php echo"<input name='zone_name' class='form-control' placeholder='$zone_name' value='$zone_name' type='text'></input>"; ?>
 						</div>
 						<div class="form-group">
 							<label>Zone Description</label>
-							<input name="zone_description" class="form-control" placeholder="Zone Description" type="text"></input>
+							<?php echo"<input name='zone_description' class='form-control' placeholder='$zone_description' type='text'></input>"; ?>
 						</div>
-						<button class="btn btn-primary" name="add_zone" type="submit" value="Submit">Submit</button>
+						<button class="btn btn-primary" name="update_zone" type="submit" value="Submit">Submit</button>
 					</form>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
