@@ -30,7 +30,7 @@
 							</div>
 							<div class="col-md-4 jumbo-aside">
 								<div class="col-md-12" style="height: 150px">
-								<p>Some sort of side content is displayed here. This can be some information about the club, adverts or something else.</p>
+								<p>Thank You for choosing the private area of our club. As a VIP you can use these devices to request songs straight to the DJ.</p>
 								</div>
 							</div>
 						</div>
@@ -56,7 +56,6 @@
 									echo "\"></a>";
 									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 									echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
-									echo"<p class='text-center'><a href=requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></p>";
 									echo "</div>";
 								echo"</div>";
 							}

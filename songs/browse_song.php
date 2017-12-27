@@ -20,7 +20,7 @@
 					<br>
 					<h1 class="display-4">Browse Songs</h1>
 					<br>
-					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
+					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<div class="row">
 						<div class="col-md-2">
 							<div class="col-md-12 border">

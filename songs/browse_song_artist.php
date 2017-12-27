@@ -19,7 +19,7 @@
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Song Artists</h1>
-					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
+					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 						<form action="search_song.php" method="get">
 							<div class="form-inline">
 								<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>

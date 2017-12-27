@@ -23,7 +23,7 @@
 					$artist = urldecode($_GET['song_artist']);
 					echo "<h1 class='display-4'>$artist</h1>";
 					?>
-					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
+					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<br>
 					<div class="row">
 						<?php
