@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2017 at 04:40 PM
+-- Generation Time: Dec 27, 2017 at 05:52 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -56,7 +56,7 @@ CREATE TABLE `requests` (
   `request_id` int(11) NOT NULL COMMENT 'Request ID.',
   `request_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Time the song was requested.',
   `request_song_id` int(11) DEFAULT NULL COMMENT 'ID number of the song.',
-  `request_session_id` int(11) DEFAULT NULL COMMENT 'ID number of the session.',
+  `request_zone_id` int(11) DEFAULT NULL COMMENT 'ID number of the session.',
   `request_active` tinyint(1) DEFAULT '1' COMMENT 'Is the song active?',
   `request_pinned` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'has the request been pinned.'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,13 +65,13 @@ CREATE TABLE `requests` (
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `request_session_id`, `request_active`, `request_pinned`) VALUES
+INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `request_zone_id`, `request_active`, `request_pinned`) VALUES
 (1, '2017-12-26 22:35:47', 1, 1, 0, 0),
 (14, '2017-12-26 18:52:55', 1, 2, 0, 0),
 (16, '2017-12-26 18:52:44', 93, NULL, 0, 0),
 (17, '2017-12-26 18:52:37', 82, NULL, 1, 0),
 (18, '2017-12-26 18:54:39', 735, 1, 1, 0),
-(19, '2017-12-26 22:40:12', 207, 1, 1, 1),
+(19, '2017-12-26 22:40:12', 207, 1, 1, 0),
 (20, '2017-12-26 22:40:13', 210, 1, 1, 0),
 (21, '2017-12-26 19:07:39', 62, 1, 1, 0),
 (22, '2017-12-26 22:48:19', 209, 1, 1, 0),
@@ -95,14 +95,14 @@ INSERT INTO `requests` (`request_id`, `request_time`, `request_song_id`, `reques
 (40, '2017-12-27 01:12:30', 210, 1, 1, 0),
 (41, '2017-12-27 01:12:32', 210, 1, 1, 0),
 (42, '2017-12-27 01:12:33', 210, 1, 1, 0),
-(43, '2017-12-27 01:12:34', 210, 1, 1, 0),
+(43, '2017-12-27 01:12:34', 210, 1, 1, 1),
 (44, '2017-12-27 01:12:35', 210, 1, 1, 0),
 (45, '2017-12-27 01:12:36', 210, 1, 1, 0),
 (46, '2017-12-27 01:27:00', 206, 1, 1, 0),
 (47, '2017-12-27 01:30:37', 206, 1, 1, 0),
 (48, '2017-12-27 13:46:44', 470, 1, 1, 0),
 (49, '2017-12-27 14:19:12', 343, 1, 1, 1),
-(50, '2017-12-27 14:00:48', 65, 1, 1, 1),
+(50, '2017-12-27 14:00:48', 65, 1, 1, 0),
 (51, '2017-12-27 14:17:21', 202, 1, 1, 0),
 (52, '2017-12-27 14:23:00', 206, 1, 1, 0);
 
@@ -116,7 +116,6 @@ CREATE TABLE `sessions` (
   `session_id` int(11) NOT NULL COMMENT 'Session ID',
   `user_ID` int(11) NOT NULL COMMENT 'the user/DJ who owns the session',
   `session_name` text COMMENT 'Session Name',
-  `zone_info` smallint(6) NOT NULL DEFAULT '0' COMMENT 'bit-shifted bool on active zones',
   `playlist` int(10) UNSIGNED DEFAULT NULL COMMENT 'music playlist linked to session',
   `session_active` int(1) NOT NULL DEFAULT '1' COMMENT 'Session Active?'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -125,10 +124,22 @@ CREATE TABLE `sessions` (
 -- Dumping data for table `sessions`
 --
 
-INSERT INTO `sessions` (`session_id`, `user_ID`, `session_name`, `zone_info`, `playlist`, `session_active`) VALUES
-(5, 9, 'Friday Night', 3, 1, 1),
-(6, 9, 'Friday Night', 3, 1, 1),
-(7, 9, 'Foo', 0, 1, 1);
+INSERT INTO `sessions` (`session_id`, `user_ID`, `session_name`, `playlist`, `session_active`) VALUES
+(5, 9, 'Friday Night', 1, 1),
+(6, 9, 'Friday Night', 1, 1),
+(7, 9, 'Foo', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessionzone`
+--
+
+CREATE TABLE `sessionzone` (
+  `id` int(11) NOT NULL COMMENT 'link id',
+  `session_id` int(11) NOT NULL,
+  `zone_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1089,13 +1100,19 @@ ALTER TABLE `clients`
 ALTER TABLE `requests`
   ADD PRIMARY KEY (`request_id`),
   ADD KEY `request_song_id` (`request_song_id`),
-  ADD KEY `request_session_id` (`request_session_id`);
+  ADD KEY `request_session_id` (`request_zone_id`);
 
 --
 -- Indexes for table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`session_id`);
+
+--
+-- Indexes for table `sessionzone`
+--
+ALTER TABLE `sessionzone`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `songs`
@@ -1139,6 +1156,12 @@ ALTER TABLE `sessions`
   MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Session ID', AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `sessionzone`
+--
+ALTER TABLE `sessionzone`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'link id';
+
+--
 -- AUTO_INCREMENT for table `songs`
 --
 ALTER TABLE `songs`
@@ -1164,7 +1187,7 @@ ALTER TABLE `zones`
 -- Constraints for table `requests`
 --
 ALTER TABLE `requests`
-  ADD CONSTRAINT `SessionsIDFK` FOREIGN KEY (`request_session_id`) REFERENCES `sessions` (`session_id`),
+  ADD CONSTRAINT `SessionsIDFK` FOREIGN KEY (`request_zone_id`) REFERENCES `sessions` (`session_id`),
   ADD CONSTRAINT `SongIDFK` FOREIGN KEY (`request_song_id`) REFERENCES `songs` (`song_id`);
 COMMIT;
 

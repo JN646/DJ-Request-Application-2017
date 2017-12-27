@@ -60,7 +60,7 @@
 								echo "<tr>";
 								echo "<td>".$row['zone_name']."</td>";
 								echo "<td>".$row['zone_description']."</td>";
-								echo "<td><input type='checkBox' id=".$row['zone_id']." value='true'></td>";
+								echo "<td><input type='checkBox' name=".$row['zone_id']." value='true'></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
