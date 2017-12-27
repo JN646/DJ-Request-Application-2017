@@ -1,12 +1,12 @@
 <?php
- /**
-  * Project:		DJ Request Application
-  * Copyright:		(C) JGinn 2017
-  * FileCreated:	171216
-  */
-	// Include config file
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
-	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+/**
+* Project:		DJ Request Application
+* Copyright:		(C) JGinn 2017
+* FileCreated:	171216
+*/
+// Include config file
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 
 $username = $password = $djname = $confirm_password = "";
 $username_err = $password_err = $djname_err = $confirm_password_err = "";
@@ -55,9 +55,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_djname = $djname;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             if($stmt->execute()){
-                header("location: http://localhost/djx/djx/admin/index.php");
+				header("location: http://localhost/djx/djx/admin/index.php");
             } else{
-                echo "Something went wrong. Please try again later.";
+				echo "Something went wrong. Please try again later.";
             }
         }
         $stmt->close();
