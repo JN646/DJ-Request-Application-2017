@@ -60,7 +60,7 @@
 								echo "<tr>";
 								echo "<td>".$row['zone_name']."</td>";
 								echo "<td>".$row['zone_description']."</td>";
-								echo "<td><input id='checkBox' type='checkbox' value='zone_id'></td>"; //THIS NEEDS A CORERECT VALUE - bit shift zone id by row number, then accumulate (+) the result to zone_info
+								echo "<td><input type='checkBox' id='zone_id' value='true'></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
