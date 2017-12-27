@@ -8,8 +8,8 @@
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
+$username = $password = $djname = $confirm_password = "";
+$username_err = $password_err = $djname_err = $confirm_password_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["username"]))){
@@ -48,10 +48,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
     }
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO users (username, djname, password) VALUES (?, ?, ?)";
         if($stmt = $mysqli->prepare($sql)){
-            $stmt->bind_param("ss", $param_username, $param_password);
+            $stmt->bind_param("sss", $param_username, $param_djname, $param_password);
             $param_username = $username;
+            $param_djname = $djname;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             if($stmt->execute()){
                 header("location: http://localhost/djx/djx/admin/index.php");
@@ -65,7 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 <head>
-	<title>Register</title>
+	<title>Create a DJ Account</title>
 </head>
 <body>
 	<div class="fluid-container">
@@ -74,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Sign Up</h2>
+					<h1 class="display-4">Create a DJ Account</h2>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert.</div>
 					<p>Please fill this form to create a DJ account.</p>
 					<div class="col-md-6">
@@ -83,6 +84,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 								<label>Username:<sup>*</sup></label>
 								<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
 								<span class="help-block"><?php echo $username_err; ?></span>
+							</div>
+							<div class="form-group <?php echo (!empty($djname_err)) ? 'has-error' : ''; ?>">
+								<label>DJ Name:<sup>*</sup></label>
+								<input type="text" name="djname"class="form-control" value="<?php echo $djname; ?>">
+								<span class="help-block"><?php echo $djname_err; ?></span>
 							</div>
 							<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
 								<label>Password:<sup>*</sup></label>

@@ -23,7 +23,7 @@
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Dashboard</h1>
+					<h1 class="display-4">Hi, <b><?php echo $_SESSION['username']; ?></b>. Welcome to your Dashboard.</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Site control panel. Use this dashboard to control and manage your instance.</p>
 					<!-- Tools -->
@@ -49,7 +49,7 @@
 						</div>
 						<div class="col-md-2">
 							<div class="col-md-12 border">
-								<h3>Clients</h3>
+								<h3>Client Devices</h3>
 								<ul>
 									<li><a href="<?php echo $environment; ?>clients/client_index.php">Client Home</a></li>
 									<li><a href="<?php echo $environment; ?>clients/add_client.php">Client Add</a></li>
