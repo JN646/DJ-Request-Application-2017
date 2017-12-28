@@ -1,13 +1,13 @@
 <?php
- /**
-  * Project:		DJ Request Application
-  * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
-  */
-	// Include config file
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
-	include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
-	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
+/**
+* Project:		DJ Request Application
+* Copyright:		(C) JGinn 2017
+* FileCreated:	171210
+*/
+// Include config file
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
+include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
 ?>
 <head>
 	<title>Song Artists</title>
