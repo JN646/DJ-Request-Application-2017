@@ -24,7 +24,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171227 for Life by J Ginn, D Chatfield.</p></small></td>
+					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171228 for Life by J Ginn, D Chatfield.</p></small></td>
 				</tr>
 				<tr>
 					<td><img src="<?php echo $environment; ?>images/bottom_logo.png" alt="Logo" height="30%"></td>

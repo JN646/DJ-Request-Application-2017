@@ -2,7 +2,7 @@
  /**
   * Project:		DJ Request Application
   * Copyright:		(C) JGinn 2017
-  * FileCreated:	171210
+  * FileCreated:	171228
   */
 	// Include config files
 	require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
