@@ -16,7 +16,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 ?>
 <head>
 	<title>My Requests</title>
-	<meta http-equiv="Refresh" content="5">
+	<!-- <meta http-equiv="Refresh" content="5"> -->
+	<script src="<?php echo $environment; ?>js/sort_table.js"></script>
 </head>
 <body>
 	<div class="fluid-container">
@@ -26,38 +27,42 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">My Requests</h1>
+					<div class="alert alert-warning">This page is partially implemented</div>
+					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<p>All your active requests this session.</p>
+					<nav class="nav">
+						<a class="nav-link disabled" href="#">Delete All</a>
+						<a class="nav-link disabled" href="#">Unpin All</a>
+					</nav>
 					<?php
-
 					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned
 					FROM songs
 					INNER JOIN requests
 					ON songs.song_id = requests.request_song_id
-					
-					ORDER BY request_pinned DESC, request_time DESC
-					";
+					ORDER BY request_pinned DESC, request_time DESC";
 					$result = mysqli_query($mysqli, $songterms);
-
-					echo "<table class='table table-bordered'>";
+					echo "<table class='table table-bordered' style='font-size: 120%;' id='myTable2'>";
 					echo "<tr>";
-						echo "<th class='text-center'>Requested at</th>";
-						echo "<th class='text-center'>Song</th>";
-						echo "<th class='text-center'>Artist</th>";
-						echo "<th class='text-center'>Year</th>";
-						echo "<th class='text-center'>Pin</th>";
-						echo "<th class='text-center'>Delete</th>";
+						echo "<th onclick='sortTable(0)' class='text-center'></th>";
+						echo "<th onclick='sortTable(1)' class='text-center'>Requested at</th>";
+						echo "<th onclick='sortTable(2)' class='text-center'>Song</th>";
+						echo "<th onclick='sortTable(3)' class='text-center'>Year</th>";
+						echo "<th onclick='sortTable(4)' class='text-center'>Pin</th>";
+						echo "<th onclick='sortTable(5)' class='text-center'>Delete</th>";
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
 						echo "<tr>";
+							echo "<td><input id='checkBox' type='checkbox' class='form-control'></td>";
+							// Get time ago.
 							echo "<td>".xTimeAgo(time(), strtotime($row['request_time']), "x")."</td>";
-							echo "<td>".$row['song_name']."</td>";
-							echo "<td>".$row['song_artist']."</td>";
+							echo "<td><b>".$row['song_name']. "</b> - " .$row['song_artist']."</td>";
 							echo "<td class='text-center'>".$row['song_year']."</td>";
+							// Pinned UI check.
 							if($row['request_pinned'] == 0) {
-								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-primary'>Pin</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id'].">Pin</a></td>";
 							}
 							if($row['request_pinned'] == 1) {
-								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']." class='btn btn-success'>Unpin</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']."><img src='../images/push-pin.png' alt='Pinned' width='24' height='24'></a></td>";
 							}
 							echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
 						echo "</tr>";
@@ -69,4 +74,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script>
+// hide status bar
+var status_bar = document.getElementById("status_bar");
+status_bar.style.display="none";
+</script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
