@@ -26,6 +26,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<br>
 					<h1 class="display-4">Session List</h1>
 					<p>See and edit active sessions.</p>
+					<p><a href='add_session.php'>Add Session</a></p>
 					<?php
 					//get the list of zones
 					$terms = "SELECT * FROM sessions";

@@ -24,7 +24,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Add Session</h1>
-					<p>Zones are physical spaces that DJs and Devices can be assigned to. These can be rooms, floors or areas of your venue. Use this screen to create a new zone.</p>
+					<p>Create a session to start receiving requests.</p>
 					<form action="<?php echo $environment; ?>zones/functions/func_add_session.php" method="post" class="col-md-4">
 						<div class="form-group">
 							<label>Session Name</label>
