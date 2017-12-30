@@ -12,7 +12,7 @@
 	<title>Features</title>
 </head>
 <body>
-	<div class="fluid-container">
+	<div class="container">
 		<div class="col-md-12">
 			<div class="row">
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
