@@ -23,12 +23,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
-					<h1 class="display-4">Song Artists</h1>
+					<h1 class="display-4">Browse by Artist</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
-						<form action="search_song.php" method="get">
+						<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
 							<div class="form-inline">
-								<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
-								<button class="form-control btn btn-primary" name="SearchButton" value="search" type="submit">Search</button>
+								<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
+								<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
 							</div>
 						</form>
 						<br>

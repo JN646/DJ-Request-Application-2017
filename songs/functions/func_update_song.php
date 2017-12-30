@@ -38,14 +38,16 @@ mysqli_query($query);
 
 if($query) {
 	header("refresh:0; url=../browse_song.php");
-	}
-else {
+} else {
 	echo "<div class='fluid-container'>";
 		echo "<div class='col-md-12'>";
 			echo "<h1>Something Went Wrong!</h1>";
-			echo "<p>Not updated, you may not have made any changes.</p>";
+			echo "<p>$ud_song_name was not updated, you may not have made any changes.</p>";
 			echo '<a href="javascript:history.back()">Go back</a>';
 		echo "</div>";
 	echo "</div>";
-	}
+}
 ?>
+<head>
+	<title>Update Song</title>
+</head>
