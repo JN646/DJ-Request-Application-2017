@@ -33,6 +33,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Sessions</h1>
+					<p><a href='sessions_index1.php'>New Session Index</a></p>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>A session is a clearly defined music event that has a playlist and can serve multiple zones. Once a session has been created, the VIP guests will be able to send requests via its active zones.</p>
 					<hr>
@@ -94,7 +95,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								echo "<tr>";
 									echo "<td>" . $row['session_name'] . "</td>";
 									echo "<td>";
-										$dj = mysqli_query($mysqli, "SELECT username FROM users WHERE id=".$row['user_ID']);
+										$dj = mysqli_query($mysqli, "SELECT username FROM users WHERE id=".$row['user_id']);
 										echo mysqli_fetch_array($dj)['username'];
 										echo "</td>";
 									echo "<td>";
