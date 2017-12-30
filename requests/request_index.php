@@ -18,6 +18,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	<title>My Requests</title>
 	<!-- <meta http-equiv="Refresh" content="5"> -->
 	<script src="<?php echo $environment; ?>js/sort_table.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 <body>
 	<div class="fluid-container">
@@ -33,6 +34,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<nav class="nav">
 						<a class="nav-link disabled" href="#">Delete All</a>
 						<a class="nav-link disabled" href="#">Unpin All</a>
+						<a class="nav-link font-button plus">A+</a>
+						<a class="nav-link font-button minus">A-</a>
 					</nav>
 					<?php
 					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned
@@ -74,6 +77,22 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
 </body>
+<script type="text/javascript">
+	$(function () {
+		$(".font-button").bind("click", function () {
+			var size = parseInt($('table').css("font-size"));
+			if ($(this).hasClass("plus")) {
+				size = size + 2;
+			} else {
+				size = size - 2;
+				if (size <= 10) {
+					size = 10;
+				}
+			}
+			$('table').css("font-size", size);
+		});
+	});
+</script>
 <script>
 // hide status bar
 var status_bar = document.getElementById("status_bar");
