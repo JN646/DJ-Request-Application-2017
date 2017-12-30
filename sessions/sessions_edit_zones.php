@@ -25,6 +25,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Edit Zones</h1>
+					<p><a href='sessions_index1.php'>Go Back</a></p>
 					<p>Assign zones to a session.</p>
 					<?php
 					//get the list of zones
@@ -41,7 +42,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						echo "<tr>";
 						echo "<td>".$row['zone_name']."</td>";
 						echo "<td>".$row['zone_description']."</td>";
-						echo "<td><input type='checkBox' name=".$row['zone_id']." value='true'></td>";
+						echo "<td><input type='checkBox' class='form-control' name=".$row['zone_id']." value='true'></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
