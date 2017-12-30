@@ -45,9 +45,17 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
 										echo"<table width=100%>";
-											echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
-											echo"<td class='text-center'><a href=functions/func_edit_song.php?song_id=" .$row['song_id']. ">Edit</a></td>";
-											echo"<td class='text-center'><a href=functions/func_delete_song.php?song_id=" .$row['song_id']. ">Delete</a></td>";
+											// Checks to see if the user has logged in.
+											if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+												// Non-logged in user
+												echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
+											} else {
+												// Logged in user
+												echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
+												echo"<td class='text-center'><a href=functions/func_edit_song.php?song_id=" .$row['song_id']. ">Edit</a></td>";
+												echo"<td class='text-center'><a href=functions/func_delete_song.php?song_id=" .$row['song_id']. 
+												">Delete</a></td>";
+											}
 										echo"</table>";
 										echo "</div>";
 									echo"</div>";
@@ -55,7 +63,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								// Free result set
 								mysqli_free_result($result);
 							} else{
-								echo "No songs were found.";
+								echo "No songs by $artist were found.";
 							}
 						} else{
 							echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
