@@ -22,27 +22,31 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 		<div class="col-md-12">
 			<div class="row">
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
-				<div class="col-md-11">
+				<div class="col-md-12">
 					<br>
 					<div class="jumbotron jumbo-header">
 						<div class="row">
-							<div class="col-md-8">
+							<div class="col-md-9">
 								<?php
 								echo"<h1 class='display-2 text-center'>$VenueName</h1>";
 								echo"<h1 class='lead text-center'>$VenueSlogan</h1>";
+								// <form class="form-inline">
+									// <button class="form-control btn btn-primary">Start Browsing</button>
+								// </form>
 								?>
+								
 							</div>
-							<div class="col-md-4 jumbo-aside">
+							<div class="col-md-3 jumbo-aside">
 								<div class="col-md-12" style="height: 150px">
 								<p>Thank You for choosing the private area of our club. As a VIP you can use these devices to request songs straight to the DJ.</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<form action="songs/search_song.php" method="get">
+					<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
 						<div class="form-inline">
-							<input name="search_val" type="text" placeholder="Search" class="form-control" style="width: 60%"></input>
-							<button class="form-control btn btn-primary" name="SearchButton" value="search" type="submit">Search</button>
+							<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
+							<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
 						</div>
 					</form>
 					<br>
@@ -55,11 +59,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							while($row = mysqli_fetch_array($result)){
 								echo"<div class='col-md-2'>";
 									echo "<div class-'col-md-12 border' border-primary>";
-									echo "<a href='requests/functions/func_add_request.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
-									echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
-									echo "\"></a>";
-									echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
-									echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+										echo "<a href='requests/functions/func_add_request.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
+										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+										echo "\"></a>";
+										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
 									echo "</div>";
 								echo"</div>";
 							}
