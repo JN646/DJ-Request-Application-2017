@@ -26,27 +26,31 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<h1 class="display-4">Song List</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Complete song list.</p>
-					<div class="row">
-						<?php
-						// Attempt select query execution
-						$sql = "SELECT * FROM songs ORDER BY song_name ASC";
-						if($result = mysqli_query($mysqli, $sql)){
-							if(mysqli_num_rows($result) > 0){
-								while($row = mysqli_fetch_array($result)){
-									echo"<div class='col-md-2'>";
-										echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
-									echo"</div>";
+					<?php
+						$letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");						
+						for ($x = 0; $x <= 25; $x++) {
+							echo "<h1>$letters[$x]</h1>";
+							echo "<div class='row'>";
+							// Attempt select query execution
+							$sql = "SELECT * FROM songs WHERE song_name LIKE '$letters[$x]%' ORDER BY song_name ASC";
+							if($result = mysqli_query($mysqli, $sql)){
+								if(mysqli_num_rows($result) > 0){
+									while($row = mysqli_fetch_array($result)){
+										echo "<div class='col-md-2'>";
+											echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
+										echo "</div>";
+									}
+									// Free result set
+									mysqli_free_result($result);
+								} else{
+									echo "No requests were found.";
 								}
-								// Free result set
-								mysqli_free_result($result);
 							} else{
-								echo "No requests were found.";
+								echo "ERROR: Could not execute $sql. " . mysqli_error($mysqli);
 							}
-						} else{
-							echo "ERROR: Could not execute $sql. " . mysqli_error($mysqli);
+							echo "</div>";
 						}
-						?>
-					</div>
+					?>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
