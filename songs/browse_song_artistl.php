@@ -39,20 +39,26 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								while($row = mysqli_fetch_array($result)){
 									echo"<div class='col-md-2'>";
 										echo "<div class-'col-md-12 border' border-primary>";
+										// Cover Image.
 										echo "<img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
-										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+											echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
 										echo "\">";
+										// Name and artist.
 										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+										// Container for links.
 										echo"<table width=100%>";
 											// Checks to see if the user has logged in.
 											if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 												// Non-logged in user
 												echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
 											} else {
-												// Logged in user
+												// Logged in user.
+												// Request a song.
 												echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
+												// Edit a song.
 												echo"<td class='text-center'><a href=functions/func_edit_song.php?song_id=" .$row['song_id']. ">Edit</a></td>";
+												// Delete a song.
 												echo"<td class='text-center'><a href=functions/func_delete_song.php?song_id=" .$row['song_id']. 
 												">Delete</a></td>";
 											}
