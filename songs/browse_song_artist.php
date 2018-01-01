@@ -12,9 +12,25 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	//header("location: http://localhost/djx/djx/accounts/login.php");
 	//exit;
 }
+// Character Pagination
+$char = '';
+// Get the Char from URL
+if(isset($_GET["char"]))
+{
+	$char = $_GET["char"];
+	$char = preg_replace('#[^a-z]#i', '', $char);
+	$query = "SELECT DISTINCT song_artist FROM songs WHERE song_artist LIKE '$char%' ORDER BY song_artist ASC";
+}
+else
+{
+	// Show all artists if no char in URL.
+	$query = "SELECT DISTINCT song_artist FROM songs ORDER BY song_artist ASC";
+}
+$result = mysqli_query($mysqli, $query);
 ?>
 <head>
 	<title>Song Artists</title>
+	<script src="<?php echo $environment; ?>js/pagination.min.js"></script>
 </head>
 <body>
 	<div class="fluid-container">
@@ -24,19 +40,36 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Browse by Artist</h1>
-					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
-						<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
-							<div class="form-inline">
-								<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
-								<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
-							</div>
-						</form>
-						<br>
+					<div class="row">
+						<div class="col-md-5">
+							<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
+							<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
+								<div class="form-inline">
+									<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
+									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-md-7">					
+							<?php
+							// Define characters.
+							$character = range('A', 'Z');
+							// Produce paginated class.
+							echo "<ul class='pagination'>";
+							// Generate a link for each letter.
+							foreach($character as $alphabet)
+								{
+									// Create a link for every letter.
+									echo "<li class='page-item'><a class='page-link' href='browse_song_artist.php?char=".$alphabet."'>".$alphabet."</a></li>";
+								}
+							echo '</ul>';
+							?>
+						</div>
+					</div>
 						<div class="row">
 							<?php
 							// Attempt select query execution
-							$sql = "SELECT DISTINCT song_artist FROM songs ORDER BY song_artist ASC";
-							if($result = mysqli_query($mysqli, $sql)){
+							if($result = mysqli_query($mysqli, $query)){
 								if(mysqli_num_rows($result) > 0){
 									while($row = mysqli_fetch_array($result)){
 										echo "<div class='col-md-2' style='height: 250px; min-width: 250px'>";
@@ -50,10 +83,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									// Free result set
 									mysqli_free_result($result);
 								} else{
-									echo "No artists were found.";
+									echo "<h3 class='text-center'>No artists were found.</h3>";
 								}
 							} else{
-								echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+								echo "ERROR: Could not able to execute $query. " . mysqli_error($mysqli);
 							}
 							?>
 						</div>
