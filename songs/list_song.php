@@ -27,7 +27,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
 					<p>Complete song list.</p>
 					<?php
+						// Create an array of every letter.
 						$letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");						
+						
+						// Loop for each letter.
 						for ($x = 0; $x <= 25; $x++) {
 							echo "<h1>$letters[$x]</h1>";
 							echo "<div class='row'>";
@@ -36,19 +39,24 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							if($result = mysqli_query($mysqli, $sql)){
 								if(mysqli_num_rows($result) > 0){
 									while($row = mysqli_fetch_array($result)){
+										// Divide into columns.
 										echo "<div class='col-md-2'>";
+											// Display song name and artist.
 											echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
 										echo "</div>";
 									}
 									// Free result set
 									mysqli_free_result($result);
 								} else{
-									echo "No requests were found.";
+									//echo "No requests were found.";
 								}
 							} else{
+								// Error message.
 								echo "ERROR: Could not execute $sql. " . mysqli_error($mysqli);
 							}
 							echo "</div>";
+							// Add horizontal rule.
+							echo "<hr>";
 						}
 					?>
 				</div> <!-- Close col-md-11 -->
