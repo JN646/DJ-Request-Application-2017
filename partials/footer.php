@@ -1,7 +1,7 @@
 <?php
  /**
   * Project:		DJ Request Application
-  * Copyright:		(C) JGinn 2017
+  * Copyright:		(C) JGinn 2017 - 2018
   * FileCreated:	171210
   */
 ?>
@@ -24,7 +24,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td><small><p class="text-center">DJ Request System &copy; 2017, build: 171230 for Life by J Ginn, D Chatfield.</p></small></td>
+					<td><small><p class="text-center">DJ Request System &copy; 2017-2018, build: 180101 for Life by J Ginn, D Chatfield.</p></small></td>
 				</tr>
 				<tr>
 					<td><img src="<?php echo $environment; ?>images/bottom_logo.png" alt="Logo" height="30%" class="text-center"></td>
