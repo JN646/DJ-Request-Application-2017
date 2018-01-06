@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017
 * FileCreated:	171210
 */
 // Include config file
@@ -29,7 +29,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<?php
 						// Create an array of every letter.
 						$letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");						
-						
 						// Loop for each letter.
 						for ($x = 0; $x <= 25; $x++) {
 							echo "<h1>$letters[$x]</h1>";
@@ -40,7 +39,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								if(mysqli_num_rows($result) > 0){
 									while($row = mysqli_fetch_array($result)){
 										// Divide into columns.
-										echo "<div class='col-md-2'>";
+										echo "<div class='col-md-3'>";
 											// Display song name and artist.
 											echo "<p><b>" . $row['song_name'] . "</b> - " . $row['song_artist'] . "</p>";
 										echo "</div>";
