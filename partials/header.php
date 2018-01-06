@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017 - 2018
 * FileCreated:	171210
 */
 // Include config file
@@ -14,6 +14,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <?php echo"<a class='navbar-brand' href='http://localhost/djx/djx/index.php'>$VenueName</a>"; ?>

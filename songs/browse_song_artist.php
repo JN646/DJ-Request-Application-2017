@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017
 * FileCreated:	171210
 */
 // Include config file
@@ -30,7 +30,6 @@ $result = mysqli_query($mysqli, $query);
 ?>
 <head>
 	<title>Song Artists</title>
-	<script src="<?php echo $environment; ?>js/pagination.min.js"></script>
 </head>
 <body>
 	<div class="fluid-container">
