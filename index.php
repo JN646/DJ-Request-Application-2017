@@ -24,7 +24,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-12">
 					<br>
-					<div class="jumbotron jumbo-header">
+					<div class="jumbotron jumbo-header" id="header">
 						<div class="row">
 							<div class="col-md-9">
 								<?php
@@ -34,7 +34,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									// <button class="form-control btn btn-primary">Start Browsing</button>
 								// </form>
 								?>
-								
 							</div>
 							<div class="col-md-3 jumbo-aside">
 								<div class="col-md-12" style="height: 150px">
@@ -51,13 +50,19 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					</form>
 					<br>
 					<div class="row">
+					<script>
+					$( document ).ready(function() {
+						$("#header").fadeIn('slow');
+						$("#song_block").fadeIn('slow');
+					});
+					</script>
 					<?php
 					// Attempt select query execution
 					$sql = "SELECT * FROM songs WHERE song_album <> '' ORDER BY RAND () ASC LIMIT 12";
 					if($result = mysqli_query($mysqli, $sql)){
 						if(mysqli_num_rows($result) > 0){
 							while($row = mysqli_fetch_array($result)){
-								echo"<div class='col-md-2'>";
+								echo"<div class='col-md-2' id='song_block'>";
 									echo "<div class-'col-md-12 border' border-primary>";
 										echo "<a href='requests/functions/func_add_request.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
 										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
