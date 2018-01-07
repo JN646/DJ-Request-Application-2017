@@ -11,7 +11,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 
 $UID = (int)$_GET["song_id"];
-$sql = "INSERT INTO requests (request_song_id, request_session_id, request_pinned) VALUES ('$UID', '1', '0')";
+$sql = "INSERT INTO requests (request_song_id, request_zone_id, request_pinned) VALUES ('$UID', '1', '0')";
 
 // Run the query.
 if(mysqli_query($mysqli, $sql)) {
@@ -22,9 +22,10 @@ if(mysqli_query($mysqli, $sql)) {
 	echo "<div class='fluid-container'>";
 		echo "<div class='col-md-12'>";
 			echo "<h1 class='text-center'>Oops Something Went Wrong.</h1>";
-			echo "<p class='text-center'>The song with the ID of $UID was not requested.</p>";
+			echo "<p class='text-center'>The song with the ID of <b>$UID</b> was not requested.</p>";
 		echo "</div>";
 	echo "</div>";
+	echo "<p class='text-center'>Error description: " . mysqli_error($mysqli) . "</p>";
 }
 		
 // close connection
