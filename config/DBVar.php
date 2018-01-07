@@ -32,6 +32,6 @@ $KioskClosedMessage = "Sorry but this kiosk is closed.";
 // Social Media
 $FacebookAccount = "http://facebook.com/google";
 $TwitterAccount = "@test";
-$SnapchatAccount = "Test"
+$SnapchatAccount = "Test";
 $VenuePhone = "01234 123456";
 ?>
