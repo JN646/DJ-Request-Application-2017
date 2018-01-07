@@ -79,7 +79,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
-</body>
 <script>
 // hide status bar
 var status_bar = document.getElementById("status_bar");
