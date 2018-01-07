@@ -81,7 +81,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	</div> <!-- Close Container -->
 <script>
 // hide status bar
-var status_bar = document.getElementById("status_bar");
-status_bar.style.display="none";
+$('#status_bar').hide();
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+</body>

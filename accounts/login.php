@@ -75,5 +75,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</form>
 		</div>
 	</div>
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?></body>
-</html>
+<script>
+// hide status bar
+$('#status_bar').hide();
+</script>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+</body>

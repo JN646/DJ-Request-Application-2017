@@ -76,7 +76,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
-</body>
 <script type="text/javascript">
 	$(function () {
 		$(".font-button").bind("click", function () {
@@ -92,10 +91,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 			$('table').css("font-size", size);
 		});
 	});
-</script>
-<script>
 // hide status bar
-var status_bar = document.getElementById("status_bar");
-status_bar.style.display="none";
+$('#status_bar').hide();
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+</body>

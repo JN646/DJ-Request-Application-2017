@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017 - 2018
 * FileCreated:	171210
 */
 // Include config file
@@ -62,10 +62,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
-</body>
 <script>
 // hide status bar
-var status_bar = document.getElementById("status_bar");
-status_bar.style.display="none";
+$('#status_bar').hide();
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+</body>

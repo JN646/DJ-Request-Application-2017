@@ -28,12 +28,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<div class="row">
 						<div class="col-md-2">
-							<div class="col-md-12 border">
+							<div class="col-md-12 border" style="padding: 10px">
 								<h2 class="text-center"><a href="browse_song_artist.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_artist.png">Browse by Artist</a></h2>
 							</div>
 						</div>
 						<div class="col-md-2">
-							<div class="col-md-12 border">
+							<div class="col-md-12 border" style="padding: 10px">
 								<h2 class="text-center"><a href="browse_song_genre.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_genre.png">Browse by Genre</a></h2>
 							</div>
 						</div>
@@ -42,10 +42,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
-</body>
 <script>
 // hide status bar
-var status_bar = document.getElementById("status_bar");
-status_bar.style.display="none";
+$('#status_bar').hide();
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
+</body>
