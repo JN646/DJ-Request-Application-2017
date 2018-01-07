@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:	(C) JGinn 2017
+* Copyright:	(C) JGinn 2017 - 2018
 * FileCreated:	171210
 */
 // Include config file
@@ -42,18 +42,35 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							</div>
 						</div>
 					</div>
-					<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
-						<div class="form-inline">
-							<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
-							<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+					<div class="col-sm-12 col-md-6 offset-md-3 offset-sm-0" id="search_back">
+						<div class="col-md-12 offset-md-0 offset-sm-0">
+							<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
+								<div class="form-inline">
+									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mr-sm-2"></input>
+									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+								</div>
+							</form>
 						</div>
-					</form>
+					</div>
 					<br>
 					<div class="row">
 					<script>
 					$( document ).ready(function() {
 						$("#header").fadeIn('slow');
-						$("#song_block").fadeIn('slow');
+					});
+					
+					$(document).ready(function() {
+						$('#txtSearch').width(500);
+						$('#txtSearch').focus(function() {
+							$(this).animate({
+								width: 750
+							})
+						});
+						$('#txtSearch').blur(function() {
+							$(this).animate({
+								width: 500
+							})
+						});
 					});
 					</script>
 					<?php
