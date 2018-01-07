@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017 - 2018
 * FileCreated:	171210
 */
 // Include config file

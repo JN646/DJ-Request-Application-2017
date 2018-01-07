@@ -40,9 +40,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									echo"<div class='col-md-2'>";
 										echo "<div class-'col-md-12 border' border-primary>";
 										// Cover Image.
-										echo "<img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
+										echo "<a href='song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
 											echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
-										echo "\">";
+										echo "\"></a>";
 										// Name and artist.
 										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";

@@ -11,7 +11,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 
 $UID = (int)$_GET["song_id"];
-$sql = "INSERT INTO requests (request_song_id, request_session_id) VALUES ('$UID', '1')";
+$sql = "INSERT INTO requests (request_song_id, request_session_id, request_pinned) VALUES ('$UID', '1', '0')";
 
 // Run the query.
 if(mysqli_query($mysqli, $sql)) {
