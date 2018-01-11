@@ -74,10 +74,6 @@ status_bar.style.display="none";
 var txt_song_name = document.getElementById("song_name");
 var txt_song_year = document.getElementById("song_year");
 
-// Add event handler
-txt_song_name.addEventListener("change", Check_Empty);
-txt_song_year.addEventListener("change", Check_Empty);
-
 // Run function
 function Check_Empty() {
 	// Validate song name field.
@@ -89,20 +85,35 @@ function Check_Empty() {
 	
 	// Validate year field.
 	var x, text;
-
-    // Get the value of the input field with id="song_year"
-    x = document.getElementById("song_year").value;
+	
+	var year = document.getElementById("song_year").value;
+	var title = document.getElementById("song_name").value;
 
     // If x is Not a Number or less than one or greater than 10
-    if (isNaN(x) || x < 1900 || x > 2020) {
-        text = "Input not valid";
-		document.getElementById("submit_button").style.display = "none";
+    if ((isNaN(year) || year < 1900 || x > 2020) || (title == "")) {
+		console.log("Condition Failed");
+        ValFail();
     } else {
-        text = "Input OK";
-		document.getElementById("submit_button").style.display = "";
+		console.log("Condition Passed");
+		ValSuccess();
     }
+
+	function ValSuccess() {
+        text = "Input OK";
+		document.getElementById("submit_button").style.display = "";		
+	}
+	
+	function ValFail() {
+        text = "You must include a title and a valid date.";
+		document.getElementById("submit_button").style.display = "none";		
+	}
+	
     document.getElementById("status_bar").innerHTML = text;
-	status_bar.style.display="";	
+	status_bar.style.display="";
 }
+
+// Add event handler
+txt_song_name.addEventListener("change", Check_Empty);
+txt_song_year.addEventListener("change", Check_Empty);
 </script>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
