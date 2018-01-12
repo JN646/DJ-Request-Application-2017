@@ -74,7 +74,7 @@ function Check_Empty() {
 	}
 	
 	function ValFail() {
-        text = "You must include a name and a description.";
+        text = "Fields must not be empty.";
 		
 		document.getElementById("submit_button").style.display = "none";			
 	}
