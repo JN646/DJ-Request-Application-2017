@@ -37,7 +37,7 @@ mysqli_query($query);
 //}
 
 if($query) {
-	header("refresh:0; url=../browse_song.php");
+	header('Location: ' . $_SERVER['HTTP_REFERER']);;
 } else {
 	echo "<div class='fluid-container'>";
 		echo "<div class='col-md-12'>";

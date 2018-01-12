@@ -66,8 +66,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									<input class="form-control" type="text" name="ud_year" value="<?=$year?>"></input>
 								</div>
 							</div>
-							<button class="btn btn-primary" name="add_song" type="submit" value="Submit">Submit</button>
+							<button class="btn btn-primary" name="add_song" id="submit_button" type="submit" value="Submit">Submit</button>
 						</form>
+						<p>Add a back button here!</p>
 					</div>
 					<?php
 					mysqli_free_result($query);
@@ -93,10 +94,12 @@ function valid()
     {
         status_bar.style.display="";
 		document.getElementById("status_bar").innerHTML = "Song name can not be blank.";
+		document.getElementById("submit_button").style.display = "none";
         return false;
     } 
     else 
     {
+		document.getElementById("submit_button").style.display = "";
         status_bar.style.display="none";
         return true;
     }

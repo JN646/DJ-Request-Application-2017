@@ -46,7 +46,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<div class="col-md-12 offset-md-0 offset-sm-0">
 							<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
 								<div class="form-inline">
-									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mr-sm-2"></input>
+									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mr-sm-2" style="font-size: 24px;"></input>
 									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
 								</div>
 							</form>
@@ -81,8 +81,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							while($row = mysqli_fetch_array($result)){
 								echo"<div class='col-md-2' id='song_block'>";
 									echo "<div class-'col-md-12 border' border-primary>";
-										echo "<a href='requests/functions/func_add_request.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
-										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+										// Cover Image.
+										echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
+											echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
 										echo "\"></a>";
 										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
 										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
