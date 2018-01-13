@@ -14,6 +14,7 @@
 	text-align: left;
 	padding: 45px 50px;
 	margin-top: 80px;
+	bottom:0;
 }
 .footer-distributed .footer-left p{
 	color:  #8f9296;
@@ -86,7 +87,7 @@
 			·
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
 		</p>
-		<p>The DJ Request Application &copy; 2017-2018, Build 180112.</p>
+		<p>The DJ Request Application &copy; 2017-2018, Build 180113.</p>
 	</div>
 </footer>
 </body>
