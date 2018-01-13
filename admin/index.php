@@ -24,7 +24,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<div class="col-md-11">
 					<br>
 					<h1 class="display-4">Hi, <b><?php echo $_SESSION['username']; ?></b>. Welcome to your Dashboard.</h1>
-					<div id="status_bar" class="alert alert-warning" role="alert">This is a warning alert</div>
+					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<p>Site control panel. Use this dashboard to control and manage your instance.</p>
 					<!-- Tools -->
 					<div class="row">
