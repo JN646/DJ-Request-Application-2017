@@ -80,7 +80,43 @@ $Song_Album = $rs['song_album'];
 						<div class="col-md-6">
 							<div class="col-md-12 border">
 								<h2>Related Tracks</h2>
-								<p>Coming Soon<p>
+								<?php
+								// Attempt select query execution
+								$sql = "SELECT * FROM songs
+										WHERE song_artist LIKE '%$Song_Artist%'";
+								if($result = mysqli_query($mysqli, $sql)){
+									if(mysqli_num_rows($result) > 0){
+										echo "<table class='table table-bordered'>";
+											echo "<tr>";
+												echo "<th class='text-center' width='64px'></th>";
+												echo "<th class='text-center'>Song</th>";
+												echo "<th class='text-center'>Artist</th>";
+												echo "<th class='text-center'>Year</th>";
+												echo "<th class='text-center'>Genre</th>";
+												echo "<th class='text-center'>Request</th>";
+											echo "</tr>";
+										while($row = mysqli_fetch_array($result)){
+											echo "<tr>";
+												echo "<td><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
+												echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "small");
+												echo "\"></td>";
+												echo "<td><a href='song_profile.php?song_id=" .$row['song_id']. "'>" . $row['song_name'] . "</a></td>";
+												echo "<td>" . $row['song_artist'] . "</td>";
+												echo "<td class='text-center'>" . $row['song_year'] . "</td>";
+												echo "<td class='text-center'>" . $row['song_genre'] . "</td>";
+												echo "<td class='text-center'><a href=functions/update_count.php?song_id=" . $row['song_id'] . ">Request</a></td>";
+											echo "</tr>";
+										}
+										echo "</table>";
+										// Free result set
+										mysqli_free_result($result);
+									} else{
+										echo "No songs were found. Todo: list other suggestions?";
+									}
+								} else{
+									echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+								}
+								?>
 							</div>
 						</div>
 					</div>

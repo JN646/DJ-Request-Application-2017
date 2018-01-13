@@ -26,11 +26,26 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<br>
 					<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
 						<div class="form-inline">
-							<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2" style="width: 60%"></input>
+							<input name="search_val" id="txtSearch" type="text" placeholder="Search" class="form-control mr-sm-2" style="width: 60%"></input>
 							<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
 						</div>
 					</form>
 					<br>
+					<script>
+					$(document).ready(function() {
+						$('#txtSearch').width(500);
+						$('#txtSearch').focus(function() {
+							$(this).animate({
+								width: 750
+							})
+						});
+						$('#txtSearch').blur(function() {
+							$(this).animate({
+								width: 500
+							})
+						});
+					});
+					</script>
 					<?php
 						// Attempt select query execution
 						$sql = "SELECT * FROM songs
@@ -54,7 +69,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 										echo "<td><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
 										echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "small");
 										echo "\"></td>";
-										echo "<td>" . $row['song_name'] . "</td>";
+										echo "<td><a href='song_profile.php?song_id=" .$row['song_id']. "'>" . $row['song_name'] . "</a></td>";
 										echo "<td>" . $row['song_artist'] . "</td>";
 										echo "<td class='text-center'>" . $row['song_year'] . "</td>";
 										echo "<td class='text-center'>" . $row['song_genre'] . "</td>";
