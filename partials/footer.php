@@ -68,10 +68,12 @@
 </style>
 <footer class="footer-distributed">
 	<div class="footer-right">
-		<a href="#"><i class="fa fa-facebook"></i></a>
-		<a href="#"><i class="fa fa-twitter"></i></a>
-		<a href="#"><i class="fa fa-linkedin"></i></a>
-		<a href="#"><i class="fa fa-github"></i></a>
+	<?php
+		echo"<a href='$FacebookAccount'><i class='fa fa-facebook'></i></a>";
+		echo"<a href='$TwitterAccount'><i class='fa fa-twitter'></i></a>";
+		echo"<a href='$SnapchatAccount'><i class='fa fa-snapchat'></i></a>";
+		echo"<a href='#'><i class='fa fa-github'></i></a>";
+	?>
 	</div>
 	<div class="footer-left">
 		<p class="footer-links">
@@ -87,7 +89,7 @@
 			·
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
 		</p>
-		<p>The DJ Request Application &copy; 2017-2018, Build 180113.</p>
+		<p>The DJ Request Application &copy; 2017-2018, Build 180114.</p>
 	</div>
 </footer>
 </body>
