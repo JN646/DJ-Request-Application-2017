@@ -97,7 +97,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 		});
 	});
 
-	// hide status bar
+// hide status bar
 $('#status_bar').hide();
 
 // SELECT ALL

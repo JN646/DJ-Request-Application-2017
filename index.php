@@ -54,51 +54,51 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					</div>
 					<br>
 					<div class="row">
-					<script>
-					$( document ).ready(function() {
-						$("#header").fadeIn('slow');
-					});
-					
-					$(document).ready(function() {
-						$('#txtSearch').width(500);
-						$('#txtSearch').focus(function() {
-							$(this).animate({
-								width: 750
-							})
+						<script>
+						$( document ).ready(function() {
+							$("#header").fadeIn('slow');
 						});
-						$('#txtSearch').blur(function() {
-							$(this).animate({
-								width: 500
-							})
+						
+						$(document).ready(function() {
+							$('#txtSearch').width(500);
+							$('#txtSearch').focus(function() {
+								$(this).animate({
+									width: 750
+								})
+							});
+							$('#txtSearch').blur(function() {
+								$(this).animate({
+									width: 500
+								})
+							});
 						});
-					});
-					</script>
-					<?php
-					// Attempt select query execution
-					$sql = "SELECT * FROM songs WHERE song_album <> '' ORDER BY RAND () ASC LIMIT 12";
-					if($result = mysqli_query($mysqli, $sql)){
-						if(mysqli_num_rows($result) > 0){
-							while($row = mysqli_fetch_array($result)){
-								echo"<div class='col-md-2' id='song_block'>";
-									echo "<div class-'col-md-12 border' border-primary>";
-										// Cover Image.
-										echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
-											echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
-										echo "\"></a>";
-										echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
-										echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
-									echo "</div>";
-								echo"</div>";
+						</script>
+						<?php
+						// Attempt select query execution
+						$sql = "SELECT * FROM songs WHERE song_album <> '' ORDER BY RAND () ASC LIMIT 12";
+						if($result = mysqli_query($mysqli, $sql)){
+							if(mysqli_num_rows($result) > 0){
+								while($row = mysqli_fetch_array($result)){
+									echo"<div class='col-md-2' id='song_block'>";
+										echo "<div class-'col-md-12 border' border-primary>";
+											// Cover Image.
+											echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
+												echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+											echo "\"></a>";
+											echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+											echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+										echo "</div>";
+									echo"</div>";
+								}
+								// Free result set
+								mysqli_free_result($result);
+							} else{
+								echo "<p class='text-center'>No songs were found.</p>";
 							}
-							// Free result set
-							mysqli_free_result($result);
 						} else{
-							echo "<p class='text-center'>No songs were found.</p>";
+							echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
 						}
-					} else{
-						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
-					}
-					?>
+						?>
 					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
