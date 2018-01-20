@@ -1,7 +1,7 @@
 <?php
 /**
 * Project:		DJ Request Application
-* Copyright:		(C) JGinn 2017
+* Copyright:	(C) JGinn 2017
 * FileCreated:	171210
 */
 // Include config file
@@ -28,7 +28,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<p>Site control panel. Use this dashboard to control and manage your instance.</p>
 					<!-- Tools -->
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Sessions</h5>
 							  <div class="card-body">
@@ -38,7 +38,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Songs</h5>
 							  <div class="card-body">
@@ -51,7 +51,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Client Devices</h5>
 							  <div class="card-body">
@@ -62,7 +62,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Account</h5>
 							  <div class="card-body">
@@ -73,13 +73,24 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
-						<div class="col-md-2">
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Zones</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>zones/zones_index.php">Zones Home</a></li>
 									<li class="list-group-item"><a href="<?php echo $environment; ?>zones/add_zone.php">Zones Add</a></li>
+								</ul>
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+							<div class="card">
+							  <h5 class="card-header">Venue</h5>
+							  <div class="card-body">
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><a href="<?php echo $environment; ?>venue/venue_index.php">Venue Home</a></li>
+									<li class="list-group-item"><a href="<?php echo $environment; ?>venue/venue_css.php">Venue CSS</a></li>
 								</ul>
 							  </div>
 							</div>

@@ -12,13 +12,13 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css">
 	<link rel="icon" href="<?php echo $environment; ?>favicon.ico" type="image/ico" sizes="16x16">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <?php echo"<a class='navbar-brand' href='http://localhost/djx/djx/index.php'>$VenueName</a>"; ?>
+  <?php echo"<a class='navbar-brand' href='$environment/index.php'>$VenueName</a>"; ?>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 		<li class="nav-item active"><a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a></li>

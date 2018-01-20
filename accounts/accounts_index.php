@@ -27,6 +27,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<p>Control your user accounts and the roles that they have.</p>
 					<ul>
 						<li><a href="<?php echo $environment; ?>accounts/register.php">Create Accounts</a></li>
+						<li><a href="<?php echo $environment; ?>accounts/accounts_profile.php">Profile</a></li>
 						<li><a href="<?php echo $environment; ?>accounts/user_list.php">User List</a></li>
 					</ul>
 				</div> <!-- Close col-md-11 -->

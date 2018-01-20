@@ -89,7 +89,7 @@
 			·
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
 		</p>
-		<p>The DJ Request Application &copy; 2017-2018, Build 180114.</p>
+		<p>The DJ Request Application &copy; 2017-2018, Build 180119.</p>
 	</div>
 </footer>
 </body>
