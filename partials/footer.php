@@ -91,95 +91,95 @@
 		</p>
 		<p>The DJ Request Application &copy; 2017-<?php echo date("Y");?>, Build <?php echo date("ymd");?>.</p>
 		
-							<!-- Button to Open the Modal -->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-						Login
-					</button>
-					
-					<!-- The Modal -->
-					<div class="modal fade" id="myModal">
-						<div class="modal-dialog">
-							<div class="modal-content">
+		<!-- Button to Open the Modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			Login
+		</button>
+		
+		<!-- The Modal -->
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
 
-							<?php
-							$username = $password = "";
-							$username_err = $password_err = "";
-							if($_SERVER["REQUEST_METHOD"] == "POST"){
-								if(empty(trim($_POST["username"]))){
-									$username_err = 'Please enter username.';
-								} else{
-									$username = trim($_POST["username"]);
-								}
-								if(empty(trim($_POST['password']))){
-									$password_err = 'Please enter your password.';
-								} else{
-									$password = trim($_POST['password']);
-								}
-								if(empty($username_err) && empty($password_err)){
-									$sql = "SELECT username, password FROM users WHERE username = ?";
-									if($stmt = $mysqli->prepare($sql)){
-										$stmt->bind_param("s", $param_username);
-										$param_username = $username;
-										if($stmt->execute()){
-											$stmt->store_result();
-											if($stmt->num_rows == 1){
-												$stmt->bind_result($username, $hashed_password);
-												if($stmt->fetch()){
-													if(password_verify($password, $hashed_password)){
-														session_start();
-														$_SESSION['username'] = $username;
-														header("location: http://localhost/djx/djx/admin/index.php");
-													} else{
-														$password_err = 'The password you entered was not valid.';
-													}
-												}
-											} else{
-												$username_err = 'No account found with that username.';
-											}
+				<?php
+				$username = $password = "";
+				$username_err = $password_err = "";
+				if($_SERVER["REQUEST_METHOD"] == "POST"){
+					if(empty(trim($_POST["username"]))){
+						$username_err = 'Please enter username.';
+					} else{
+						$username = trim($_POST["username"]);
+					}
+					if(empty(trim($_POST['password']))){
+						$password_err = 'Please enter your password.';
+					} else{
+						$password = trim($_POST['password']);
+					}
+					if(empty($username_err) && empty($password_err)){
+						$sql = "SELECT username, password FROM users WHERE username = ?";
+						if($stmt = $mysqli->prepare($sql)){
+							$stmt->bind_param("s", $param_username);
+							$param_username = $username;
+							if($stmt->execute()){
+								$stmt->store_result();
+								if($stmt->num_rows == 1){
+									$stmt->bind_result($username, $hashed_password);
+									if($stmt->fetch()){
+										if(password_verify($password, $hashed_password)){
+											session_start();
+											$_SESSION['username'] = $username;
+											header("location: http://localhost/djx/djx/admin/index.php");
 										} else{
-											echo "Oops! Something went wrong. Please try again later.";
+											$password_err = 'The password you entered was not valid.';
 										}
 									}
-									$stmt->close();
+								} else{
+									$username_err = 'No account found with that username.';
 								}
-								$mysqli->close();
+							} else{
+								echo "Oops! Something went wrong. Please try again later.";
 							}
-							?>
-							
-								<!-- Modal Header -->
-								<div class="modal-header">
-									<h4 class="modal-title">Login</h4>
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-								</div>
+						}
+						$stmt->close();
+					}
+					$mysqli->close();
+				}
+				?>
+				
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Login</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
 
-								<!-- Modal body -->
-								<div class="modal-body">
-									<p>Please fill in your credentials to login.</p>
-									<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-										<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-											<label>Username:<sup>*</sup></label>
-											<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
-											<span class="help-block"><?php echo $username_err; ?></span>
-										</div>
-										<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-											<label>Password:<sup>*</sup></label>
-											<input type="password" name="password" class="form-control">
-											<span class="help-block"><?php echo $password_err; ?></span>
-										</div>
-										<div class="form-group">
-											<input type="submit" class="btn btn-primary" value="Submit">
-										</div>
-									</form>
-								</div>
-
-								<!-- Modal footer -->
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								</div>
-
+					<!-- Modal body -->
+					<div class="modal-body">
+						<p>Please fill in your credentials to login.</p>
+						<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+							<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+								<label>Username:<sup>*</sup></label>
+								<input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
+								<span class="help-block"><?php echo $username_err; ?></span>
 							</div>
-						</div>
-					</div> <!-- Modal -->
+							<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+								<label>Password:<sup>*</sup></label>
+								<input type="password" name="password" class="form-control">
+								<span class="help-block"><?php echo $password_err; ?></span>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary" value="Submit">
+							</div>
+						</form>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+
+				</div>
+			</div>
+		</div> <!-- Modal -->
 		
 	</div>
 </footer>
