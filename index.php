@@ -28,8 +28,13 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<div class="row">
 							<div class="col-md-9">
 								<?php
+								// Add venue name.
 								echo"<h1 class='display-2 text-center'>$VenueName</h1>";
+								
+								// Add venue slogan.
 								echo"<h1 class='lead text-center'>$VenueSlogan</h1>";
+								
+								// Browsing button.
 								// <form class="form-inline">
 									// <button class="form-control btn btn-primary">Start Browsing</button>
 								// </form>
@@ -55,10 +60,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<br>
 					<div class="row">
 						<script>
+						// Fade in Header.
 						$( document ).ready(function() {
 							$("#header").fadeIn('slow');
 						});
 						
+						// Expand search box.
 						$(document).ready(function() {
 							$('#txtSearch').width(500);
 							$('#txtSearch').focus(function() {
@@ -66,6 +73,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									width: 750
 								})
 							});
+							
+							// Restore to original size.
 							$('#txtSearch').blur(function() {
 								$(this).animate({
 									width: 500
@@ -74,32 +83,49 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						});
 						</script>
 						<?php
-						// Attempt select query execution
+						// Attempt select query execution.
 						$sql = "SELECT * FROM songs WHERE song_album <> '' ORDER BY RAND () ASC LIMIT 12";
+						
+						// Process each row.
 						if($result = mysqli_query($mysqli, $sql)){
 							if(mysqli_num_rows($result) > 0){
 								while($row = mysqli_fetch_array($result)){
+									
+									// Create song block.
 									echo"<div class='col-md-2' id='song_block'>";
+									
+										// Set block border.
 										echo "<div class-'col-md-12 border' border-primary>";
+											
 											// Cover Image.
 											echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
 												echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
 											echo "\"></a>";
+											
+											// Song Name.
 											echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+											
+											// Song Artist.
 											echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
-										echo "</div>";
-									echo"</div>";
+											
+										echo "</div>"; // Inner block.
+									echo"</div>"; // Outer block.
 								}
+								
 								// Free result set
 								mysqli_free_result($result);
 							} else{
+								
+								// No songs in the database.
 								echo "<p class='text-center'>No songs were found.</p>";
 							}
 						} else{
+							
+							// Error message.
 							echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
 						}
 						?>
-					</div>
+					</div> <!-- Close row -->
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
