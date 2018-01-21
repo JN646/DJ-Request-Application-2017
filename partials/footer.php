@@ -89,7 +89,7 @@
 			·
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
 		</p>
-		<p>The DJ Request Application &copy; 2017-2018, Build 180120.</p>
+		<p>The DJ Request Application &copy; 2017-<?php echo date("Y");?>, Build <?php echo date("ymd");?>.</p>
 		
 							<!-- Button to Open the Modal -->
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
