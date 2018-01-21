@@ -37,7 +37,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item active"><a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse</a></li>
-			<li class="nav-item"><a class="nav-link disabled" href="#">DEBUG</a></li>
+			<li class="nav-item"><a class="nav-link disabled" href="<?php echo $environment; ?>system/debug.php">DEBUG</a></li>
 		</ul>
 		<form class="form-inline my-2 my-lg-0" action="<?php echo $environment; ?>songs/search_song.php" method="get">
 			<input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
