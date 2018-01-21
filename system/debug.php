@@ -8,6 +8,12 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+
+//Login handler
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If session variable is not set it will redirect to login page
+	//header("location: http://localhost/djx/djx/accounts/login.php");
+	//exit;
+}
 ?>
 <head>
 	<title>DEBUG</title>

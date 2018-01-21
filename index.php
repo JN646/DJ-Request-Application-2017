@@ -4,11 +4,18 @@
 * Copyright:	(C) JGinn 2017 - 2018
 * FileCreated:	171210
 */
+
 // Include config file
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
+
+// Include header
 include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
+
+// LastFM library
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
+
+//Login handler
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If session variable is not set it will redirect to login page
 	//header("location: http://localhost/djx/djx/accounts/login.php");
 	//exit;
