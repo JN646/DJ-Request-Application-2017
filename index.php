@@ -36,10 +36,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							<div class="col-md-9">
 								<?php
 								// Add venue name.
-								echo"<h1 class='display-2 text-center'>$VenueName</h1>";
+								echo"<h1 class='display-2 id='h1VenueName' text-center'>$VenueName</h1>";
 								
 								// Add venue slogan.
-								echo"<h1 class='lead text-center'>$VenueSlogan</h1>";
+								echo"<h1 class='lead text-center' id='h1VenueSlogan'>$VenueSlogan</h1>";
 								
 								// Browsing button.
 								// <form class="form-inline">
@@ -47,13 +47,15 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								// </form>
 								?>
 							</div>
-							<div class="col-md-3 jumbo-aside">
-								<div class="col-md-12" style="height: 150px">
+							<div class="col-md-3 jumbo-aside" id="jumbo">
+								<div class="col-md-12" id="jumbo-inner" style="height: 150px">
 								<p>Thank You for choosing the private area of our club. As a VIP you can use these devices to request songs straight to the DJ.</p>
 								</div>
 							</div>
 						</div>
 					</div>
+					
+					<!-- Search Box -->
 					<div class="col-sm-12 col-md-6 offset-md-3 offset-sm-0" id="search_back">
 						<div class="col-md-12 offset-md-0 offset-sm-0">
 							<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
