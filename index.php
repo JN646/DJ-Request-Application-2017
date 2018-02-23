@@ -28,6 +28,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	<div class="fluid-container">
 		<div class="col-md-12">
 			<div class="row">
+			
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-12">
 					<br>

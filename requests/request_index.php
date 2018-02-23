@@ -34,8 +34,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<nav class="nav">
 						<a class="nav-link disabled" href="#">Delete All</a>
 						<a class="nav-link disabled" href="#">Unpin All</a>
-						<a class="nav-link font-button plus">A+</a>
-						<a class="nav-link font-button minus">A-</a>
+						<a class="nav-link font-button plus" style="cursor: pointer;">A+</a>
+						<a class="nav-link font-button minus" style="cursor: pointer;">A-</a>
 					</nav>
 					<?php
 					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned

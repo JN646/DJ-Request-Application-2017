@@ -14,7 +14,7 @@ Make a backup of this file as changes can have catastrophic results.
 // Global Variables.
 define("LOCAL", "http://localhost/djx/djx/"); //local URL
 define("WEB", "http://192.168.1.72:80/djx/djx/"); //website URL
-$environment = WEB; //change to WEB if you're live
+$environment = LOCAL; //change to WEB if you're live
 
 // Venue Details
 // Enter the details of your venue, these variables can be loaded in the application.
