@@ -1,31 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 body {
-	font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .jumbo-header {
-	color: white;
-	background-image: url("../images/jumbo.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+  color: white;
+  background-image: url("../images/jumbo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .jumbo-aside {
-	color: white;
-	padding: 10px;
-	background: rgba(50, 50, 50, 0.7);
-	border-radius: 5px;
+  color: white;
+  padding: 10px;
+  background: rgba(50, 50, 50, 0.7);
+  border-radius: 5px;
 }
 
 .debug_dump {
-	background-color: #eee;
-	border: 1px solid;
-	border-radius: 5px;
-	clear: both;
-	/* float: left; */
-	width: 100%;
-	margin-top: 45px;
+  background-color: #eee;
+  border: 1px solid;
+  border-radius: 5px;
+  clear: both;
+  /* float: left; */
+  width: 100%;
+  margin-top: 45px;
 }
 
 .loader {
@@ -34,30 +33,40 @@ body {
   border-top: 16px solid #3498db;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
   animation: spin 2s linear infinite;
 }
 
 /* Safari */
+
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #song_block:hover {
-	border: solid 3px;
-	border-radius: 5px;
-	color:blue;
-	transition:.5s;
+  border: solid 3px;
+  border-radius: 5px;
+  color: blue;
+  transition: .5s;
 }
 
 #search_back {
-	background: #3a3a40;
-	padding: 10px;
-	border-radius: 10px;
+  background: #3a3a40;
+  padding: 10px;
+  border-radius: 10px;
 }

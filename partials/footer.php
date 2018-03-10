@@ -7,6 +7,7 @@
 ?>
 <style>
 .footer-distributed{
+	position: fixed;
 	background-color: #3a3a40;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
@@ -14,7 +15,7 @@
 	text-align: left;
 	padding: 45px 50px;
 	margin-top: 80px;
-	bottom:0;
+	bottom: 0;
 }
 .footer-distributed .footer-left p{
 	color:  #8f9296;
@@ -88,14 +89,15 @@
 			<a href="<?php echo $environment; ?>static/help.php">Help</a>
 			·
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
-		</p>
-		<p>The DJ Request Application &copy; 2017-<?php echo date("Y");?>, Build <?php echo date("ymd");?>.</p>
-		
+
 		<!-- Button to Open the Modal -->
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 			Login
 		</button>
-		
+				</p>
+
+		<p>The DJ Request Application &copy; 2017-<?php echo date("Y");?>, Build <?php echo date("ymd");?>.</p>
+
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
 			<div class="modal-dialog">
@@ -145,7 +147,7 @@
 					$mysqli->close();
 				}
 				?>
-				
+
 					<!-- Modal Header -->
 					<div class="modal-header">
 						<h4 class="modal-title">Login</h4>
@@ -180,7 +182,7 @@
 				</div>
 			</div>
 		</div> <!-- Modal -->
-		
+
 	</div>
 </footer>
 </body>

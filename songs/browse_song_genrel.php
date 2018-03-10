@@ -30,12 +30,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					?>
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<br>
-					<div class="row">
+					<div class="row" style='margin: 0 auto;'>
 						<?php
 						// Attempt select query execution
 						// Create an array of every letter.
-						$letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");		
-						
+						$letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
 						// Loop for each letter.
 						for ($x = 0; $x <= 25; $x++) {
 							echo "<h1>$letters[$x]</h1>";
