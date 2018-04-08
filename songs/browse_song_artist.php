@@ -28,20 +28,40 @@ else
 }
 $result = mysqli_query($mysqli, $query);
 ?>
+
+<!-- Header Content -->
 <head>
 	<title>Song Artists</title>
 </head>
+
+<!-- Body -->
 <body>
+
+	<!-- Container -->
 	<div class="fluid-container">
 		<div class="col-md-12">
+
+			<!-- Row -->
 			<div class="row">
+
+				<!-- Navigation Bar -->
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
+
+				<!-- Main Content -->
 				<div class="col-md-11">
 					<br>
+
+					<!-- Title -->
 					<h1 class="display-4">Browse by Artist</h1>
+
+					<!-- Row -->
 					<div class="row">
 						<div class="col-md-5">
+
+							<!-- Status Bar -->
 							<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
+
+							<!-- Form -->
 							<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
 								<div class="form-inline">
 									<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
@@ -49,7 +69,7 @@ $result = mysqli_query($mysqli, $query);
 								</div>
 							</form>
 						</div>
-						<div class="col-md-7">					
+						<div class="col-md-7">
 							<?php
 							// Define characters.
 							$character = range('A', 'Z');
