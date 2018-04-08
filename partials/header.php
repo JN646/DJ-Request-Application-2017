@@ -7,23 +7,25 @@
 // Include config file
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/classes/class_lib.php");
 ?>
+
+<!-- HTML Content -->
 <!DOCTYPE html>
 <html>
 <head>
 	<!-- Meta Data -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<!-- Style Sheets -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css"> <!-- Custom CSS File -->
-	
+
 	<!-- Favicon -->
 	<link rel="icon" href="<?php echo $environment; ?>favicon.ico" type="image/ico" sizes="16x16">
-	
+
 	<!-- JavaScript -->
-	<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
@@ -34,6 +36,8 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 
 	<a class='navbar-brand' href='<?php echo $environment; ?>index.php'><?php echo $VenueName; ?></a>
 	<div class="collapse navbar-collapse" id="navbarNav">
+
+		<!-- Navbar Items -->
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item active"><a class="nav-link" href="<?php echo $environment; ?>index.php">Home <span class="sr-only">(current)</span></a></li>
 			<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/browse_song.php">Browse</a></li>

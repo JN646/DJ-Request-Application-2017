@@ -6,8 +6,9 @@
 */
 ?>
 <style>
+/* Need to move to custom css */
 .footer-distributed{
-	position: fixed;
+	position: relative;
 	background-color: #3a3a40;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
@@ -96,7 +97,7 @@
 		</button>
 				</p>
 
-		<p>The DJ Request Application &copy; 2017-<?php echo date("Y");?>, Build <?php echo date("ymd");?>.</p>
+		<p><?php echo 'Version: ' . ApplicationVersion::get() ?></p>
 
 		<!-- The Modal -->
 		<div class="modal fade" id="myModal">
