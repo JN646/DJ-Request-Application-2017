@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rating</title>
+  </head>
+  <body>
+  <!-- CSS -->
+  <style media="screen">
+    /* CSS */
+    /* Global */
+    * {
+      font-family: sans-serif;
+    }
+
+    /* Body */
+    body {
+      background-color: #333;
+      color: white;
+    }
+  </style>
+
+  <!-- Manual Button -->
+  <button type="button" name="button" onclick="Tick()">Go</button>
+
+  <!-- JavaScript -->
+  <script type="text/javascript">
+    function Tick () {
+      // Create Content
+      var newDiv = document.createElement("div");
+
+      // Create Text
+      var newContent = document.createTextNode("Like");
+      newDiv.appendChild(newContent);
+
+      // Add to Page
+      var currentDiv = document.getElementById("div1");
+      document.body.insertBefore(newDiv, currentDiv);
+    }
+  </script>
+  </body>
+</html>
