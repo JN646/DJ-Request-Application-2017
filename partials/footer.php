@@ -92,7 +92,7 @@
 			<a href="<?php echo $environment; ?>static/tandc.php">Terms & Conditions</a>
 
 		<!-- Button to Open the Modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		<button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">
 			Login
 		</button>
 				</p>
@@ -100,6 +100,7 @@
 		<p><?php echo 'Version: ' . ApplicationVersion::get() ?></p>
 
 		<!-- The Modal -->
+		<!-- Logon script within Modal box. -->
 		<div class="modal fade" id="myModal">
 			<div class="modal-dialog">
 				<div class="modal-content">
