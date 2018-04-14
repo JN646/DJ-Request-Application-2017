@@ -51,41 +51,33 @@ status_bar.style.display="none";
 var txt_session_name = document.getElementById("session_name");
 var txt_session_description = document.getElementById("session_description");
 
+// Add event handler
+txt_session_name.addEventListener("onchange", Check_Empty());
+txt_session_description.addEventListener("onchange", Check_Empty());
+
 // Run function
-function Check_Empty() {	
+function Check_Empty() {
 	// Validate year field.
 	var x, text;
-	
+
 	var name = document.getElementById("session_name").value;
 	var description = document.getElementById("session_description").value;
+	var submitButton = document.getElementById("submit_button");
 
-    // If x is Not a Number or less than one or greater than 10
-    if (name == "" || description == "") {
+  // If Fields Empty
+  if (name == "" || description == "") {
 		//console.log("Condition Failed");
-        ValFail();
-    } else {
+		text = "Fields must not be empty.";
+		submitButton.style.display = "none";
+  } else {
 		//console.log("Condition Passed");
-		ValSuccess();
-    }
+		text = "Input OK";
+		submitButton.style.display = "";
+  }
 
-	function ValSuccess() {
-        text = "Input OK";
-		document.getElementById("submit_button").style.display = "";		
-	}
-	
-	function ValFail() {
-        text = "Fields must not be empty.";
-		
-		document.getElementById("submit_button").style.display = "none";			
-	}
-	
-    document.getElementById("status_bar").innerHTML = text;
+  status_bar.innerHTML = text;
 	status_bar.style.display="";
 }
-
-// Add event handler
-txt_session_name.addEventListener("change", Check_Empty);
-txt_session_description.addEventListener("change", Check_Empty);
 </script>
 </body>
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
