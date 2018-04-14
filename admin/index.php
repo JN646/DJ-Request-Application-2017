@@ -23,11 +23,15 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
+
+					<!-- Header -->
 					<h1 class="display-4">Hi, <b><?php echo $_SESSION['username']; ?></b>. Welcome to your Dashboard.</h1>
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
 					<p>Site control panel. Use this dashboard to control and manage your instance.</p>
 					<!-- Tools -->
 					<div class="row">
+
+						<!-- Sessions -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Sessions</h5>
@@ -38,6 +42,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
+
+						<!-- Songs -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Songs</h5>
@@ -51,6 +57,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
+
+						<!-- Client Devices -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Client Devices</h5>
@@ -62,6 +70,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
+
+						<!-- Accounts -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Account</h5>
@@ -73,6 +83,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
+
+						<!-- Zones -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Zones</h5>
@@ -84,6 +96,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							  </div>
 							</div>
 						</div>
+
+						<!-- Venues -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
 							  <h5 class="card-header">Venue</h5>
