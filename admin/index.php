@@ -13,6 +13,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	exit;
 }
 ?>
+<!-- Header Content -->
 <head>
 	<title>Dashboard</title>
 </head>
