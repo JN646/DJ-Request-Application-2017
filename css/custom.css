@@ -1,16 +1,18 @@
 /* Custom CSS File */
 
 /* Font Import */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
+/* Body */
 html {
   background-color: #2e2e34;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
+/* Container */
 .fluid-container {
   min-height: 60vh;
 }
@@ -132,6 +134,8 @@ body {
 	line-height: 35px;
 	margin-left: 3px;
 }
+
+/* Footer Media */
 @media (max-width: 600px) {
 	.footer-distributed .footer-left,
 	.footer-distributed .footer-right{
