@@ -70,7 +70,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<div class="col-md-12 offset-md-0 offset-sm-0">
 							<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
 								<div class="form-inline">
-									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mr-sm-2" style="font-size: 24px;"></input>
+									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mx-sm-2" style="font-size: 24px;"></input>
 									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
 								</div>
 							</form>
@@ -88,17 +88,17 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 
 						// Expand search box.
 						$(document).ready(function() {
-							$('#txtSearch').width(500);
+							$('#txtSearch').width(200);
 							$('#txtSearch').focus(function() {
 								$(this).animate({
-									width: 750
+									width: 500
 								})
 							});
 
 							// Restore to original size.
 							$('#txtSearch').blur(function() {
 								$(this).animate({
-									width: 500
+									width: 200
 								})
 							});
 						});
@@ -125,10 +125,20 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 											echo "\"></a>";
 
 											// Song Name.
-											echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+											$name_lim = 14; //string length limit
+											if (strlen($row['song_name']) > $name_lim) {
+												echo"<h4 class='text-center'>" . substr($row['song_name'], 0, $name_lim-3) . "...</h4>";
+											} else {
+												echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+											}
 
 											// Song Artist.
-											echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+											$artist_lim = 10; //string length limit
+											if (strlen($row['song_artist']) > $artist_lim) {
+												echo"<h5 class='text-center'>" . substr($row['song_artist'], 0, $artist_lim-3) . "...</h5>";
+											} else {
+												echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+											}
 
 										echo "</div>"; // Inner block.
 									echo"</div>"; // Outer block.
