@@ -8,10 +8,10 @@
 <footer class="footer-distributed">
 	<div class="footer-right">
 	<?php
-		echo"<a href='$FacebookAccount'><i class='fa fa-facebook'></i></a>";
-		echo"<a href='$TwitterAccount'><i class='fa fa-twitter'></i></a>";
-		echo"<a href='$SnapchatAccount'><i class='fa fa-snapchat'></i></a>";
-		echo"<a href='#'><i class='fa fa-github'></i></a>";
+		echo"<a href='$FacebookAccount'><i class='fab fa-facebook'></i></a>";
+		echo"<a href='$TwitterAccount'><i class='fab fa-twitter'></i></a>";
+		echo"<a href='$SnapchatAccount'><i class='fab fa-snapchat'></i></a>";
+		echo"<a href='#'><i class='fab fa-github'></i></a>";
 	?>
 	</div>
 	<div class="footer-left">
