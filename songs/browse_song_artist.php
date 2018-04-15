@@ -65,19 +65,23 @@ $result = mysqli_query($mysqli, $query);
 							<form class="form-inline my-2 my-lg-0" action="search_song.php" method="get">
 								<div class="form-inline">
 									<input name="search_val" type="text" placeholder="Search" class="form-control mr-sm-2"></input>
-									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit"><i class="fas fa-search"></i></button>
 								</div>
 							</form>
 						</div>
 						<div class="col-md-7">
 							<?php
+
 							// Define characters.
 							$character = range('A', 'Z');
+
 							// Produce paginated class.
 							echo "<ul class='pagination'>";
+
 							// Generate a link for each letter.
 							foreach($character as $alphabet)
 								{
+
 									// Create a link for every letter.
 									echo "<li class='page-item'><a class='page-link' href='browse_song_artist.php?char=".$alphabet."'>".$alphabet."</a></li>";
 								}
@@ -86,6 +90,7 @@ $result = mysqli_query($mysqli, $query);
 						</div>
 					</div>
 						<div class="row">
+
 							<?php
 							// Attempt select query execution
 							if($result = mysqli_query($mysqli, $query)){
@@ -95,21 +100,29 @@ $result = mysqli_query($mysqli, $query);
 											echo "<div class='col-md-12 border border-dark' style='height: 200px'>";
 												echo "<br>";
 												echo "<h3 class='text-center'>" . $row['song_artist'] . "</h3>";
-												echo "<p class='text-center'><a href=browse_song_artistl.php?song_artist=".urlencode($row['song_artist'])." >View</a></p>";
+												echo "<p class='text-center'><a href=browse_song_artistl.php?song_artist=".urlencode($row['song_artist'])." ><i class='fas fa-search'></i></a></p>";
 											echo "</div>";
 										echo "</div>";
 									}
 									// Free result set
 									mysqli_free_result($result);
 								} else{
+
+									// Nothing Found
 									echo "<h3 class='text-center'>No artists were found.</h3>";
 								}
 							} else{
+
+								// Database Error
 								echo "ERROR: Could not able to execute $query. " . mysqli_error($mysqli);
 							}
 							?>
 						</div>
+
+						<!-- Back Buttons -->
 						<p><a href="browse_song.php">Back</a></p>
+
+				<!-- Close Divs -->
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
