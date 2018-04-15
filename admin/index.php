@@ -35,7 +35,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Sessions -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Sessions</h5>
+							  <h5 class="card-header"><i class="fas fa-align-justify"></i> Sessions</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>sessions/sessions_index.php">Session Home</a></li>
@@ -47,7 +47,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Songs -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Songs</h5>
+							  <h5 class="card-header"><i class="fas fa-music"></i> Songs</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>songs/index.php">Song Home</a></li>
@@ -62,7 +62,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Client Devices -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Client Devices</h5>
+							  <h5 class="card-header"><i class="fas fa-laptop"></i> Client Devices</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>clients/client_index.php">Client Home</a></li>
@@ -75,7 +75,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Accounts -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Account</h5>
+							  <h5 class="card-header"><i class="fas fa-user"></i> Account</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>accounts/accounts_index.php">Client Home</a></li>
@@ -88,7 +88,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Zones -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Zones</h5>
+							  <h5 class="card-header"><i class="fas fa-th-large"></i> Zones</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>zones/zones_index.php">Zones Home</a></li>
@@ -101,7 +101,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						<!-- Venues -->
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
 							<div class="card">
-							  <h5 class="card-header">Venue</h5>
+							  <h5 class="card-header"><i class="fas fa-home"></i> Venue</h5>
 							  <div class="card-body">
 								<ul class="list-group list-group-flush">
 									<li class="list-group-item"><a href="<?php echo $environment; ?>venue/venue_index.php">Venue Home</a></li>

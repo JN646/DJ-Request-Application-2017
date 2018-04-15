@@ -23,20 +23,31 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
+
+					<!-- Header -->
 					<h1 class="display-4">Browse Songs</h1>
 					<br>
+
+					<!-- Status Bar -->
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
+
+					<!-- Row -->
 					<div class="row">
+
+						<!-- Browse Song -->
 						<div class="col-md-2">
 							<div class="col-md-12 border" style="padding: 10px">
 								<h2 class="text-center"><a href="browse_song_artist.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_artist.png">Browse by Artist</a></h2>
 							</div>
 						</div>
+
+						<!-- Browse Genre -->
 						<div class="col-md-2">
 							<div class="col-md-12 border" style="padding: 10px">
 								<h2 class="text-center"><a href="browse_song_genre.php"><img class="img-responsive img-rounded" width="80%" src="<?php echo $environment; ?>images/browse_genre.png">Browse by Genre</a></h2>
 							</div>
 						</div>
+
 					</div>
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
