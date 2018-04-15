@@ -14,30 +14,48 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	exit;
 }
 ?>
+<!-- Header Content -->
 <head>
 	<title>My Requests</title>
 	<!-- <meta http-equiv="Refresh" content="5"> -->
 	<script src="<?php echo $environment; ?>js/sort_table.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
+
+<!-- Body -->
 <body>
 	<div class="fluid-container">
 		<div class="col-md-12">
 			<div class="row">
+
+				<!-- Nav Bar -->
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
+
+					<!-- Header -->
 					<h1 class="display-4">My Requests</h1>
+
+					<!-- Warning Message -->
 					<div class="alert alert-warning">This page is partially implemented</div>
+
+					<!-- Status Bar -->
 					<div id="status_bar" class="alert alert-warning" role="alert">Please wait while the page loads.</div>
+
+					<!-- Introduction -->
 					<p>All your active requests this session.</p>
+
+					<!-- Tool Bar -->
 					<nav class="nav">
 						<a class="nav-link disabled" href="#">Delete All</a>
 						<a class="nav-link disabled" href="#">Unpin All</a>
 						<a class="nav-link font-button plus" style="cursor: pointer;">A+</a>
 						<a class="nav-link font-button minus" style="cursor: pointer;">A-</a>
 					</nav>
+
 					<?php
+					// Display Requests
+					// Query
 					$songterms = "SELECT songs.song_name, songs.song_artist, songs.song_year, requests.request_time, requests.request_active, requests.request_id, requests.request_pinned
 					FROM songs
 					INNER JOIN requests
@@ -45,6 +63,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					ORDER BY request_pinned DESC, request_time DESC
 					";
 					$result = mysqli_query($mysqli, $songterms);
+
+					// Print Table
 					echo "<table class='table table-bordered' style='font-size: 120%;' id='myTable2'>";
 					echo "<tr>";
 						echo "<th onclick='sortTable(0)' class='text-center'><input id='select-all' type='checkbox' class='form-control'></th>";
@@ -55,9 +75,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						echo "<th onclick='sortTable(5)' class='text-center'>Delete</th>";
 					echo "</tr>";
 					while($row = mysqli_fetch_array($result)) {
-						if($row['request_pinned'] == 1) {					
+						if($row['request_pinned'] == 1) {
 							echo "<tr class='alert-warning'>";
-						} else if($row['request_pinned'] == 1) {					
+						} else if($row['request_pinned'] == 1) {
 							echo "<tr style='background-color: white;'>";
 						}
 								echo "<td><input id='checkBox' type='checkbox' class='form-control'></td>";
@@ -70,18 +90,24 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 									echo "<td class='text-center' style='background-color: white;'><a href=functions/func_request_pin.php?request_id=".$row['request_id'].">Pin</a></td>";
 								}
 								if($row['request_pinned'] == 1) {
-									echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']."><img src='../images/push-pin.png' alt='Pinned' width='24' height='24'></a></td>";
+									echo "<td class='text-center'><a href=functions/func_request_pin.php?request_id=".$row['request_id']."><i class='fas fa-thumbtack'></i></a></td>";
 								}
-								echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'>Delete</a></td>";
+								echo "<td class='text-center'><a href=functions/func_request_inactive.php?request_id=".$row['request_id']." class='btn btn-danger'><i class='fas fa-times'></i></a></td>";
 							echo "</tr>";
 						}
 						echo "</table>";
 					?>
+
+					<!-- Close Divs -->
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
 	</div> <!-- Close Container -->
+
+<!-- Javascript -->
 <script type="text/javascript">
+
+	// Size changing
 	$(function () {
 		$(".font-button").bind("click", function () {
 			var size = parseInt($('table').css("font-size"));
@@ -102,11 +128,11 @@ $('#status_bar').hide();
 
 // SELECT ALL
 // Listen for click on toggle checkbox
-$('#select-all').click(function(event) {   
+$('#select-all').click(function(event) {
     if(this.checked) {
         // Iterate each checkbox
         $(':checkbox').each(function() {
-            this.checked = true;                        
+            this.checked = true;
         });
     }
   else {
@@ -116,5 +142,7 @@ $('#select-all').click(function(event) {
   }
 });
 </script>
+
+<!-- Footer -->
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/footer.php"); ?>
 </body>

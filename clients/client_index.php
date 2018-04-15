@@ -28,7 +28,7 @@
 					<h1 class="col-md-6 alert alert-warning">Current Server IP: <?php echo $_SERVER['SERVER_ADDR']; ?></h1>
 					<p>Use the client manager to manage your physical devices.</p>
 					<ul class="nav">
-						<li class="nav-item"><a href="add_client.php"><img src="<?php echo $environment; ?>images/add.png" style="width: 32px"></a></li>
+						<li class="nav-item"><a href="add_client.php"><i class="fas fa-plus"></i></a></li>
 					</ul>
 					<br>
 					<?php
@@ -51,8 +51,8 @@
 									echo "<td>" . $row['Client_Mac'] . "</td>";
 									echo "<td>" . $row['client_description'] . "</td>";
 									echo "<td></td>";
-									echo "<td class='text-center'><a href=functions/update_count.php?song_id=".$row['client_id'].">View</a></td>";
-									echo "<td class='text-center'><a href=functions/func_delete_client.php?client_id=".$row['client_id']." class='btn btn-danger'>Delete</a></td>";
+									echo "<td class='text-center'><a href=functions/update_count.php?song_id=".$row['client_id']."><i class='fas fa-search'></i></a></td>";
+									echo "<td class='text-center'><a href=functions/func_delete_client.php?client_id=".$row['client_id']." class='btn btn-danger'><i class='fas fa-trash-alt'></i></a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";

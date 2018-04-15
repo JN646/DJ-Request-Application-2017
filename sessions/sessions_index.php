@@ -26,7 +26,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<br>
 					<h1 class="display-4">Session List</h1>
 					<p>See and edit active sessions.</p>
-					<p><a href='add_session.php'>Add Session</a></p>
+					<p><a href='add_session.php'><i class="fas fa-plus"></i></a></p>
 					<?php
 					//get the list of zones
 					$terms = "SELECT * FROM sessions";
@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							echo "<td>".$row['session_name']."</td>";
 							echo "<td>".$row['playlist']."</td>";
 							echo "<td class='text-center'>".$row['session_active']."</td>";
-							echo "<td class='text-center'><a href=sessions_edit_zones.php?session_id=".$row['session_id'].">Edit Zones</a></td>";
+							echo "<td class='text-center'><a href=sessions_edit_zones.php?session_id=".$row['session_id']."><i class='fas fa-edit'></i></a></td>";
 						echo "</tr>";
 					}
 					echo "</table>";
