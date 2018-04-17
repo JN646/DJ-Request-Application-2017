@@ -17,6 +17,10 @@ body {
   min-height: 60vh;
 }
 
+.fixedcontainer {
+  min-height: 60vh;
+}
+
 .jumbo-header {
   color: white;
   background-image: url("../images/jumbo.jpg");

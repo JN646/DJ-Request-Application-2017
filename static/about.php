@@ -16,7 +16,7 @@
 		<div class="col-md-12">
 			<div class="row">
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
-				<div class="col-md-11">
+				<div class="col-md-11 fixedcontainer">
 					<br>
 					<h1 class="display-4">About</h1>
 					<img src="https://picsum.photos/200/300" alt="" style="float: right;">

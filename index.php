@@ -71,7 +71,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							<form class="form-inline my-2 my-lg-0" action="songs/search_song.php" method="get">
 								<div class="form-inline">
 									<input name="search_val" type="text" id="txtSearch" placeholder="Search" class="form-control mx-sm-2" style="font-size: 24px;"></input>
-									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit">Search</button>
+									<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit"><i class="fas fa-search"></i></button>
 								</div>
 							</form>
 						</div>
