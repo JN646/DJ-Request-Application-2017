@@ -36,14 +36,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION['username'] = $username;
                             header("location: http://localhost/djx/djx/admin/index.php");
                         } else{
-                            $password_err = 'The password you entered was not valid.';
+                            $password_err = '<div class="alert alert-danger">The password you entered was not valid.</div>';
                         }
                     }
                 } else{
-                    $username_err = 'No account found with that username.';
+                    $username_err = '<div class="alert alert-danger">No account found with that username.</div>';
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo '<div class="alert alert-danger">Oops! Something went wrong. Please try again later.</div>';
             }
         }
         $stmt->close();
