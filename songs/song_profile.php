@@ -57,7 +57,7 @@ $Song_Album = $rs['song_album'];
 										echo"<div class='col-md-4'>";
 											echo"<div class='col-md-2'>";
 												echo "<div class-'col-md-12 border'>";
-													echo "<a href='requests/functions/func_add_request.php?song_id=" .$UID. "'><img class='card-img-top' style='width: 250px;' onerror=this.src='../images/250x250.png' src=\"";
+													echo "<a href='../requests/functions/func_add_request.php?song_id=" .$UID. "'><img class='card-img-top' style='width: 250px;' onerror=this.src='../images/250x250.png' src=\"";
 													echo LastFMArtwork::getArtwork($Song_Artist,$Song_Album, true, "large");
 													echo "\"></a>";
 												echo "</div>";
@@ -104,7 +104,7 @@ $Song_Album = $rs['song_album'];
 												echo "<td>" . $row['song_artist'] . "</td>";
 												echo "<td class='text-center'>" . $row['song_year'] . "</td>";
 												echo "<td class='text-center'>" . $row['song_genre'] . "</td>";
-												echo "<td class='text-center'><a href=functions/update_count.php?song_id=" . $row['song_id'] . ">Request</a></td>";
+												echo "<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" . $row['song_id'] . ">Request</a></td>";
 											echo "</tr>";
 										}
 										echo "</table>";

@@ -13,21 +13,31 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 	exit;
 }
 ?>
+<!-- Header -->
 <head>
 	<title>Zone Management</title>
 </head>
+
+<!-- Body -->
 <body>
+
+	<!-- Container -->
 	<div class="fluid-container">
 		<div class="col-md-12">
 			<div class="row">
 				<?php include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/nav.php"); ?>
 				<div class="col-md-11">
 					<br>
+
+					<!-- Title -->
 					<h1 class="display-4">Zone Management</h1>
+
+					<!-- Navigation -->
 					<ul class="nav">
-						<li class="nav-item"><a href="add_zone.php"><img src="<?php echo $environment; ?>images/add.png" style="width: 32px"></a></li>
+						<li class="nav-item"><a href="add_zone.php"><i class="fas fa-plus"></i></a></li>
 					</ul>
 					<p>Zones are physical spaces that DJs and Devices can be assigned to. These can be rooms, floors or areas of your venue. When a device moves, or a DJ changes room, it is important to adjust the zone that they are working in. This will ensure that all requests go to the correct place.</p>
+
 					<?php
 					// Attempt select query execution
 					$sql = "SELECT * FROM zones";
@@ -44,8 +54,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 								echo "<tr>";
 									echo "<td>" . $row['zone_name'] . "</td>";
 									echo "<td>" . $row['zone_description'] . "</td>";
-									echo "<td class='text-center'><a href=view_zone.php?zone_id=".$row['zone_id'].">View</a></td>";
-									echo "<td class='text-center'><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'>Delete</a></td>";
+									echo "<td class='text-center'><a href=view_zone.php?zone_id=".$row['zone_id']."><i class='fas fa-eye'></i></a></td>";
+									echo "<td class='text-center'><a href=functions/func_delete_zone.php?zone_id=".$row['zone_id']." class='btn btn-danger'><i class='far fa-trash-alt'></i></a></td>";
 								echo "</tr>";
 							}
 							echo "</table>";
@@ -58,6 +68,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 						echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
 					}
 					?>
+
+				<!-- Close Divs -->
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->
 		</div> <!-- Close col-md-12 -->
