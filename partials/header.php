@@ -8,6 +8,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/classes/class_lib.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/classes/func_lib.php");
 ?>
 
 <!-- HTML Content -->
