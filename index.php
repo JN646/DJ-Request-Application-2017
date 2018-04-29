@@ -8,11 +8,7 @@
 // Include config file
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBconfig.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/config/DBVar.php");
-
-// Include header
-include($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
-
-// LastFM library
+require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/partials/header.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/djx/djx/lib/lastfm.php");
 
 //Login handler
@@ -103,10 +99,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 							});
 						});
 						</script>
-
-						<?php
-							HomeImages($mysqli, $query);
-						?>
+						<?php HomeImages($mysqli); ?>
 					</div> <!-- Close row -->
 				</div> <!-- Close col-md-11 -->
 			</div> <!-- Close row -->

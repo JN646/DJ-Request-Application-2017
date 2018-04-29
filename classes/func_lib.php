@@ -36,7 +36,7 @@ function HomeImages($mysqli) {
             }
 
             // Song Artist.
-            $artist_lim = 10; //string length limit
+            $artist_lim = 10; // String length limit
             if (strlen($row['song_artist']) > $artist_lim) {
               echo"<h5 class='text-center'>" . substr($row['song_artist'], 0, $artist_lim-3) . "...</h5>";
             } else {
@@ -50,14 +50,11 @@ function HomeImages($mysqli) {
       // Free result set
       mysqli_free_result($result);
     } else{
-
       // No songs in the database.
       echo "<p class='text-center'>No songs were found.</p>";
     }
   } else{
-
-    // Error message.
-    echo "ERROR: Not able to execute $sql. " . mysqli_error($mysqli);
+    QueryError($query, $mysqli);
   }
 }
 
@@ -83,10 +80,35 @@ function BrowseSongArtist($mysqli, $query) {
       echo "<h3 class='text-center'>No artists were found.</h3>";
     }
   } else{
-
-    // Database Error
-    echo "ERROR: Could not able to execute $query. " . mysqli_error($mysqli);
+    QueryError($query, $mysqli);
   }
+}
+
+// Browse Genre
+function BrowseGenre($mysqli) {
+  // Attempt select query execution
+  $sql = "SELECT DISTINCT song_genre FROM songs WHERE song_genre <> '' ORDER BY song_genre ASC";
+  if($result = mysqli_query($mysqli, $sql)){
+    if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_array($result)){
+        echo "<div class='col-md-2'>";
+          echo "<h3><a href=browse_song_genrel.php?song_genre=".urlencode($row['song_genre']).">" . $row['song_genre'] . "</a></h3>";
+        echo "</div>";
+      }
+      // Free result set
+      mysqli_free_result($result);
+    } else{
+      echo "No requests were found.";
+    }
+  } else{
+    QueryError($query, $mysqli);
+  }
+}
+
+// GLOBALS
+// Query Error
+function QueryError($query, $mysqli) {
+  echo "ERROR: Could not able to execute $query. " . mysqli_error($mysqli);
 }
 
  ?>
