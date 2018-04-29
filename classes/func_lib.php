@@ -1,6 +1,7 @@
 <?php
 // Function Library
 
+// MISC
 // Hello World
 function HelloWorld() {
     echo "Hello world!";
@@ -15,19 +16,11 @@ function HomeImages($mysqli) {
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
-
-        // Create song block.
         echo"<div class='col-md-2' id='song_block'>";
-
-          // Set block border.
           echo "<div class-'col-md-12 border' border-primary>";
-
-            // Cover Image.
             echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
               echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
             echo "\"></a>";
-
-            // Song Name.
             $name_lim = 14; //string length limit
             if (strlen($row['song_name']) > $name_lim) {
               echo"<h4 class='text-center'>" . substr($row['song_name'], 0, $name_lim-3) . "...</h4>";
@@ -58,6 +51,7 @@ function HomeImages($mysqli) {
   }
 }
 
+// BROWSING
 // Browse Song Artists
 function BrowseSongArtist($mysqli, $query) {
   // Attempt select query execution
@@ -84,7 +78,7 @@ function BrowseSongArtist($mysqli, $query) {
   }
 }
 
-// Browse Genre
+// Browse Things
 function BrowseGenre($mysqli) {
   // Attempt select query execution
   $sql = "SELECT DISTINCT song_genre FROM songs WHERE song_genre <> '' ORDER BY song_genre ASC";
@@ -105,6 +99,101 @@ function BrowseGenre($mysqli) {
   }
 }
 
+// Broken
+function BrowseArtistL($mysqli, $artist) {
+  // Attempt select query execution
+  $sql = "SELECT * FROM songs WHERE song_artist='$artist' ORDER BY song_name ASC";
+  if($result = mysqli_query($mysqli, $sql)){
+    if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_array($result)){
+        echo"<div class='col-md-2'>";
+          echo "<div class-'col-md-12 border' border-primary>";
+
+          // Cover Image.
+          echo "<a href='song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
+            echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+          echo "\"></a>";
+
+          // Name and artist.
+          echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+          echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+
+          // Container for links.
+          echo"<table width=100%>";
+
+            // Checks to see if the user has logged in.
+            if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+
+              // Non-logged in user
+              echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. "><i class='fas fa-check'></i></a></td>";
+            } else {
+
+              // Logged in user.
+              // Request a song.
+              echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. "><i class='fas fa-check'></i></a></td>";
+
+              // Edit a song.
+              echo"<td class='text-center'><a href=functions/func_edit_song.php?song_id=" .$row['song_id']. "><i class='fas fa-edit'></i></a></td>";
+
+              // Delete a song.
+              echo"<td class='text-center'><a href=functions/func_delete_song.php?song_id=" .$row['song_id'].
+              "><i class='fas fa-trash-alt'></i></a></td>";
+            }
+          echo"</table>";
+          echo "</div>";
+        echo"</div>";
+      }
+      // Free result set
+      mysqli_free_result($result);
+    } else {
+      echo "No songs by $artist were found.";
+    }
+  } else {
+    QueryError($sql, $mysqli);
+  }
+}
+function BrowseGenreL($mysqli, $genre) {
+  // Attempt select query execution
+  // Create an array of every letter.
+  $letters = array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+
+  // Loop for each letter.
+  for ($x = 0; $x <= 25; $x++) {
+    echo "<h1>$letters[$x]</h1>";
+    echo "<div class='row'>";
+    $sql = "SELECT * FROM songs WHERE song_genre='$genre' ORDER BY song_name ASC";
+    if($result = mysqli_query($mysqli, $sql)){
+      if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+          echo"<div class='col-md-2'>";
+            echo "<div class-'col-md-12 border' border-primary>";
+              //echo "<img class='card-img-top' onerror=this.src='../images/250x250.png' src=\"";
+              //echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
+              //echo "\">";
+              echo"<h4 class='text-center'>" . $row['song_name'] . "</h4>";
+              echo"<h5 class='text-center'>" . $row['song_artist'] . "</h5>";
+              echo"<table width=100%>";
+                echo"<td class='text-center'><a href=../requests/functions/func_add_request.php?song_id=" .$row['song_id']. ">Request</a></td>";
+                echo"<td class='text-center'><a href=functions/func_edit_song.php?song_id=" .$row['song_id']. ">Edit</a></td>";
+                echo"<td class='text-center'><a href=functions/func_delete_song.php?song_id=" .$row['song_id']. ">Delete</a></td>";
+              echo"</table>";
+            echo "</div>";
+          echo"</div>";
+        }
+        // Free result set
+        mysqli_free_result($result);
+      } else{
+        echo "No songs were found.";
+      }
+    } else {
+      echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+    }
+    echo "</div>";
+    echo "<hr>";
+  }
+}
+
+// SONG MANIPULATION
 // Add Songs
 function AddSong($mysqli) {
   if ($_POST['add_song'] == 'Submit') {
@@ -122,7 +211,7 @@ function AddSong($mysqli) {
   if(mysqli_query($mysqli,$sql))
   		header("refresh:0; url=../add_song.php");
   	else
-  		echo "Not added. Something went wrong.";
+      QueryError($query, $mysqli);
 
   // close connection
   mysqli_close($mysqli);
