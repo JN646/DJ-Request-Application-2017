@@ -77,27 +77,30 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<!-- Second Row -->
 					<div class="row">
 						<script>
-						// Fade in Header.
-						$( document ).ready(function() {
-							$("#header").fadeIn('slow');
-						});
-
-						// Expand search box.
-						$(document).ready(function() {
-							$('#txtSearch').width(200);
-							$('#txtSearch').focus(function() {
-								$(this).animate({
-									width: 500
-								})
+						SearchBarSize();
+						function SearchBarSize() {
+							// Fade in Header.
+							$( document ).ready(function() {
+								$("#header").fadeIn('slow');
 							});
 
-							// Restore to original size.
-							$('#txtSearch').blur(function() {
-								$(this).animate({
-									width: 200
-								})
+							// Expand search box.
+							$(document).ready(function() {
+								$('#txtSearch').width(200);
+								$('#txtSearch').focus(function() {
+									$(this).animate({
+										width: 500
+									})
+								});
+
+								// Restore to original size.
+								$('#txtSearch').blur(function() {
+									$(this).animate({
+										width: 200
+									})
+								});
 							});
-						});
+						}
 						</script>
 						<?php HomeImages($mysqli); ?>
 					</div> <!-- Close row -->
