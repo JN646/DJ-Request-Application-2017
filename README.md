@@ -33,4 +33,7 @@ This software is not to be deployed on a live system without the express permiss
 
 
 ### New Year Update
-Happy New Year 2018, Let 2018 see the completion and distrubution of this software.
+Happy New Year 2018, Let 2018 see the completion and distribution of this software.
+
+### 10/05/2018
+Started complete code overhaul. Simplifying of systems and streamlining workflows.

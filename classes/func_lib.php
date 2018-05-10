@@ -18,7 +18,7 @@ function HomeImages($mysqli) {
       while($row = mysqli_fetch_array($result)){
         echo"<div class='col-md-2' id='song_block'>";
           echo "<div class-'col-md-12 border' border-primary>";
-            echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top' onerror=this.src='images/250x250.png' src=\"";
+            echo "<a href='songs/song_profile.php?song_id=" .$row['song_id']. "'><img class='card-img-top CoverArtHome' style='width:100%;' onerror=this.src='images/250x250.png' src=\"";
               echo LastFMArtwork::getArtwork($row['song_artist'],$row['song_album'], true, "large");
             echo "\"></a>";
             $name_lim = 14; //string length limit

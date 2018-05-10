@@ -90,6 +90,11 @@ body {
   border-radius: 10px;
 }
 
+/* Cover Art */
+.img.card-img-top.CoverArtHome {
+    width: 100%;
+}
+
 /* Need to move to custom css */
 .footer-distributed{
 	position: relative;

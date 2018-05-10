@@ -78,6 +78,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 					<div class="row">
 						<script>
 						SearchBarSize();
+						
 						function SearchBarSize() {
 							// Fade in Header.
 							$( document ).ready(function() {
