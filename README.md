@@ -1,4 +1,4 @@
-# DJ Request Application
+# DJ Request Application 2017
 This application has been rebuilt to a new specification. This new redesigned version should be able to handle the following:
 * Client and Session handling.
 * Song upload and CSV support.
