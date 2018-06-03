@@ -15,7 +15,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){			// If sessi
 }
 ?>
 <head>
-	<title>Song Artists</title>
+	<title>Song Genres</title>
 </head>
 <body>
 	<div class="fluid-container">

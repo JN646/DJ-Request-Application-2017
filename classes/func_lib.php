@@ -82,7 +82,9 @@ function BrowseSongArtist($mysqli, $query) {
 function BrowseGenre($mysqli) {
   // Attempt select query execution
   $sql = "SELECT DISTINCT song_genre FROM songs WHERE song_genre <> '' ORDER BY song_genre ASC";
-  if($result = mysqli_query($mysqli, $sql)){
+
+  // Selet the result.
+  if($result = mysqli_query($mysqli, $sql)) {
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
         echo "<div class='col-md-2'>";
